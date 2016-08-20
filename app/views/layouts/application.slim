@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    meta charset='utf-8'
+    meta name='viewport' content='width=device-width, initial-scale=1.0'
+    title = yield(:title) || "KC and Kate - Your Best Friends' Wedding"
+    / = render partial: 'shared/favicons'
+    = render partial: 'shared/social_media'
+    = csrf_meta_tags
+
+    = stylesheet_link_tag 'application', media: 'all'
+    // = javascript_include_tag 'application', media: 'all'
+
+  body
+    = render partial: 'shared/header'
+
+    - flash.each do |type, message|
+      - if !message.empty?
+        .site-flash class= "#{flash_class_for(type)}" role='alert'
+          = message
+
+    section.site-main
+      = yield
+
+    = render partial: 'shared/footer'
+    = yield(:modal)
