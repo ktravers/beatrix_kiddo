@@ -13,7 +13,7 @@ class Event < ActiveRecord::Base
       start_at: start_time,
       finish_at: end_time,
       name: "KC and Kate's Wedding: #{self.name}",
-      description: "KC and Kate's #{self.name}\n#{self.venue_name}\n#{self.venue_address}"
+      description: "KC and Kate's  Wedding: #{self.name}\n#{self.venue_name}\n#{self.venue_address}"
     )
   end
 
@@ -26,7 +26,7 @@ class Event < ActiveRecord::Base
       start_at: start_time,
       finish_at: end_time,
       summary: "KC and Kate's Wedding: #{self.name}",
-      description: "KC and Kate's #{self.name}\n#{self.venue_name}\n#{self.venue_address}",
+      description: "KC and Kate's  Wedding: #{self.name}\n#{self.venue_name}\n#{self.venue_address}",
       url: "#{self.venue_map_url}"
     )
   end
