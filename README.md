@@ -2,44 +2,36 @@
 
 ## EVENT PAGES
 
-- Engagement Party
-- Bachelorette Party
-- Bachelor Party
-- Rehearsal Dinner
-- Ceremony
-- Reception
-- After Party
+- [x] Save the Date
+- [x] Engagement Party
+- [x] Bachelorette Party
+- [x] Bachelor Party
+- [x] Rehearsal Dinner
+- [x] Ceremony
+- [x] Reception
+- [x] After Party
 
 ## INFO PAGES
 
-### Registry
+- [ ] Registry
+- [ ] Accomodations
+    - [ ] Hotels
+    - [ ] Airbnbs
 
-### Venues
+- [ ] Travel / Getting Around
+  - [ ] Airports
+  - [ ] Car Services
+  - [ ] Subway / LIRR info
+  - [ ] Map with venues identified
 
-  - Engagement Party
-  - Rehearsal Dinner
-  - Ceremony
-  - Reception
-  - After Party
+## ACCOUNT FUNCTIONALITY
 
- ### Dates
+- [ ] Create
+- [ ] Update password
+- [ ] Retrieve password
+- [ ] Permissions
 
-  - Engagement Party
-  - Bachelorette Party
-  - Bachelor Party
-  - Rehearsal Dinner
-  - Ceremony
-  - Reception
-  - After Party
+## RSVP FUNCTIONALITY
 
-### Accomodations
-
-  - Hotels
-  - Airbnbs
-
-### Travel / Getting Around
-
-  - Airports
-  - Car Services
-  - Subway / LIRR info
-  - Map with venues identified
+- [ ] Update
+- [ ] Export to CSV
