@@ -1,0 +1,59 @@
+/*
+ * Container: Table Grid
+ * Takes up 100% of available width and positions child containers evenly within the space, at desktop sizes. For mobile, cells stack.
+ */
+
+
+/*
+ * Overall Rules
+ */
+
+.table-grid {}
+
+
+/*
+ * Local Descendants
+ */
+
+.table-grid__cell {}
+
+
+/*
+ * Contextual Styles
+ */
+
+@media (max-width: $breakpoint-small) {
+  .table-grid__cell {
+    text-align: center;
+
+    // space out cells when stacked vertically
+    & + .table-grid__cell { margin-top: ($content-spacing / 2); }
+  }
+}
+
+@media (min-width: $breakpoint-small) {
+  .table-grid {
+    display: table;
+    width: 100%;
+  }
+
+  .table-grid__cell {
+    display: table-cell;
+    vertical-align: middle;
+
+    & + .table-grid__cell { margin-top: auto; }
+  }
+
+  /*
+   * Contextual Extensions
+   */
+
+   // Spread
+   // Left-most and right-most cells aligned to the outside, all other cell content centered
+
+  .table-grid--spread {
+    .table-grid__cell { text-align: center; }
+    .table-grid__cell:first-child { text-align: left; }
+    .table-grid__cell:last-child  { text-align: right; }
+  }
+}

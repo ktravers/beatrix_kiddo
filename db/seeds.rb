@@ -15,7 +15,7 @@ events.each do |event|
     name: event,
     venue_name: ENV["#{env_event}_VENUE_NAME"],
     venue_address: ENV["#{env_event}_VENUE_ADDRESS"],
-    start_time: DateTime.parse(ENV["#{env_event}_START_TIME"]),
-    end_time: DateTime.parse(ENV["#{env_event}_END_TIME"])
+    start_time: Time.zone.parse(ENV["#{env_event}_START_TIME"]),
+    end_time: Time.zone.parse(ENV["#{env_event}_END_TIME"])
   })
 end

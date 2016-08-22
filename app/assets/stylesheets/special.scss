@@ -1,0 +1,128 @@
+/*
+ * Utility Classes
+ * When smart to do so, put these in the markup. At other times, extend them with the SCSS to be DRY.
+ */
+
+
+// Floats
+
+.util--pull-right { float: right; }
+.util--pull-left { float: left; }
+.util--pull-center { margin-left: auto; margin-right: auto; }
+
+
+// Margin
+
+.util--margin-ts  { margin-top: $content-spacing / 4; }
+.util--margin-tm  { margin-top: $content-spacing / 2; }
+.util--margin-tl  { margin-top: $content-spacing; }
+.util--margin-txl { margin-top: $content-spacing * 2; }
+
+.util--margin-bs  { margin-bottom: $content-spacing / 4; }
+.util--margin-bm  { margin-bottom: $content-spacing / 2; }
+.util--margin-bl  { margin-bottom: $content-spacing; }
+.util--margin-bxl { margin-bottom: $content-spacing * 2; }
+
+.util--margin-rs  { margin-right: $content-spacing / 4; }
+.util--margin-rm  { margin-right: $content-spacing / 2; }
+.util--margin-rl  { margin-right: $content-spacing; }
+.util--margin-rxl { margin-right: $content-spacing * 2; }
+
+.util--margin-ls  { margin-left: $content-spacing / 4; }
+.util--margin-lm  { margin-left: $content-spacing / 2; }
+.util--margin-ll  { margin-left: $content-spacing; }
+.util--margin-lxl { margin-left: $content-spacing * 2; }
+
+
+// Padding
+
+.util--padding-txs { padding-top: $content-spacing / 8; }
+.util--padding-ts  { padding-top: $content-spacing / 4; }
+.util--padding-tm  { padding-top: $content-spacing / 2; }
+.util--padding-tl  { padding-top: $content-spacing; }
+.util--padding-txl { padding-top: $content-spacing * 2; }
+
+.util--padding-bxs { padding-bottom: $content-spacing / 8; }
+.util--padding-bs  { padding-bottom: $content-spacing / 4; }
+.util--padding-bm  { padding-bottom: $content-spacing / 2; }
+.util--padding-bl  { padding-bottom: $content-spacing; }
+.util--padding-bxl { padding-bottom: $content-spacing * 2; }
+
+.util--padding-rs  { padding-right: $content-spacing / 4; }
+.util--padding-rm  { padding-right: $content-spacing / 2; }
+.util--padding-rl  { padding-right: $content-spacing; }
+.util--padding-rxl { padding-right: $content-spacing * 2; }
+
+.util--padding-ls  { padding-left: $content-spacing / 4; }
+.util--padding-lm  { padding-left: $content-spacing / 2; }
+.util--padding-ll  { padding-left: $content-spacing; }
+.util--padding-lxl { padding-left: $content-spacing * 2; }
+
+
+// Text
+
+.util--text-align-c     { text-align: center; }
+.util--text-align-r     { text-align: right; }
+.util--vertical-align-m { vertical-align: middle; }
+.util--vertical-align-b { vertical-align: bottom; }
+
+
+// Display Utilities
+// Use these to hide/show elements at responsive breakpoints
+
+// Hide when smaller than small breakpoint
+@media only screen and (max-width: $breakpoint-small - 1px) {
+  .util--hide-mobile,    // hide at "mobile" breakpoint only (aka less than small breakpoint)
+  .util--show-small,     // show at small breakpoint only
+  .util--show-small-up,  // show at greater than or equal to small breakpoint only
+  .util--show-medium-up, // show at greater than or equal to medium breakpoint only
+  .util--show-large-up { // show at greater than or equal to large breakpoint only
+    display: none !important;
+  }
+}
+
+// Hide between small and medium breakpoint (greater than or equal to small breakpoint, less than medium breakpoint)
+@media only screen and (min-width: $breakpoint-small) and (max-width: $breakpoint-medium - 1px) {
+  .util--hide-small,  // hide at small breakpoint only
+  .util--show-mobile, // show at mobile breakpoint only
+  .util--show-medium-up,
+  .util--show-large-up {
+    display: none !important;
+  }
+}
+
+// Hide between medium and large breakpoint (greater than or equal to medium breakpoint, less than large breakpoint)
+@media only screen and (min-width: $breakpoint-medium) and (max-width: $breakpoint-large - 1px) {
+  .util--hide-medium, // hide at medium breakpoint only
+  .util--show-mobile,
+  .util--show-small,
+  .util--show-large-up {
+    display: none !important;
+  }
+}
+
+// Hide when large breakpoint or above
+@media only screen and (min-width: $breakpoint-large) {
+  .util--hide-large, // hide at large breakpoint only
+  .util--show-mobile,
+  .util--show-small {
+    display: none !important;
+  }
+}
+
+// Hide at all breakpoints
+.util--hide { display: none !important; }
+
+.util--display-block        { display: block; }
+.util--display-inline-block { display: inline-block; }
+
+
+// Z Index
+// Hey you. DO NOT START ADDING THESE WILLY-NILLY. They should be applied carefully, typically not as classes in markup but as extensions for our layout classes. These should be applied 5-10 times total in the whole app.
+
+.util--z-index-1   { z-index: 1; } // Layout elements outside of site-main, which need to overlap it
+.util--z-index-2   { z-index: 2; }
+.util--z-index-3   { z-index: 3; }
+.util--z-index-4   { z-index: 4; }
+.util--z-index-5   { z-index: 5; }
+.util--z-index-max { z-index: 9; } // 9 is "infinite" - do not end up with 9999 vs 999999 vs e^10

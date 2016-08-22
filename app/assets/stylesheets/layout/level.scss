@@ -1,0 +1,17 @@
+/*
+ * Levels
+ * Levels are the outermost elements of the grid. They define horizontal strips across the entire content area, with level__inner children that center their contents and provide a maximum width.
+ * Levels can be extended to provide background colors, background images, additional vertical spacing (or negative spacing), and different max-widths for level__inner.
+ */
+
+ .level {
+   // Level is responsible for horizontal paddings so that it uses up all of its available width and can be used for background "strips" without requiring negative margins.
+   // Level’s paddings are at $content-spacing * 1.5 so that when modules are inside them, the module’s $content-spacing / 2 margins combine with these paddings to make $content-spacing * 2 gutters on the outside.
+   padding-right: ($content-spacing * .5);
+   padding-left: ($content-spacing * .5);
+ }
+
+ .level__inner {
+   @extend .clearfix;
+   margin: 0 auto;
+ }

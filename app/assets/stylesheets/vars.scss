@@ -1,0 +1,25 @@
+/*
+ * Key sizes
+ */
+
+$content-spacing: 16px;
+
+/*
+ * Responsive Breakpoints
+ * SCSS is not great at allowing string variables in media queries (they have to be interpolated), so we are sticking with a simple px variable for each breakpoint. Please apply breakpoints with the following format:
+ * @media only screen and (min-width: $breakpoint-x) { ... }
+ */
+
+$breakpoint-mobile: 320px;
+$breakpoint-small: 640px;
+$breakpoint-medium: 800px;
+$breakpoint-large: 1080px;
+
+/*
+ * Colors
+ */
+
+$white: #ffffff;
+
+$blue: #00BCE1;
+$blue-dark: darken($blue, 5%); // #00a7c8

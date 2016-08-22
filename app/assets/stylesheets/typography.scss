@@ -1,0 +1,107 @@
+/*
+ * Font Declarations
+ * tbd
+ */
+
+
+/*
+ * Typographic Utilities
+ */
+
+.util--text-no-wrap {
+  white-space: pre;
+}
+
+.util--text-italic {
+  font-style: italic;
+}
+
+/*
+ * Global Styles
+ */
+
+body {
+  font-family: 'Helvetica', Sans Serif;
+  color: $white;
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+  font-kerning: normal;
+  -webkit-font-kerning: normal;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/*
+ * Links
+ */
+
+a {
+  color: $blue;
+  &:hover { color: $blue-dark; }
+}
+
+a.link--color-inherit {
+  color: inherit;
+  &:hover { color: inherit; }
+}
+
+
+/*
+ * Headings
+ */
+
+.heading {
+  line-height: 1.25;
+  font-weight: normal;
+
+  a {
+    color: inherit;
+    &:hover { color: $blue-dark; }
+  }
+}
+
+/*
+ * Individual heading styles
+ */
+
+.heading--level-1 { // level 1 is large, bold, uppercase
+  font-size: 112px;
+  font-weight: bold;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  &.heading--weight-lighter { font-weight: normal; }
+}
+
+.heading--level-2 { // level 2 is large, bold, no text transform
+  font-size: 84px;
+  font-weight: bold;
+  &.heading--weight-heavier { font-weight: bold; }
+  &.heading--weight-lighter { font-weight: 200; }
+}
+
+.heading--level-3 {  // level 3 is medium, bold, uppercase
+  font-size: 72px;
+  font-weight: bold;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  &.heading--weight-lighter { font-weight: normal; }
+}
+
+.heading--level-4 { // level 4 is medium, normal weight, no text transform
+  font-size: 64px;
+  font-weight: normal;
+  &.heading--weight-heavier { font-weight: bold; }
+}
+
+.heading--level-5 { // level 5 is small, normal weight, no text transform
+  font-size: 32px;
+  font-weight: normal;
+  &.heading--weight-heavier { font-weight: bold; }
+}
+
+.heading--level-6 { // level 6 is small, normal weight, uppercase
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  &.heading--weight-heavier { font-weight: bold; }
+}

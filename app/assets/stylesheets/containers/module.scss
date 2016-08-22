@@ -1,0 +1,48 @@
+/*
+ * Container: Module
+ * Modules are the prototypical container. They are in charge of spacing, background, and borders for boxes on the site. They rarely should affect any styles of their children. Modules do nothing on their own and are purely containers for other objects or containers.
+ * Modules contain three kinds of child element: mod__head, mod__body, and mod__foot. Some module types allow multiple of any one child container, to achieve certain effects.
+ */
+
+
+/*
+ * Overall Rules
+ */
+
+.module {
+  // Modules are meant to sit within the grid around other mods. Therefore, when
+  // two are adjacent, they will create a space of exactly $content-spacing between them.
+  margin: ($content-spacing / 2);
+}
+
+
+/*
+ * Local Descendants
+ */
+
+.module__head, .module__body, .module__foot {
+  @extend .clearfix;
+}
+
+.module__head:last-child, .module__body:last-child, .module__foot:last-child {
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+}
+
+.module__head {
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+}
+
+/*
+ * Extensions
+ */
+
+// Super Hero
+.module--super-hero {
+  .module__body, .module__foot { padding-top: $content-spacing; }
+
+  @media (min-width: $breakpoint-small) {
+    .module__body, .module__foot { padding-top: $content-spacing * 2; }
+  }
+}
