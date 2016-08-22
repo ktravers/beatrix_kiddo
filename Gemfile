@@ -14,6 +14,9 @@ gem 'sqlite3'
 gem 'faraday', '0.9.1'
 gem 'faraday_middleware', '0.9.1'
 
+# API Wrappers
+gem 'icalendar', '>= 2.3.0'
+
 # Assets - Stylesheets
 gem 'sass-rails', '~> 5.0'
 

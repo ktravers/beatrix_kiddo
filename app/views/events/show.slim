@@ -6,9 +6,29 @@
       .module__head
         h6.heading.heading--level-8.util--text-italic KC and Kate invite you to
         .util--show-medium-up
-          h1.heading.heading--level-1= @event_name
+          .media-block.media-block--side-alt.media-block--spacing-large
+            .media-block__content
+              h1.heading.heading--level-1= @event_name
+            .media-block__media
+              .heading
+                a href="#{@event_gcal_url}" target='_blank'
+                  =svg_tag('svg__icon--gcal', height: '72', width: '72')
+            .media-block__media
+              .heading
+                a href="/events/#{@event.slug}.ics" target='_blank'
+                  =svg_tag('svg__icon--ical', height: '72', width: '72')
         .util--hide-large.util--hide-medium
-          h1.heading.heading--level-3= @event_name
+          .media-block.media-block--side-alt
+            .media-block__content
+              h1.heading.heading--level-3= @event_name
+            .media-block__media
+              .heading
+                a href="#{@event_gcal_url}" target='_blank'
+                  =svg_tag('svg__icon--gcal', height: '56', width: '56')
+            .media-block__media
+              .heading
+                a href="/events/#{@event.slug}.ics" target='_blank'
+                  =svg_tag('svg__icon--ical', height: '56', width: '56')
       .module__body
         .util--show-medium-up
           h2.heading.heading--level-2= @event_venue
