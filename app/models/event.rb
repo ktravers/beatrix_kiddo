@@ -12,7 +12,7 @@ class Event < ActiveRecord::Base
     Google::CalendarEventGenerator.event_url(
       start_at: start_time,
       finish_at: end_time,
-      name: "KC and Kate's #{self.name}",
+      name: "KC and Kate's Wedding: #{self.name}",
       description: "KC and Kate's #{self.name}\n#{self.venue_name}\n#{self.venue_address}"
     )
   end
@@ -25,7 +25,7 @@ class Event < ActiveRecord::Base
     IcsGenerator.new.add_event(
       start_at: start_time,
       finish_at: end_time,
-      summary: "KC and Kate's #{self.name}",
+      summary: "KC and Kate's Wedding: #{self.name}",
       description: "KC and Kate's #{self.name}\n#{self.venue_name}\n#{self.venue_address}",
       url: "#{self.venue_map_url}"
     )
