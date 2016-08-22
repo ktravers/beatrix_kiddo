@@ -7,8 +7,10 @@ gem 'dotenv-rails', '>= 2.1.0'
 # Frameworks
 gem 'rails', '4.2.5'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# Database
+gem 'pg', '0.18.1'
+gem 'pg_search', '0.7.9'
+gem 'pghero', '1.0.1'
 
 # HTTP client
 gem 'faraday', '0.9.1'
