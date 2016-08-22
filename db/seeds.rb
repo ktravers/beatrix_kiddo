@@ -1,4 +1,5 @@
-events = [
+event_names = [
+  'Save The Date',
   'Engagement Party',
   'Bachelorette Party',
   'Bachelor Party',
@@ -8,11 +9,12 @@ events = [
   'After Party'
 ]
 
-events.each do |event|
-  env_event = event.split(' ').join('_').upcase
+event_names.each do |event_name|
+  env_event = event_name.split(' ').join('_').upcase
 
   Event.create({
-    name: event,
+    name: event_name,
+    slug: event_name.parameterize,
     venue_name: ENV["#{env_event}_VENUE_NAME"],
     venue_address: ENV["#{env_event}_VENUE_ADDRESS"],
     start_time: Time.zone.parse(ENV["#{env_event}_START_TIME"]),

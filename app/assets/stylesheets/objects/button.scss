@@ -1,0 +1,51 @@
+/*
+ * Object: Button
+ * Can be applied either to anchor elements, input elements, or button elements.
+ * Includes a series of Options which combine to create all the buttons you could possibly want.
+ */
+
+
+/*
+ * Overall Rules
+ */
+
+.button {
+  // Cheat a bit shorter on the bottom to put baseline on bottom of inner box
+  padding: ($content-spacing * .75) ($content-spacing * 1.25 + 2) ($content-spacing / 2 + 2);
+  @extend .heading;
+  @extend .heading--level-7;
+  color: $white;
+  font-family: inherit;
+  text-decoration: none;
+  background-color: rgba(256, 256, 256, 0.4);
+  border: ($content-spacing / 4) solid $white;
+  border-radius: ($content-spacing / 4);
+  display: inline-block;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  @include transition(all .12s);
+
+  &:hover {
+    color: $white;
+    background-color: rgba(256, 256, 256, 0.6);
+  }
+
+  @media (max-width: $breakpoint-small) {
+    // Hard coding font size bc can't @extend inside media query
+    font-size: 24px;
+  }
+}
+
+// Inputs and buttons have special styles we want to override but wouldn't want in the base style declaration
+input.button, button.button {
+  line-height: 1.5;
+  padding-top: ($content-spacing / 2) + 2;
+  padding-bottom: ($content-spacing / 2);
+}
+
+input.button {
+  vertical-align: baseline;
+}

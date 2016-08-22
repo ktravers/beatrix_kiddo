@@ -4,10 +4,15 @@ source 'https://rubygems.org'
 # Load environment variables in development
 gem 'dotenv-rails', '>= 2.1.0'
 
+# Frameworks
 gem 'rails', '4.2.5'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+
+# HTTP client
+gem 'faraday', '0.9.1'
+gem 'faraday_middleware', '0.9.1'
 
 # Assets - Stylesheets
 gem 'sass-rails', '~> 5.0'

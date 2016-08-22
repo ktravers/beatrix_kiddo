@@ -1,0 +1,34 @@
+= content_for(:title, "KC and Kate | #{@event_name}")
+
+.level
+  .level__inner
+    .module.module--super-hero
+      .module__head
+        h6.heading.heading--level-8.util--text-italic KC and Kate invite you to
+        .util--show-medium-up
+          h1.heading.heading--level-1= @event_name
+        .util--hide-large.util--hide-medium
+          h1.heading.heading--level-3= @event_name
+      .module__body
+        .util--show-medium-up
+          h2.heading.heading--level-2= @event_venue
+          h2.heading.heading--level-2= @event_timespan
+          h2.heading.heading--level-2= @event_year
+        .util--hide-large.util--hide-medium.util--hide-mobile
+          h2.heading.heading--level-4= @event_venue
+          h2.heading.heading--level-4= @event_timespan
+          h2.heading.heading--level-4= @event_year
+        .util--show-mobile
+          h2.heading.heading--level-6= @event_venue
+          h2.heading.heading--level-6= @event_timespan
+          h2.heading.heading--level-6= @event_year
+      .module__foot
+        .util--show-medium-up
+          h3.heading.heading--level-3
+            = link_to @event_address, @event_map_url, target: '_blank'
+        .util--hide-large.util--hide-medium.util--hide-mobile
+          h3.heading.heading--level-5
+            = link_to @event_address, @event_map_url, target: '_blank'
+        .util--show-mobile
+          h3.heading.heading--level-7
+            = link_to @event_address, @event_map_url, target: '_blank'

@@ -4,36 +4,58 @@ section.site-footer
       .module
         .table-grid.table-grid--spread
           .table-grid__cell
-            h6.heading.heading--level-6
-              | KC and Kate are getting married. You're invited.
+            .util--show-medium-up
+              h6.heading.heading--level-9
+                | KC and Kate are getting married. You're invited.
+            .util--hide-large.util--hide-medium
+              h6.heading.heading--level-9
+                | KC + Kate are getting married. You're invited.
 
           .table-grid__cell
             =svg_tag('svg__icon--usa-flag', class: 'util--padding-rm util--padding-lm', width: '20', height: '16')
 
           .table-grid__cell
-            h6.heading.heading--level-6
+            h6.heading.heading--level-9
               | Labor Day Weekend 2017
 
           .table-grid__cell
             =svg_tag('svg__icon--usa-flag', class: 'util--padding-rm util--padding-lm', width: '20', height: '16')
 
           .table-grid__cell
-            h6.heading.heading--level-6
-              =link_to_dumbo_map('DUMBO Brooklyn NY')
+            .util--show-medium-up
+              h6.heading.heading--level-9
+                | DUMBO Brooklyn NY
+            .util--hide-large.util--hide-medium.util--hide-mobile
+              h6.heading.heading--level-9
+                | Brooklyn
+            .util--show-mobile
+              h6.heading.heading--level-9
+                | DUMBO Brooklyn NY
 
           .table-grid__cell
             =svg_tag('svg__icon--usa-flag', class: 'util--padding-rm util--padding-lm', width: '20', height: '16')
 
           .table-grid__cell
-            h6.heading.heading--level-6
-              | Questions?
-              a< href='mailto:kc@kcandkate.us,kate@kcandkate.us'
-                | Email us
+            .util--show-medium-up
+              h6.heading.heading--level-9
+                | Questions?
+                a< href='mailto:kc@kcandkate.us,kate@kcandkate.us'
+                  | Email us
+            .util--hide-large.util--hide-medium.util--hide-mobile
+              h6.heading.heading--level-9
+                a< href='mailto:kc@kcandkate.us,kate@kcandkate.us'
+                  | Contact
+            .util--show-mobile
+              h6.heading.heading--level-9
+                | Questions?
+                a< href='mailto:kc@kcandkate.us,kate@kcandkate.us'
+                  | Email us
 
           .table-grid__cell
             =svg_tag('svg__icon--usa-flag', class: 'util--padding-rm util--padding-lm', width: '20', height: '16')
 
           .table-grid__cell
-            h6.heading.heading--level-6
+            h6.heading.heading--level-9
               | Site by
-              a<> href='//www.kate-travers.com' Kate Travers
+              a<> href='//www.kate-travers.com' target='_blank'
+                | Kate Travers

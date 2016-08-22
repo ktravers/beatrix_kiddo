@@ -43,6 +43,6 @@
   .module__body, .module__foot { padding-top: $content-spacing; }
 
   @media (min-width: $breakpoint-small) {
-    .module__body, .module__foot { padding-top: $content-spacing * 2; }
+    .module__body, .module__foot { padding-top: $content-spacing * 1.5; }
   }
 }

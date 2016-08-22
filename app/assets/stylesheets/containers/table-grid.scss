@@ -15,21 +15,17 @@
  * Local Descendants
  */
 
-.table-grid__cell {}
+.table-grid__cell {
+  text-align: center;
+
+  // space out cells when stacked vertically
+  & + .table-grid__cell { margin-top: ($content-spacing / 2); }
+}
 
 
 /*
  * Contextual Styles
  */
-
-@media (max-width: $breakpoint-small) {
-  .table-grid__cell {
-    text-align: center;
-
-    // space out cells when stacked vertically
-    & + .table-grid__cell { margin-top: ($content-spacing / 2); }
-  }
-}
 
 @media (min-width: $breakpoint-small) {
   .table-grid {

@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :events, through: :user_events
+  has_many :events, through: :rsvps
 
-  validates :email, uniqueness: true
+  validates_uniqueness_of :email, scope: [:first_name, :last_name]
 end
