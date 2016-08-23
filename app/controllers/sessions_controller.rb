@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
       login(user)
       redirect_to root_path
     else
-      flash.now[:notice] = 'User name or password is not valid.'
+      flash.now[:notice] = 'Either your email or password isn\'t valid. Try again?'
       render 'new'
     end
   end
@@ -17,25 +17,28 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
-  def reset_password
-  end
-
   def send_password
     user = User.find_by(email: params[:email])
 
     if user
-      random_password = ["#{Array.new(10).map { (65 + rand(58)).chr }.join}", 'kate', 'travers', 'kc', 'boyle', '09', '03', '2017'].shuffle.join
-      user.password = random_password
+      reset_password = generate_password
+      user.password = reset_password
       user.save!
 
-      UserMailer.create_and_deliver_password_change(user, random_password).deliver
+      UserMailer.deliver_reset_password(user, reset_password).deliver
       reset_session
 
       flash[:notice] = "Success! Your temporary password has been emailed to your account: #{user.email}"
       redirect_to login_path
     else
-      flash[:notice] = 'Sorry, we can\'t find your account. Sign up!'
+      flash[:notice] = 'Sorry, can\'t find an account for this email. Sign up!'
       redirect_to signup_path
     end
+  end
+
+  private
+
+  def generate_password
+    ["#{Array.new(10).map { (65 + rand(58)).chr }.join}", 'kate', 'travers', 'kc', 'boyle', '09', '03', '2017'].shuffle.join
   end
 end

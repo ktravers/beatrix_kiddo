@@ -7,15 +7,20 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new'
   get 'logout' => 'sessions#destroy'
   post 'sessions' => 'sessions#create'
-  get 'reset_password' => 'sessions#reset_password'
-  post 'send_password' => 'sessions#send_password'
-
-  # Users
-  get 'signup' => 'users#new', :as => 'signup'
+  post 'send-password' => 'sessions#send_password'
+  get 'reset-password' => 'sessions#reset_password'
 
   # Event Pages
-  get '/events' => 'events#index' # TODO
   get '/events/:event_slug' => 'events#show'
+
+  # Users
+  resources :users, only: [:new, :create, :edit, :update]
+  get 'signup' => 'users#new', :as => 'signup'
+
+  namespace :api do
+    # Rsvps
+    resources :rsvps, only: [:edit, :update]
+  end
 
   # TODO: add general info pages
   # Registry

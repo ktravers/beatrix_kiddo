@@ -1,5 +1,7 @@
 class EventsController < ApplicationController
   # TODO: check user event permissions and redirect
+  # before_action :login_required
+  # before_action :redirect_uninvited
 
   def show
     @event = Event.find_by(slug: params[:event_slug])
@@ -12,6 +14,8 @@ class EventsController < ApplicationController
       @event_year     = @event.start_time.strftime('%Y')
       @event_map_url  = @event.venue_map_url
       @event_gcal_url = @event.gcal_url
+
+      @event_background_image = "#{@event.name.parameterize}.gif"
 
       respond_to do |f|
         f.html
@@ -41,6 +45,12 @@ class EventsController < ApplicationController
       start_time = @event.start_time.strftime("%l:%M").strip
       end_time   = @event.end_time.strftime("%l:%M%P").strip
       "#{event_date}, #{start_time}-#{end_time}"
+    end
+  end
+
+  def redirect_uninvited
+    unless current_user.invited_to?(params[:event_slug])
+      return redirect_to root_path
     end
   end
 end

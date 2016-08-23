@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  before_action :login_required, only: [:update]
-  # before_filter :resetting?, only: [:edit]
 
   def new
     @user = User.new
@@ -8,15 +6,9 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+
     if @user.save
       login(@user)
-      if session[:dinner_path]
-        redirect_to session[:dinner_path]
-      # elsif session[:reset_path]
-      #   redirect_to session[:reset_path]
-      else
-        redirect_to user_path(@user)
-      end
     else
       render 'new'
     end
@@ -56,6 +48,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.permit(:name, :email, :password, :password_confirmation)
+    params.permit(:first_name, :last_name, :email, :password, :password_confirmation)
   end
 end
