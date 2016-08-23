@@ -3,5 +3,25 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  # TODO: add ability for users to 'create account' with password, sign in, and sign out
+  def login(user)
+    session[:user_id] = user.id
+  end
+
+  def current_user
+    return unless session[:user_id]
+    @current_user ||= User.find(session[:user_id])
+  end
+  helper_method :current_user
+
+  def logged_in?
+    !!current_user
+  end
+  helper_method :logged_in?
+
+  def login_required
+    unless logged_in?
+      flash[:notice] = 'Please login to view this page.'
+      redirect_to root_path
+    end
+  end
 end

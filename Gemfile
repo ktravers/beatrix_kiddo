@@ -12,6 +12,9 @@ gem 'pg', '0.18.1'
 gem 'pg_search', '0.7.9'
 gem 'pghero', '1.0.1'
 
+# Authentication
+gem 'bcrypt'
+
 # HTTP client
 gem 'faraday', '0.9.1'
 gem 'faraday_middleware', '0.9.1'
