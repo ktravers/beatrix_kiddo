@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
   def login_required
     unless logged_in?
       flash[:notice] = 'Please login to view this page.'
-      redirect_to root_path
+      redirect_to login_path
     end
   end
 end

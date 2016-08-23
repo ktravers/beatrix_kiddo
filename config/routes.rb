@@ -4,18 +4,18 @@ Rails.application.routes.draw do
   root 'pages#welcome'
 
   # Sessions
-  get 'login' => 'sessions#new'
-  get 'logout' => 'sessions#destroy'
+  get 'login' => 'sessions#new', as: :login
+  get 'logout' => 'sessions#destroy', as: :logout
   post 'sessions' => 'sessions#create'
-  post 'send-password' => 'sessions#send_password'
-  get 'reset-password' => 'sessions#reset_password'
+
+  # Users
+  resources :users, only: [:create, :edit, :update]
+  get 'register' => 'users#new', as: :register
+  get 'reset-password' => 'users#reset_password', as: :reset_password
+  post 'send-password' => 'users#send_password',  as: :send_password
 
   # Event Pages
   get '/events/:event_slug' => 'events#show'
-
-  # Users
-  resources :users, only: [:new, :create, :edit, :update]
-  get 'signup' => 'users#new', :as => 'signup'
 
   namespace :api do
     # Rsvps

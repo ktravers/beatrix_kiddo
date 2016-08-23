@@ -15,7 +15,8 @@ class EventsController < ApplicationController
       @event_map_url  = @event.venue_map_url
       @event_gcal_url = @event.gcal_url
 
-      @event_background_image = "#{@event.name.parameterize}.gif"
+      # TODO
+      # @event_background_image = "#{@event.name.parameterize}.gif"
 
       respond_to do |f|
         f.html

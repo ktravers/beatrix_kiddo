@@ -44,7 +44,6 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.include EmailSpec::Helpers
   config.include EmailSpec::Matchers
-  config.include Warden::Test::Helpers
 
   config.infer_spec_type_from_file_location!
 
@@ -66,7 +65,6 @@ RSpec.configure do |config|
 
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
-    Warden.test_mode!
   end
 
   config.before(:each) do

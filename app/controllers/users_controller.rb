@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
+  # before_action :login_required, only: [:edit, :reset_password]
 
+  # get 'register'
   def new
     @user = User.new
   end
@@ -21,25 +23,10 @@ class UsersController < ApplicationController
   def update
     @user = current_user
 
-    if !!@user.authenticate(params[:password])
-      @user.name  = params[:name]
-      @user.email = params[:email]
-
-      if !params[:new_password].empty?
-        @user.password = params[:new_password]
-        @user.password_confirmation = params[:confirm_password]
-
-        if @user.save
-          flash[:notice] = 'Details updated.'
-        else
-          flash[:error] = 'Please confirm new password.'
-        end
-      else
-        @user.save
-        flash[:notice] = 'User details updated.'
-      end
+    if @user.update(user_params)
+      flash[:notice] = 'User details updated.'
     else
-      flash[:notice] = 'Invalid email/password combination. Click below to reset your password.'
+      flash[:error] = "Unable to update account: #{@user.errors}"
     end
 
     render 'edit'
