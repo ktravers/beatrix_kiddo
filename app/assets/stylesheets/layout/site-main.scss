@@ -2,7 +2,7 @@
  * Site Main
  */
 
-.site-main {
+section.site-main {
   width: 100%;
   min-height: 90vh;
   @include slide-bounce(width);
@@ -14,7 +14,5 @@
  */
 
 body[data-menu-state='open'] {
-  section.site-main {
-    width: 65%;
-  }
+  section.site-main { width: 60%; }
 }

@@ -1,4 +1,4 @@
-.menu-icon.js--site-menu-trigger
+.menu-icon.js--site-menu-trigger title='Site Menu'
   .menu-icon__main
     .menu-icon__main__inner
       span.menu-icon__main__inner__top
@@ -8,10 +8,10 @@
     svg.menu-icon__ring__svg
       path.menu-icon__ring__svg__path fill='none' stroke='#fff' stroke-miterlimit='10' stroke-width='4' d='M 34 2 C 16.3 2 2 16.3 2 34 s 14.3 32 32 32 s 32 -14.3 32 -32 S 51.7 2 34 2'
   svg width='0' height='0'
-    path xmlns='http://www.w3.org/2000/svg' fill='none' stroke='#ff0000' stroke-miterlimit='10' stroke-width='4' d='M 34 2 c 11.6 0 21.8 6.2 27.4 15.5 c 2.9 4.8 5 16.5 -9.4 16.5 h -4'
-  .menu-icon__path
-    .menu-icon__path__animate
-      .menu-icon__path__rotate
+    path fill='none' stroke='#ff0000' stroke-miterlimit='10' stroke-width='4' d='M 34 2 c 11.6 0 21.8 6.2 27.4 15.5 c 2.9 4.8 5 16.5 -9.4 16.5 h -4'
+  .menu-icon__mask
+    .menu-icon__mask__animate
+      .menu-icon__mask__rotate
 
 section.site-menu
   .site-menu__inner
@@ -24,18 +24,25 @@ section.site-menu
         li.site-menu__category__item
           .heading.heading--level-6
             = link_to event.name, "/events/#{event.slug}"
-      / li
-      /   .heading.heading--level-6
-      /     = link_to 'Registry', '/registry'
+      // li
+      //   .heading.heading--level-6
+      //     = link_to 'Registry', '/registry'
       li.site-menu__category
-        h2.heading.heading--level-6 Important Info
-
+        h2.heading.heading--level-6 Logistics
       li.site-menu__category__item
         .heading.heading--level-6
           = link_to 'Where To Stay', '/info/where-to-stay'
       li.site-menu__category__item
         .heading.heading--level-6
           = link_to 'Travel Info', '/info/travel'
+      li.site-menu__category
+        h2.heading.heading--level-6 Fun Stuff
+      li.site-menu__category__item
+        .heading.heading--level-6
+          = link_to 'Cast and Crew', '/about'
+      li.site-menu__category__item
+        .heading.heading--level-6
+          = link_to 'Trivia Challenge', '/trivia'
 
 
 

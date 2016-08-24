@@ -2,8 +2,17 @@
  * Site Footer
  */
 
-.site-footer {
+section.site-footer {
   min-height: 10vh;
   padding-top: $content-spacing / 2;
   padding-bottom: $content-spacing / 2;
+}
+
+
+/*
+ * Contextual Styles
+ */
+
+body[data-menu-state='open'] {
+  section.site-footer { width: 60%; }
 }

@@ -4,7 +4,6 @@ html
     meta charset='utf-8'
     meta name='viewport' content='width=device-width, initial-scale=1.0'
     title = yield(:title) || "KC and Kate - Your Best Friends' Wedding"
-    // TODO
     = render partial: 'shared/favicons'
     = render partial: 'shared/social_media'
     = csrf_meta_tags
@@ -17,7 +16,7 @@ html
 
     - flash.each do |type, message|
       - if !message.empty?
-        // TODO
+        // TODO: add flash styling
         .site-flash class= "site-flash--#{type}" role='alert'
           = message
 

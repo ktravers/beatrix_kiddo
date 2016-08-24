@@ -38,14 +38,14 @@ $animation-speed: 0.6s; // animation speed
  * Local Descendants
  */
 
-.menu-icon__path,
-.menu-icon__path__animate {
+.menu-icon__mask,
+.menu-icon__mask__animate {
   position: absolute;
   top: 0;
   left: 0;
 }
 
-.menu-icon__path__rotate {
+.menu-icon__mask__rotate {
   width: 34px;
   height: 34px;
   margin: 34px 34px 0 0;
@@ -107,8 +107,8 @@ $animation-speed: 0.6s; // animation speed
 .menu-icon__main,
 .menu-icon__ring,
 .menu-icon__ring__svg,
-.menu-icon__path,
-.menu-icon__path__animate {
+.menu-icon__mask,
+.menu-icon__mask__animate {
   width: 68px;
   height: 68px;
 }
@@ -123,7 +123,7 @@ $animation-speed: 0.6s; // animation speed
     animation: dash-in $animation-speed linear normal;
     animation-fill-mode:forwards;
   }
-  .menu-icon__path__animate {
+  .menu-icon__mask__animate {
     animation: rotate-in $animation-speed linear normal;
     animation-fill-mode:forwards;
   }
@@ -134,7 +134,7 @@ $animation-speed: 0.6s; // animation speed
     animation: dash-out $animation-speed linear normal;
     animation-fill-mode:forwards;
   }
-  .menu-icon__path__animate {
+  .menu-icon__mask__animate {
     animation: rotate-out $animation-speed linear normal;
     animation-fill-mode:forwards;
   }
