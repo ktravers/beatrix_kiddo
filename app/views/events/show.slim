@@ -12,11 +12,11 @@
             .media-block__media
               .heading
                 a href="#{@event_gcal_url}" target='_blank'
-                  =svg_tag('svg__icon--gcal', height: '72', width: '72')
+                  = svg_tag('svg__icon--gcal', height: '72', width: '72')
             .media-block__media
               .heading
                 a href="/events/#{@event.slug}.ics" target='_blank'
-                  =svg_tag('svg__icon--ical', height: '72', width: '72')
+                  = svg_tag('svg__icon--ical', height: '72', width: '72')
         .util--hide-large.util--hide-medium
           .media-block.media-block--side-alt
             .media-block__content
@@ -24,11 +24,11 @@
             .media-block__media
               .heading
                 a href="#{@event_gcal_url}" target='_blank'
-                  =svg_tag('svg__icon--gcal', height: '56', width: '56')
+                  = svg_tag('svg__icon--gcal', height: '56', width: '56')
             .media-block__media
               .heading
                 a href="/events/#{@event.slug}.ics" target='_blank'
-                  =svg_tag('svg__icon--ical', height: '56', width: '56')
+                  = svg_tag('svg__icon--ical', height: '56', width: '56')
       .module__body
         .util--show-medium-up
           h2.heading.heading--level-2= @event_venue

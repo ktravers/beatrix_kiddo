@@ -3,5 +3,18 @@
  */
 
 .site-main {
+  width: 100%;
   min-height: 90vh;
+  @include slide-bounce(width);
+}
+
+
+/*
+ * Contextual Styles
+ */
+
+body[data-menu-state='open'] {
+  section.site-main {
+    width: 65%;
+  }
 }

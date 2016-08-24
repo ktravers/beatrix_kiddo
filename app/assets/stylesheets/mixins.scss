@@ -57,3 +57,13 @@
     -o-transition:      $transition;
     transition:         $transition;
 }
+
+/*
+ * Slide Bounce
+ * Transition effect used in menu
+ */
+
+@mixin slide-bounce($property) {
+  -webkit-transition: $property 400ms cubic-bezier(0.680, 0, 0.155, 1); /* older webkit */
+  @include transition($property 400ms cubic-bezier(0.680, -0.470, 0.155, 1.360));
+}

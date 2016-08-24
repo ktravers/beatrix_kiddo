@@ -1,0 +1,41 @@
+/*
+ * Site Menu
+ * Hidden on initial page load.
+ * Slides out from right when trigger is clicked.
+ * Fixed with vertical scroll enabled.
+ */
+
+
+section.site-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  width: 0;
+  padding-top: $content-spacing;
+  padding-bottom: $content-spacing * 1.5;
+  background: black;
+  overflow-y: auto;
+  @extend .border-box;
+  @extend .util--z-index-1;
+  @include slide-bounce(all);
+}
+
+.site-menu__category {
+  padding-left: $content-spacing * 1.5;
+}
+
+.site-menu__category__item {
+  padding-left: $content-spacing * 3;
+}
+
+/*
+ * Contextual Styles
+ */
+
+body[data-menu-state='open'] {
+  section.site-menu {
+    width: 35%;
+  }
+}

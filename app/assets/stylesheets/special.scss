@@ -117,6 +117,25 @@
 .util--display-inline-block { display: inline-block; }
 
 
+// Absolute position method centering
+// Remember to put a bounded width on the element being centered, and non-static position on its container.
+
+// Center vertically
+.util--abs-center-top {
+  position: absolute;
+  top: 50%;
+  transform: translate(0,-50%);
+}
+
+// Center vertically and horizontally
+.util--abs-center-both {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  @include translate(-50%,-50%);
+}
+
+
 // Z Index
 // Hey you. DO NOT START ADDING THESE WILLY-NILLY. They should be applied carefully, typically not as classes in markup but as extensions for our layout classes. These should be applied 5-10 times total in the whole app.
 
