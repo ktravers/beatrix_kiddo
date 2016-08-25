@@ -49,3 +49,14 @@ input.button, button.button {
 input.button {
   vertical-align: baseline;
 }
+
+.button--color-grey-dark {
+  color: $grey-dark;
+  background-color: rgba(58, 58, 58, 0.4);
+  border: ($content-spacing / 4) solid $grey-dark;
+
+  &:hover {
+    color: $grey-dark;
+    background-color: rgba(58, 58, 58, 0.6);
+  }
+}

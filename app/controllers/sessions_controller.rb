@@ -1,20 +1,26 @@
 class SessionsController < ApplicationController
 
   def create
-    user = User.find_by(email: params[:email]).try(:authenticate, params[:password])
+    user = User.find_by(email: user_params[:email])#.try(:authenticate, params[:password])
 
     if user
       login(user)
-      redirect_to root_path
+      redirect_to "/events/#{user_params[:event_slug]}"
     else
-      flash.now[:notice] = 'Either your email or password isn\'t valid. Try again?'
-      render 'new'
+      flash[:notice] = 'Sorry, can\'t find an invite for that email address. Try again?'
+      redirect_to "/events/#{user_params[:event_slug]}#login"
     end
   end
 
   def destroy
     reset_session
     redirect_to root_path
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:email, :event_slug)
   end
 
 end

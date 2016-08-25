@@ -14,11 +14,11 @@ html
   body.js--body
     = render partial: 'shared/menu'
 
-    - flash.each do |type, message|
-      - if !message.empty?
-        // TODO: add flash styling
-        .site-flash class= "site-flash--#{type}" role='alert'
-          = message
+    // TODO: add flash styling
+    // - flash.each do |type, message|
+    //   - if !message.empty?
+    //     .site-flash class= "site-flash--#{type}" role='alert'
+    //       = message
 
     section.site-main
       = yield

@@ -39,6 +39,7 @@
  */
 
 // Super Hero
+// Handles large spacing between head, body, and foot
 .module--super-hero {
   .module__body, .module__foot { padding-top: $content-spacing; }
 
@@ -46,3 +47,17 @@
     .module__body, .module__foot { padding-top: $content-spacing * 1.5; }
   }
 }
+
+// Lilypad module
+// Good for separating content from the background
+
+.module--lilypad {
+  @extend .heading--color-grey-dark;
+  background: $white;
+  border-radius: ($content-spacing / 4);
+
+  .module__head, .module__body, .module__foot {
+    padding: ($content-spacing * 1.25) ($content-spacing * 1.5);
+  }
+}
+

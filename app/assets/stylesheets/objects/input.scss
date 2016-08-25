@@ -1,0 +1,20 @@
+/*
+ * Object: Input
+ * Should be applied to input, select, and textarea elements.
+ */
+
+
+/*
+ * Overall Rules
+ */
+
+.input {
+  @extend .border-box;
+  @extend .heading--level-8;
+  outline: none;
+  border: 1px solid $grey;
+  border-radius: $content-spacing / 4;
+  padding: ($content-spacing * 1.5) 0 ($content-spacing * 1.5) ($content-spacing);
+  font-family: inherit;
+  width: 100%;
+}

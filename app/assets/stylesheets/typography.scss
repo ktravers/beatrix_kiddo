@@ -60,6 +60,19 @@ a.link--color-inherit {
   }
 }
 
+
+// Color
+
+.heading--color-grey-dark {
+  color: $grey-dark;
+  a:hover { color: $grey; }
+}
+
+.heading--color-red {
+  color: $red;
+  a:hover { color: $red-dark; }
+}
+
 /*
  * Individual heading styles
  */
