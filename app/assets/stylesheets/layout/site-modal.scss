@@ -30,11 +30,10 @@
   left: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.8);
-  transition: opacity 500ms;
   visibility: hidden;
   opacity: 0;
   width: 100%;
-  @include slide-bounce(width);
+  transition: opacity 500ms;
 }
 
 .site-modal__overlay:target {
@@ -63,17 +62,6 @@
 /*
  * Contextual Styles
  */
-
-body[data-menu-state='open'] {
-  .site-modal__overlay { width: 60%; }
-  .site-modal__overlay__inner { width: 90%; }
-}
-
-@media (max-width: $breakpoint-small) {
-  body[data-menu-state='open'] {
-    .site-modal__overlay { width: 100%; }
-  }
-}
 
 @media screen and (max-width: $breakpoint-medium) {
   .site-modal__overlay__inner{ width: 90%; }

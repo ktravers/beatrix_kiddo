@@ -24,12 +24,13 @@
   - [ ] Subway / LIRR info
   - [ ] Map with venues identified
 
+- [ ] About
+- [ ] Trivia
+
 ## ACCOUNT FUNCTIONALITY
 
-- [ ] Create
-- [ ] Update password
-- [ ] Retrieve password
-- [ ] Permissions
+- [X] Login / Logout
+- [ ] Event View Permissions (login wall)
 
 ## RSVP FUNCTIONALITY
 
