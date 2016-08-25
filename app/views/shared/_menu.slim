@@ -23,7 +23,10 @@ section.site-menu
       - events.each do |event|
         li.site-menu__category__item
           .heading.heading--level-6
-            = link_to event.name, "/events/#{event.slug}"
+            - if current_user
+              = link_to event.name, "/events/#{event.slug}"
+            - else
+              = link_to event.name, "/events/#{event.slug}#login"
       // li
       //   .heading.heading--level-6
       //     = link_to 'Registry', '/registry'
@@ -43,6 +46,3 @@ section.site-menu
       li.site-menu__category__item
         .heading.heading--level-6
           = link_to 'Trivia Challenge', '/trivia'
-
-
-
