@@ -22,4 +22,7 @@
           h2.heading.heading--level-7
             | 2017
       .module__foot
-        =link_to 'Save The Date', '/events/save-the-date', class: 'button'
+        - if current_user
+          = link_to 'Save The Date', '/events/save-the-date', class: 'button'
+        - else
+          = link_to 'Save The Date', '/events/save-the-date#login', class: 'button'
