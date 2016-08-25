@@ -39,3 +39,9 @@ section.site-menu {
 body[data-menu-state='open'] {
   section.site-menu { width: 40%; }
 }
+
+@media (max-width: $breakpoint-small) {
+  body[data-menu-state='open'] {
+    section.site-menu { width: 100%; }
+  }
+}
