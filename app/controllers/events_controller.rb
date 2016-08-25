@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  # TODO: check user event permissions and redirect
+  # TODO: check user event permissions and login/redirect
   # before_action :login_required
 
   def show

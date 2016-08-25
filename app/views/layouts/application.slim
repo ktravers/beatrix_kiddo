@@ -24,4 +24,6 @@ html
       = yield
 
     = render partial: 'shared/footer'
-    = yield(:modal)
+
+    section.site-modal
+      = yield(:modal)
