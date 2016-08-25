@@ -4,6 +4,18 @@
  * https://codepen.io/imprakash/pen/GgNMXO
  */
 
+
+/*
+ * Overall Rules
+ */
+
+.site-modal {}
+
+
+/*
+ * Local Descendants
+ */
+
 // Apply to link element with href set to
 // local anchor tag on .site-modal__overlay
 .site-modal__trigger {
@@ -21,6 +33,8 @@
   transition: opacity 500ms;
   visibility: hidden;
   opacity: 0;
+  width: 100%;
+  @include slide-bounce(width);
 }
 
 .site-modal__overlay:target {
@@ -32,7 +46,6 @@
   position: relative;
   margin: 70px auto;
   width: 60%;
-  transition: all 5s ease-in-out;
 }
 
 // Apply to link element with href set to '#'
@@ -52,17 +65,16 @@
  */
 
 body[data-menu-state='open'] {
-  section.site-modal { width: 60%; }
+  .site-modal__overlay { width: 60%; }
+  .site-modal__overlay__inner { width: 90%; }
 }
 
 @media (max-width: $breakpoint-small) {
   body[data-menu-state='open'] {
-    section.site-modal { width: 100%; }
+    .site-modal__overlay { width: 100%; }
   }
 }
 
 @media screen and (max-width: $breakpoint-medium) {
-  .site-modal__overlay__inner{
-    width: 80%;
-  }
+  .site-modal__overlay__inner{ width: 90%; }
 }

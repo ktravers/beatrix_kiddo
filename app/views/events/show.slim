@@ -1,32 +1,36 @@
 = content_for(:title, "KC and Kate | #{@event_name}")
 
-#login.site-modal__overlay
-  .site-modal__overlay__inner
-    .module.module--lilypad
-      .module__head
-        a.site-modal__overlay__dismiss href="#" &times;
-      .module__head.util--text-align-c
-        h1.heading.heading--level-5
-          | New site, who dis?
-      .module__body.util--text-align-c
-        .heading.heading--level-6
-          | Please enter your email below.
-      .module__body
-        .util--padding-ll.util--padding-rl
-          .button-input-unit
-            = form_tag sessions_path, method: :post do
-              = email_field :user, :email, placeholder: 'Enter your email here...', required: true, pattern: email_validation, class: 'button-input-unit__input'
-              = hidden_field_tag 'user[event_slug]', @event_slug
-              = button_tag 'Login', type: 'submit', class: 'button button--color-grey-dark button-input-unit__button'
-              input.util--hide(type='submit')
-      .module__foot.util--text-align-c
-        .heading.heading--level-8
-          | You'll want to use the same email address where you received your original invite.
-        .util--padding-tl.util--padding-bxl
-          - flash.each do |type, message|
-            - if !message.empty?
-              .heading.heading--level-8.heading--color-red
-                = message
+= content_for(:modal)
+  .level
+    .level__inner
+      #login.site-modal__overlay
+        .site-modal__overlay__inner
+          .module.module--lilypad
+            .module__head
+               a.site-modal__overlay__dismiss href="/" &times;
+            .module__head.util--text-align-c
+              h1.heading.heading--level-5
+                | New site, who dis?
+            .module__body.util--text-align-c
+              .heading.heading--level-6
+                | Please enter your email below.
+            .module__body
+              .util--padding-ll.util--padding-rl
+                .button-input-unit
+                  = form_tag sessions_path, method: :post do
+                    = email_field :user, :email, placeholder: 'Enter your email here...', required: true, pattern: email_validation, class: 'button-input-unit__input'
+                    = hidden_field_tag 'user[event_slug]', @event_slug
+                    = button_tag 'Login', type: 'submit', class: 'button button--color-grey-dark button-input-unit__button'
+                    input.util--hide(type='submit')
+            .module__foot.util--text-align-c
+              .heading.heading--level-8
+                | You'll want to use the same email address where you received your original invite.
+              .util--padding-tl.util--padding-bxl
+                - flash.each do |type, message|
+                  - if !message.empty?
+                    .heading.heading--level-8.heading--color-red
+                      = message
+
 .level
   .level__inner
     .module.module--super-hero
