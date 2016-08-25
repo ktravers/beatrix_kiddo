@@ -53,6 +53,27 @@ div.media-block--dual-media {
 
 // Spacing
 
+.media-block--spacing-flush {
+  .media-block__media {
+    padding-right: 0;
+  }
+
+  // Spacing flush works with any media-block extension that includes inner padding.
+  // Each of those extensions needs to define its rules here.
+
+  &.media-block--side-alt {
+    .media-block__media {
+      padding-left: 0;
+    }
+  }
+
+  &.media-block--dual-media {
+    .media-block__media:last-child {
+      padding-left: 0;
+    }
+  }
+}
+
 .media-block--spacing-tight {
   .media-block__media {
     padding-right: ($content-spacing * .75);

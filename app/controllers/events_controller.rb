@@ -1,12 +1,13 @@
 class EventsController < ApplicationController
   # TODO: check user event permissions and redirect
   # before_action :login_required
-  # before_action :redirect_uninvited
 
   def show
     @event = Event.find_by(slug: params[:event_slug])
+    # redirect_uninvited
 
     if @event
+      @event_slug     = @event.slug
       @event_name     = @event.name
       @event_venue    = @event.venue_name
       @event_address  = @event.venue_address
@@ -50,7 +51,7 @@ class EventsController < ApplicationController
   end
 
   def redirect_uninvited
-    unless current_user.invited_to?(params[:event_slug])
+    unless current_user.invited_to?(@event.id)
       return redirect_to root_path
     end
   end

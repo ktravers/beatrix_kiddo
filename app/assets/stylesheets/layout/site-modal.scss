@@ -1,0 +1,68 @@
+/*
+ * Site Modal
+ * Applies semi-opaque overlay to page and centers content horizontally.
+ * https://codepen.io/imprakash/pen/GgNMXO
+ */
+
+// Apply to link element with href set to
+// local anchor tag on .site-modal__overlay
+.site-modal__trigger {
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+
+.site-modal__overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.site-modal__overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.site-modal__overlay__inner {
+  position: relative;
+  margin: 70px auto;
+  width: 60%;
+  transition: all 5s ease-in-out;
+}
+
+// Apply to link element with href set to '#'
+.site-modal__overlay__dismiss {
+  @extend .heading--level-7;
+  @extend .link--color-inherit;
+  position: absolute;
+  top: $content-spacing;
+  right: ($content-spacing * 2);
+  text-decoration: none;
+  transition: all 200ms;
+}
+
+
+/*
+ * Contextual Styles
+ */
+
+body[data-menu-state='open'] {
+  section.site-modal { width: 60%; }
+}
+
+@media (max-width: $breakpoint-small) {
+  body[data-menu-state='open'] {
+    section.site-modal { width: 100%; }
+  }
+}
+
+@media screen and (max-width: $breakpoint-medium) {
+  .site-modal__overlay__inner{
+    width: 80%;
+  }
+}

@@ -9,10 +9,21 @@ class User < ActiveRecord::Base
     "#{first_name} #{last_name}".strip
   end
 
-  def invited_to?(event_slug)
-    event = Event.find_by(slug: event_slug)
-    return false unless event
+  def invited_to?(event_id)
+    !!self.rsvps.find_by(event_id: event_id)
+  end
 
-    !!self.rsvps.find_by(event_id: event.id)
+  def rsvped_to?(event_id)
+    rsvp = self.rsvps.find_by(event_id: event_id)
+    return false unless rsvp
+
+    rsvp.accepted_at || rsvp.declined_at
+  end
+
+  def attending?(event_id)
+    rsvp = self.rsvps.find_by(event_id: event_id)
+    return false unless rsvp
+
+    !!rsvp.accepted_at
   end
 end
