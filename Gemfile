@@ -53,6 +53,7 @@ group :production do
 end
 
 group :development, :test do
+  gem 'railroady', '1.3.0'
   gem 'pry'
   gem 'rspec-rails', '~> 3.0'
   gem 'selenium-webdriver', '>= 2.52.0'
