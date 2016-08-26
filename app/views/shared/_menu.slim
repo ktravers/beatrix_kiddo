@@ -19,14 +19,17 @@ section.site-menu
       // TODO for event in current_user.rsvps
       li.site-menu__category
         h2.heading.heading--level-6 Events
-      - events = Event.all
-      - events.each do |event|
+      - if current_user
+        - events = current_user.events
+        - events.each do |event|
+          li.site-menu__category__item
+            .heading.heading--level-6
+              = link_to event.name, "/events/#{event.slug}"
+      - else
         li.site-menu__category__item
           .heading.heading--level-6
             - if current_user
-              = link_to event.name, "/events/#{event.slug}"
-            - else
-              = link_to event.name, "/events/#{event.slug}#login"
+              = link_to 'Save the Date', '/events/save-the-date#login'
       // li
       //   .heading.heading--level-6
       //     = link_to 'Registry', '/registry'
@@ -37,7 +40,7 @@ section.site-menu
           = link_to 'Where To Stay', '/info/where-to-stay'
       li.site-menu__category__item
         .heading.heading--level-6
-          = link_to 'Travel Info', '/info/travel'
+          = link_to 'Getting Around NYC', '/info/travel'
       li.site-menu__category
         h2.heading.heading--level-6 Fun Stuff
       li.site-menu__category__item
