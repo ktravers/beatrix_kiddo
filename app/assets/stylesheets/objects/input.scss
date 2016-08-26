@@ -10,7 +10,8 @@
 
 .input {
   @extend .border-box;
-  @extend .heading--level-8;
+  @extend .heading--level-7;
+  @extend .heading--weight-lighter;
   outline: none;
   border: 1px solid $grey;
   border-radius: $content-spacing / 4;
