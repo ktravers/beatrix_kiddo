@@ -17,19 +17,19 @@ ActiveRecord::Schema.define(version: 20160823023710) do
   enable_extension "plpgsql"
 
   create_table "events", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",          null: false
     t.string   "venue_name"
     t.string   "venue_address"
     t.datetime "start_time"
     t.datetime "end_time"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "slug"
+    t.string   "slug",          null: false
   end
 
   create_table "rsvps", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "event_id"
+    t.integer  "user_id",     null: false
+    t.integer  "event_id",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "sent_at"

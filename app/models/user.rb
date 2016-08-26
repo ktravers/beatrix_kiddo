@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
     rsvp = self.rsvps.find_by(event_id: event_id)
     return false unless rsvp
 
-    rsvp.accepted_at || rsvp.declined_at
+    !!(rsvp.accepted_at || rsvp.declined_at)
   end
 
   def attending?(event_id)
