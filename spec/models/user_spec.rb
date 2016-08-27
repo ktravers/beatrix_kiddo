@@ -4,13 +4,17 @@ describe User do
   let(:user)  { create(:user) }
   let(:event) { create(:event) }
 
-  it { is_expected.to have_many(:rsvps) }
-  it { is_expected.to have_many(:events) }
+  describe 'validations' do
+    subject { FactoryGirl.build(:user) }
 
-  it { is_expected.to validate_presence_of(:first_name) }
-  it { is_expected.to validate_presence_of(:last_name) }
-  it { is_expected.to validate_presence_of(:email) }
-  it { is_expected.to validate_uniqueness_of(:email).scoped_to(:first_name, :last_name) }
+    it { is_expected.to have_many(:rsvps) }
+    it { is_expected.to have_many(:events).through(:rsvps) }
+
+    it { is_expected.to validate_presence_of(:first_name) }
+    it { is_expected.to validate_presence_of(:last_name) }
+    it { is_expected.to validate_presence_of(:email) }
+    it { is_expected.to validate_uniqueness_of(:email).scoped_to(:first_name, :last_name) }
+  end
 
   describe '#full_name' do
     it 'builds full name out of first and last name' do

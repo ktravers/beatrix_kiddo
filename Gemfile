@@ -71,7 +71,7 @@ group :test do
   gem 'email_spec', '>= 1.6.0'
   gem 'factory_girl_rails', '>= 4.5.0'
   gem 'faker', '>= 1.4.3'
-  gem 'shoulda-matchers', '>= 2.7.0'
+  gem 'shoulda-matchers', '~> 3.1'
   gem 'timecop', '>= 0.7.1'
   gem 'vcr', '>= 2.9.3'
   gem 'webmock', '>= 1.20.4'
