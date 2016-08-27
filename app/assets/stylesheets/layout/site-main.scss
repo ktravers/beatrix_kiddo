@@ -3,6 +3,7 @@
  */
 
 section.site-main {
+  position: relative;
   width: 100%;
   min-height: 90vh;
   @include slide-bounce(width);
