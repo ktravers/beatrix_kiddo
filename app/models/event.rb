@@ -2,11 +2,13 @@ class Event < ActiveRecord::Base
   has_many :rsvps
   has_many :users, through: :rsvps
 
-  validates :name, uniqueness: true
+  validates :name, uniqueness: true, case_sensitive: false
+
+  GOOGLE_MAP_BASE_URL='https://www.google.com/maps/place/'
 
   def venue_map_url
     # https://www.google.com/maps/place/Dumbo,+Brooklyn,+NY
-    "https://www.google.com/maps/place/#{venue_address.split(' ').join('+')}"
+    "#{GOOGLE_MAP_BASE_URL}#{venue_address.split(' ').join('+')}"
   end
 
   def gcal_url

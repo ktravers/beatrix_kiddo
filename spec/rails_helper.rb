@@ -39,9 +39,17 @@ VCR.configure do |c|
   end
 end
 
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
+  end
+end
+
 RSpec.configure do |config|
   config.include Rails.application.routes.url_helpers
   config.include FactoryGirl::Syntax::Methods
+  config.include CustomMacros
   config.include EmailSpec::Helpers
   config.include EmailSpec::Matchers
 
