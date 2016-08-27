@@ -3,7 +3,25 @@
  */
 
 body {
-  // TODO: add image/video background
+  position: relative;
+  background: #6390e0;
+  // #5C97FF
+  // #6b93d8
+}
+
+
+.site-background:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.3;
   background-image: image-url('obama.gif');
+  -ms-background-size: contain;
+  -o-background-size: contain;
+  -moz-background-size: contain;
+  -webkit-background-size: contain;
   background-size: contain;
 }
