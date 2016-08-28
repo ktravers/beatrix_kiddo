@@ -15,7 +15,15 @@
   outline: none;
   border: 1px solid $grey;
   border-radius: $content-spacing / 4;
-  padding: ($content-spacing * 1.5) 0 ($content-spacing * 1.5) ($content-spacing);
+  padding:
+    ($content-spacing - 1) 0 ($content-spacing) ($content-spacing);
   font-family: inherit;
+  text-transform: none;
   width: 100%;
+
+  @media (max-width: $breakpoint-medium) {
+    // Hard coding font size bc can't @extend inside media query
+    // @extend .heading--level-8;
+    font-size: 22px;
+  }
 }

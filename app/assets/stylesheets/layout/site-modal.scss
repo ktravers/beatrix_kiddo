@@ -43,7 +43,7 @@
 
 .site-modal__overlay__inner {
   position: relative;
-  margin: 70px auto;
+  margin: ($content-spacing * 5) auto;
   width: 60%;
 }
 
@@ -64,5 +64,8 @@
  */
 
 @media screen and (max-width: $breakpoint-medium) {
-  .site-modal__overlay__inner{ width: 90%; }
+  .site-modal__overlay__inner {
+    width: 90%;
+    margin: ($content-spacing * 6) auto;
+  }
 }

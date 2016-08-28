@@ -10,7 +10,6 @@
 
 .button-input-unit {
   position: relative;
-  padding-right: ($content-spacing * 10);
   overflow: hidden;
   top: 1px; // hackfix for rendering in Chrome
 }
@@ -20,30 +19,63 @@
  * Local Descendants
  */
 
-
 .button-input-unit__button {
   @extend .button;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  width: ($content-spacing * 10);
   padding: ($content-spacing / 4);
   text-align: center;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
 }
 
 // Inputs and buttons have special styles we want to override
-input.button-input-unit__button, button.button-input-unit__button {
+input.button-input-unit__button,
+button.button-input-unit__button {
   padding: ($content-spacing / 4);
 }
 
 .button-input-unit__input {
   @extend .input;
-  border-right: none;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  padding: ($content-spacing - 1) 0 ($content-spacing) ($content-spacing);
-  text-transform: none;
+}
+
+
+/*
+ * Contextual Styles
+ */
+
+// At larger breakpoints, button attached to right side of input
+
+@media (min-width: $breakpoint-small + 1) {
+  .button-input-unit {
+    padding-right: ($content-spacing * 10);
+  }
+
+  .button-input-unit__button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    width: ($content-spacing * 10);
+  }
+
+  .button-input-unit__input {
+    border-right: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+// At smaller breakpoints, button attached below input
+
+@media (max-width: $breakpoint-small) {
+  .button-input-unit__button {
+    width: 100%;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .button-input-unit__input {
+    border-bottom: none;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
 }
