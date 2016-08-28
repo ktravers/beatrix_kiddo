@@ -3,52 +3,11 @@
 = content_for(:modal)
   .level
     .level__inner
-      #login.site-modal__overlay
-        .site-modal__overlay__inner
-          .module.module--lilypad
-            .module__head
-               a.site-modal__overlay__dismiss href="/" &times;
-            .module__head.util--text-align-c
-              .util--show-medium-up
-                h1.heading.heading--level-5
-                  | New site, who dis?
-              .util--hide-large.util--hide-medium
-                h1.heading.heading--level-7
-                  | New site, who dis?
-            .module__body.util--text-align-c
-              .util--show-medium-up
-                .heading.heading--level-6
-                  | Please enter your email below.
-              .util--hide-large.util--hide-medium
-                .heading.heading--level-8
-                  | Please enter your email below.
-            .module__body
-              .util--padding-ll.util--padding-rl
-                .button-input-unit
-                  = form_tag sessions_path, method: :post do
-                    = email_field :user, :email, placeholder: 'Type your email here...', required: true, pattern: email_validation, class: 'button-input-unit__input'
-                    = hidden_field_tag 'user[event_slug]', @event_slug
-                    = button_tag 'Login', type: 'submit', class: 'button button--color-grey-dark button-input-unit__button'
-                    input.util--hide(type='submit')
-            .module__foot.util--text-align-c
-              .util--show-medium-up
-                .heading.heading--level-8
-                  | You'll want to use the same email address where you received your original invite.
-              .util--hide-large.util--hide-medium
-                .heading.heading--level-10
-                  | You'll want to use the same email address where you received your original invite.
-              .util--padding-tl.util--padding-bxl
-                - flash.each do |type, message|
-                  - if !message.empty?
-                    .util--show-medium-up
-                      .heading.heading--level-8.heading--color-red
-                        = message
-                    .util--hide-large.util--hide-medium
-                      .heading.heading--level-10.heading--color-red
-                        = message
+      = render partial: 'shared/modal'
+
 .level
   .level__inner
-    .module.module--super-hero
+    .module.module--flush.module--super-hero
       .module__head
         h6.heading.heading--level-8.util--text-italic KC and Kate invite you to
         .util--show-medium-up
@@ -57,7 +16,7 @@
             a href="#{@event_gcal_url}" target='_blank' title='Add to Google Calendar'
               = svg_tag('svg__icon--gcal', height: '82', width: '82')
           span.heading.util--padding-lxl
-            a href="/events/#{@event.slug}.ics" target='_blank'  title='Add to iCal'
+            a href="/events/#{@event_slug}.ics" target='_blank'  title='Add to iCal'
               = svg_tag('svg__icon--ical', height: '82', width: '82')
         .util--hide-large.util--hide-medium
           span.heading.heading--level-3.util--padding-rxl= @event_name
@@ -65,7 +24,7 @@
             a href="#{@event_gcal_url}" target='_blank' title='Add to Google Calendar'
               = svg_tag('svg__icon--gcal', height: '52', width: '52')
           span.heading.util--padding-ll
-            a href="/events/#{@event.slug}.ics" target='_blank'   title='Add to iCal'
+            a href="/events/#{@event_slug}.ics" target='_blank'   title='Add to iCal'
               = svg_tag('svg__icon--ical', height: '52', width: '52')
       .module__body
         .util--show-medium-up

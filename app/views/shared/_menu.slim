@@ -16,7 +16,7 @@
 section.site-menu
   .site-menu__inner
     ul
-      // TODO for event in current_user.rsvps
+      // EVENTS
       li.site-menu__category
         h2.heading.heading--level-6 Events
       - if current_user
@@ -28,24 +28,27 @@ section.site-menu
       - else
         li.site-menu__category__item
           .heading.heading--level-6
-            - if current_user
-              = link_to 'Save the Date', '/events/save-the-date#login'
-      // li
-      //   .heading.heading--level-6
-      //     = link_to 'Registry', '/registry'
+            = link_to 'Save the Date', '/events/save-the-date'
+
+      // INFO
       li.site-menu__category
         h2.heading.heading--level-6 Logistics
       li.site-menu__category__item
-        .heading.heading--level-6
+        h3.heading.heading--level-6
           = link_to 'Where To Stay', '/info/where-to-stay'
       li.site-menu__category__item
-        .heading.heading--level-6
+        h3.heading.heading--level-6
           = link_to 'Getting Around NYC', '/info/travel'
+      li.site-menu__category__item
+        h3.heading.heading--level-6
+          = link_to 'Gifts', '/Gifts'
+
+      // FUN
       li.site-menu__category
         h2.heading.heading--level-6 Fun Stuff
       li.site-menu__category__item
-        .heading.heading--level-6
+        h3.heading.heading--level-6
           = link_to 'Cast and Crew', '/about'
       li.site-menu__category__item
-        .heading.heading--level-6
+        h3.heading.heading--level-6
           = link_to 'Trivia Challenge', '/trivia'

@@ -5,10 +5,13 @@ class SessionsController < ApplicationController
 
     if user
       login(user)
-      redirect_to "/events/#{user_params[:event_slug]}"
+      redirect_path = session[:redirect_path]
+      session.delete(:redirect_path)
+
+      redirect_to redirect_path
     else
       flash[:notice] = 'Sorry, can\'t find an invite for that email address. Try again?'
-      redirect_to "/events/#{user_params[:event_slug]}#login"
+      redirect_to "#{login_path}#new"
     end
   end
 
@@ -20,7 +23,7 @@ class SessionsController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :event_slug)
+    params.require(:user).permit(:email)
   end
 
 end

@@ -19,11 +19,10 @@ class ApplicationController < ActionController::Base
   end
   helper_method :logged_in?
 
-  # TODO: enforce client-side?
-  def login_required
+  def login_required(redirect_path: redirect_path)
     unless logged_in?
-      flash[:notice] = 'Please login to view this page.'
-      redirect_to login_path
+      session[:redirect_path] = redirect_path
+      return redirect_to "#{login_path}#new"
     end
   end
 end
