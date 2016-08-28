@@ -1,0 +1,24 @@
+/*
+ * Layout: Site Panel
+ * Panel that covers half page, full height
+ */
+
+
+/*
+ * Overall Rules
+ */
+
+.site-panel {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  height: 95vh; // don't overlap footer
+}
+
+// Default is right
+// Alt is left
+.site-panel--side-alt {
+  left: 0;
+}
