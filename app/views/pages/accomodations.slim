@@ -1,8 +1,27 @@
 = content_for(:title, 'KC and Kate | Where To Stay')
 
+= content_for(:modal)
+  .level
+    .level__inner
+      = render partial: 'shared/modal'
+
 .level.level--cover
   .level__inner
-    .module.module--flush
-      .module__head
-        .heading.heading--level-1
-          | Coming soon...
+    .col.col--size-1of2
+      .module.module--flush
+        .module__head
+          h6.heading.heading--level-8.util--text-italic KC and Kate recommend:
+          h2.heading.heading--level-7
+            a href='https://www.airbnb.com/s/Brooklyn--NY--United-States?checkin=09%2F01%2F2017&checkout=09%2F04%2F2017&room_types%5B%5D=Entire+home%2Fapt&room_types%5B%5D=Private+room&zoom=13&search_by_map=true&sw_lat=40.66411238104342&sw_lng=-74.02722661664774&ne_lat=40.7353864323944&ne_lng=-73.94620244672586&ss_id=nqv63qen&page=1&source=filters&airbnb_plus_only=false&s_tag=FdcwLANf' target='_blank'
+              | Airbnb
+          h2.heading.heading--level-7
+            a href='http://www.nuhotelbrooklyn.com/' target='_blank'
+              | NU Hotel Brooklyn
+          h2.heading.heading--level-7
+            a href='http://www.marriott.com/hotels/travel/nycbk-new-york-marriott-at-the-brooklyn-bridge/' target='_blank'
+              | Marriott at Brooklyn Bridge
+          h2.heading.heading--level-7
+            a href='https://www.ihg.com/holidayinnexpress/hotels/us/en/brooklyn/bxyln/hoteldetail' target='_blank'
+              | Holiday Inn Express Brooklyn
+    .col.col--size-1of2
+      <iframe src="https://www.google.com/maps/d/embed?mid=1qV-YLdU8EdeIBgvjn92oWxj___U&hl=en" width="640" height="480"></iframe>
