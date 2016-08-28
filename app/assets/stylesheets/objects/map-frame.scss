@@ -1,0 +1,44 @@
+/*
+ * Object: Map Frame
+ * Takes an embedded iframe map and positions it half page, full height
+ */
+
+
+/*
+ * Overall Rules
+ */
+
+.map-frame {
+  background-color: black;
+  height: 100%;
+  width: 100%;
+}
+
+.map-frame__map {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.map-frame:before,
+.map-frame:after {
+  content: '';
+  display: block;
+  background-color: black;
+  position: absolute;
+  right: 0;
+  width: 100%;
+}
+
+// hack to cover up Google Map title bar icons
+.map-frame:before {
+  top: 0;
+  height: 92px; // magic number based on height of Google Map title bar
+  @extend .util--z-index-1;
+}
+
+.map-frame:after {
+  right: 0;
+  bottom: -($content-spacing * 2 + 4); // don't overlap footer
+  height: ($content-spacing * 2 + 4); // footer height
+}

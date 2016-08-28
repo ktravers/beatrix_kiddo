@@ -23,3 +23,7 @@ body[data-menu-state='open'] {
     section.site-main { width: 100%; }
   }
 }
+
+body.body--has-side-panel {
+  section.site-main { width: 50%; }
+}

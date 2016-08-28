@@ -11,15 +11,12 @@ html
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_include_tag 'application', media: 'all'
 
-  body.js--body
+  body.js--body class="#{yield(:body_class)}"
     .site-background
     = render partial: 'shared/menu'
 
-    // TODO: add flash styling
-    // - flash.each do |type, message|
-    //   - if !message.empty?
-    //     .site-flash class= "site-flash--#{type}" role='alert'
-    //       = message
+    section.site-panel
+      = yield(:panel)
 
     section.site-main
       = yield
