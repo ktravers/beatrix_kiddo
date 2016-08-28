@@ -12,11 +12,6 @@ Rails.application.routes.draw do
   get 'logout' => 'sessions#destroy', as: :logout
   post 'sessions' => 'sessions#create'
 
-  # Users
-  resources :users, only: [:edit, :update]
-  get 'reset-password' => 'users#reset_password', as: :reset_password
-  post 'send-password' => 'users#send_password',  as: :send_password
-
   # Event Pages
   get '/events/:event_slug' => 'events#show'
 

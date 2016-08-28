@@ -3,10 +3,10 @@
  */
 
 section.site-footer {
+  @extend .border-box;
   position: relative;
-  min-height: 10vh;
-  padding-top: $content-spacing / 2;
-  padding-bottom: $content-spacing / 2;
+  min-height: 5vh;
+  padding: $content-spacing / 2;
 }
 
 
