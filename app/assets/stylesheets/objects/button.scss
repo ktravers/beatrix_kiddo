@@ -33,9 +33,10 @@
     background-color: rgba(256, 256, 256, 0.6);
   }
 
-  @media (max-width: $breakpoint-small) {
+  @media (max-width: $breakpoint-medium) {
     // Hard coding font size bc can't @extend inside media query
-    font-size: 24px;
+    // @extend .heading--level-8;
+    font-size: 22px;
   }
 }
 
@@ -49,6 +50,11 @@ input.button, button.button {
 input.button {
   vertical-align: baseline;
 }
+
+
+/*
+ * Options
+ */
 
 .button--color-grey-dark {
   color: $grey-dark;

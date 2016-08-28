@@ -141,3 +141,10 @@ a.link--color-inherit {
   letter-spacing: 0.02em;
   &.heading--weight-heavier { font-weight: bold; }
 }
+
+.heading--level-10 { // level 10 is small, normal weight, no text transform
+  font-size: 14px;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+  &.heading--weight-heavier { font-weight: bold; }
+}
