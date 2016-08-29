@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'pages#welcome'
   get 'info/where-to-stay' => 'pages#accomodations', as: :accomodations
   get 'info/travel' => 'pages#travel', as: :travel
-  get 'info/gifts' => 'pages#gifts', as: :gifts
+  get 'info/registry' => 'pages#registry', as: :registry
   get 'about' => 'pages#about', as: :about
   get 'trivia' => 'pages#trivia', as: :trivia
 

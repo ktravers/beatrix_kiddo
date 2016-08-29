@@ -23,3 +23,7 @@ body[data-menu-state='open'] {
     section.site-footer { width: 100%; }
   }
 }
+
+@media (max-width: $breakpoint-mobile) {
+  section.site-footer { min-height: 20vh; }
+}

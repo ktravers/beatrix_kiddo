@@ -4,10 +4,7 @@
 
 body {
   position: relative;
-  background: #6390e0; // one-off, not included in vars
-  // saving these here just in case we change our mind
-  // #5C97FF
-  // #6b93d8
+  background: $purple;
 }
 
 .site-background:before {

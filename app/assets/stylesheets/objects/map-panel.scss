@@ -12,12 +12,13 @@
 
 .map-panel {
   width: 50%;
+  @include slide-bounce(all);
 }
 
 .map-panel,
 .map-panel:after,
 .map-panel:before {
-  background-color: black;
+  background-color: $purple-darker;
 }
 
 .map-panel:after,
@@ -48,6 +49,10 @@
 /*
  * Contextual Styles
  */
+
+body[data-menu-state='open'] {
+  .map-panel { width: 0; }
+}
 
 @media (min-width: $breakpoint-large) {
   .map-panel {
@@ -88,5 +93,12 @@
   .map-panel:after {
     bottom: -72px; // don't overlap footer
     height: 72px;  // footer height
+  }
+}
+
+@media (max-width: $breakpoint-small - 1) {
+  .map-panel:after {
+    bottom: -260px; // don't overlap footer
+    height: 260px;  // footer height
   }
 }
