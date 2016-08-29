@@ -11,12 +11,9 @@ html
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_include_tag 'application', media: 'all'
 
-  body.js--body class="#{yield(:body_class)}"
+  body.js--body
     .site-background
     = render partial: 'shared/menu'
-
-    section.site-panel
-      = yield(:panel)
 
     section.site-main
       = yield
