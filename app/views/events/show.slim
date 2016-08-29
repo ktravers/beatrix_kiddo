@@ -19,7 +19,7 @@
             a href="/events/#{@event_slug}.ics" target='_blank'  title='Add to iCal'
               = svg_tag('svg__icon--ical', height: '82', width: '82')
         .util--hide-large.util--hide-medium
-          span.heading.heading--level-3.util--padding-rxl= @event_name
+          span.heading.heading--level-3.util--padding-rl= @event_name
           span.heading
             a href="#{@event_gcal_url}" target='_blank' title='Add to Google Calendar'
               = svg_tag('svg__icon--gcal', height: '52', width: '52')

@@ -25,3 +25,7 @@ body[data-menu-state='open'] {
     section.site-main { width: 100%; }
   }
 }
+
+@media (max-width: $breakpoint-mobile) {
+  section.site-main { min-height: 80vh; }
+}

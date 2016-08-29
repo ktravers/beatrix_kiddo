@@ -1,0 +1,23 @@
+/*
+ * Container: List
+ * Vertically-stacked list with optional borders between. This is used as a base class for extension by a lot of other containers or objects, and used heavily throughout the application.
+ */
+
+.list, ol.list, ul.list {
+  @extend .border-box;
+
+  /*
+   * Local Descendants
+   */
+
+  .list__category {
+    padding-top: $content-spacing;
+    line-height: 1;
+  }
+}
+
+
+.list__category__item {
+  padding-top: $content-spacing / 4;
+  padding-left: $content-spacing * 1.5;
+}
