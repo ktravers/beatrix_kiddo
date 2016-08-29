@@ -1,0 +1,92 @@
+/*
+ * Object: Map Panel
+ * Takes an embedded Google Map iframe and positions it half page, full height at large breakpoint.
+ * Default position at smaller breakpoints.
+ * Hides text and buttons in Google Map title bar.
+ */
+
+
+/*
+ * Overall Rules
+ */
+
+.map-panel {
+  width: 50%;
+}
+
+.map-panel,
+.map-panel:after,
+.map-panel:before {
+  background-color: black;
+}
+
+.map-panel:after,
+.map-panel:before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  right: 0;
+}
+
+.map-panel:before {
+  @extend .util--z-index-1;
+  top: 0;
+}
+
+
+/*
+ * Local Descendants
+ */
+
+.map-panel__map {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+
+/*
+ * Contextual Styles
+ */
+
+@media (min-width: $breakpoint-large) {
+  .map-panel {
+    position: absolute;
+    height: 95vh; // don't overlap footer
+    bottom: 0;
+    right: 0;
+    top: 0;
+  }
+
+  // hack to cover up Google Map title bar icons
+  .map-panel:before {
+    height: 92px; // magic number based on height of Google Map title bar
+  }
+
+  .map-panel:after {
+    bottom: -36px; // don't overlap footer
+    height: 36px;  // footer height
+  }
+}
+
+@media (max-width: $breakpoint-large - 1) {
+  .map-panel {
+    position: relative;
+    height: 400px;
+    width: 100%;
+  }
+
+  // hack to cover up Google Map title bar icons
+  .map-panel:before {
+    height: ($content-spacing * 3); // magic number based on height of Google Map title bar
+    padding: $content-spacing;
+    content: 'Places to Stay';
+    box-sizing: border-box;
+    font-family: Helvetica;
+  }
+
+  .map-panel:after {
+    bottom: -72px; // don't overlap footer
+    height: 72px;  // footer height
+  }
+}

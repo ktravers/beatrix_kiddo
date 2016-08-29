@@ -1,15 +1,9 @@
 = content_for(:title, 'KC and Kate | Where To Stay')
 
-= content_for(:body_class, 'body--has-side-panel')
-
 = content_for(:modal)
   .level
     .level__inner
       = render partial: 'shared/modal'
-
-= content_for(:panel)
-  .map-frame
-    iframe.map-frame__map src="https://www.google.com/maps/d/u/0/embed?mid=1qV-YLdU8EdeIBgvjn92oWxj___U&hl=en"
 
 .level
   .level__inner
@@ -20,29 +14,40 @@
         h2.heading.heading--level-7
           a href='https://www.airbnb.com/s/Brooklyn--NY--United-States?checkin=09%2F01%2F2017&checkout=09%2F04%2F2017&room_types%5B%5D=Entire+home%2Fapt&room_types%5B%5D=Private+room&zoom=13&search_by_map=true&sw_lat=40.66411238104342&sw_lng=-74.02722661664774&ne_lat=40.7353864323944&ne_lng=-73.94620244672586&ss_id=nqv63qen&page=1&source=filters&airbnb_plus_only=false&s_tag=FdcwLANf' target='_blank'
             | Airbnb
-        h3.heading.heading--level-8
-          | Many options available for Labor Day weekend at better prices and locations than hotels.
+        .util--show-large-up
+          h3.heading.heading--level-8
+            | Click through to see options for Labor Day weekend 2017.
 
         h2.heading.heading--level-7.util--padding-tl
           a href='http://www.nuhotelbrooklyn.com/' target='_blank'
             | NU Hotel Brooklyn
-        h3.heading.heading--level-8
-          | 85 Smith St, Brooklyn
+        .util--show-large-up
+          h3.heading.heading--level-8
+            | 85 Smith St, Brooklyn
 
         h2.heading.heading--level-7.util--padding-tl
           a href='http://www.marriott.com/hotels/travel/nycbk-new-york-marriott-at-the-brooklyn-bridge/' target='_blank'
             | Marriott at Brooklyn Bridge
-        h3.heading.heading--level-8
-          | 333 Adams Street, Brooklyn
+        .util--show-large-up
+          h3.heading.heading--level-8
+            | 333 Adams Street, Brooklyn
 
         h2.heading.heading--level-7.util--padding-tl
           a href='https://www.ihg.com/holidayinn/hotels/us/en/brooklyn/lgabr/hoteldetail' target='_blank'
-            | Holiday Inn Downtown Brooklyn
-        h3.heading.heading--level-8
-          | 300 Schermerhorn Street, Brooklyn
+            | Holiday Inn Brooklyn
+        .util--show-large-up
+          h3.heading.heading--level-8
+            | 300 Schermerhorn Street, Brooklyn
 
         h2.heading.heading--level-7.util--padding-tl
           a href='https://www.ihg.com/holidayinnexpress/hotels/us/en/brooklyn/bxyln/hoteldetail' target='_blank'
             | Holiday Inn Express Brooklyn
-        h3.heading.heading--level-8
-          | 625 Union Street, Brooklyn
+        .util--show-large-up
+          h3.heading.heading--level-8
+            | 625 Union Street, Brooklyn
+      .module__foot
+
+.level.level--flush-wings
+  .level__inner
+    .map-panel
+      iframe.map-panel__map src='https://www.google.com/maps/d/u/0/embed?mid=1qV-YLdU8EdeIBgvjn92oWxj___U&hl=en'

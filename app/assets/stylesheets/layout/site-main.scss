@@ -3,9 +3,11 @@
  */
 
 section.site-main {
+  padding-top: $content-spacing;
   position: relative;
-  width: 100%;
   min-height: 95vh;
+  width: 100%;
+  @extend .border-box;
   @include slide-bounce(width);
 }
 
@@ -22,8 +24,4 @@ body[data-menu-state='open'] {
   body[data-menu-state='open'] {
     section.site-main { width: 100%; }
   }
-}
-
-body.body--has-side-panel {
-  section.site-main { width: 50%; }
 }

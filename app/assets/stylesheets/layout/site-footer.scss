@@ -4,8 +4,8 @@
 
 section.site-footer {
   @extend .border-box;
-  position: relative;
   min-height: 5vh;
+  position: relative;
   padding: $content-spacing / 2;
 }
 

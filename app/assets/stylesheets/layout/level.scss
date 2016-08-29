@@ -21,10 +21,21 @@
  * Extensions
  */
 
+// Cover
+// Push level towards center of page
+
 .level--cover {
   padding-top: $content-spacing * 4;
 
   @media (min-width: $breakpoint-large) {
     padding-top: $content-spacing * 8;
   }
+}
+
+// Flush Wings
+// Level with no padding on left and right
+
+.level--flush-wings {
+  padding-right: 0;
+  padding-left: 0;
 }
