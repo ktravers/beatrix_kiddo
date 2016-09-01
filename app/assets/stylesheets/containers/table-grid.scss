@@ -52,4 +52,10 @@
     .table-grid__cell:first-child { text-align: left; }
     .table-grid__cell:last-child  { text-align: right; }
   }
+
+  .table-grid--smoosh {
+    .table-grid__cell { text-align: center; }
+    .table-grid__cell:first-child { text-align: right; }
+    .table-grid__cell:last-child  { text-align: left; }
+  }
 }
