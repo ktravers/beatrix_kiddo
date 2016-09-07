@@ -22,6 +22,7 @@
   width: 100%;
   height: auto;
   display: block;
+  border: ($content-spacing / 2) solid $white;
   border-radius: inherit;
 }
 
@@ -31,6 +32,22 @@
  */
 
 
+.image-frame--reveal {
+  position: relative;
+}
+
+.image-frame__revealable {
+  display: none;
+}
+
+.image-frame--reveal:hover {
+  // background-image
+
+  .image-frame__headline {
+    @extend .util--abs-center-both;
+    display: inline-block;
+  }
+}
 
 
 /*
