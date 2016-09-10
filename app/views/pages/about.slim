@@ -7,7 +7,7 @@
         .util--show-medium-up
           h1.heading.heading--level-1
             | Meet the Stars
-        .util--hide-large.util--hide-medium
+        .util--hide-large.util--hide-medium.util--hide-medium
           h1.heading.heading--level-3
             | Meet the Stars
       .module__body.util--text-align-c
@@ -15,116 +15,273 @@
         .row
           .table-grid
             .table-grid__cell
-              .heading.heading--level-7.util--text-italic
-                | The Groom
-              .image-frame.image-frame--reveal.image-frame--fixed-size-large.util--padding-txl
-                = image_tag 'kc01.jpg', class: 'image-frame__image'
-              .image-frame__headline.heading.heading--level-7.util--text-italic.util--padding-txl
-                | K.C. Boyle
+              .util--show-medium-up
+                .util--padding-lxl
+                  .util--padding-lxl
+                    h3.heading.heading--level-7.util--text-italic
+                      | The Groom
+                    .util--padding-txl
+                      .image-frame.image-frame--shape-shifter.image-frame--fixed-size-large
+                        = image_tag 'kc01.jpg', class: 'image-frame__image image-frame__image--shape'
+                        = image_tag 'android-chrome-192x192.png', class: 'image-frame__image image-frame__image--shift'
+                    h3.image-frame__headline.heading.heading--level-7.util--text-italic.util--padding-txl
+                      | K.C. Boyle
+              .util--hide-large.util--hide-medium
+                .image-frame.image-frame--shape-shifter.image-frame--fixed-size-large
+                  = image_tag 'kc01.jpg', class: 'image-frame__image image-frame__image--shape'
+                  = image_tag 'android-chrome-192x192.png', class: 'image-frame__image image-frame__image--shift'
+                h3.heading.heading--level-7.util--text-italic.util--padding-txl
+                  | The Groom
+                h3.image-frame__headline.heading.heading--level-7.util--padding-tm
+                  | K.C. Boyle
             .table-grid__cell
-              .heading.heading--level-7.util--text-italic
-                | The Bride
-              .image-frame.image-frame--reveal.image-frame--fixed-size-large.util--padding-txl
-                = image_tag 'kt02.jpeg', class: 'image-frame__image'
-              .image-frame__headline.heading.heading--level-7.util--text-italic.util--padding-txl
-                | Kate Travers
+              .util--show-medium-up
+                .util--padding-rxl
+                  .util--padding-rxl
+                    h3.heading.heading--level-7.util--text-italic
+                      | The Bride
+                    .util--padding-txl
+                      .image-frame.image-frame--shape-shifter.image-frame--fixed-size-large
+                        = image_tag 'kt02.jpeg', class: 'image-frame__image image-frame__image--shape'
+                        = image_tag 'android-chrome-192x192.png', class: 'image-frame__image image-frame__image--shift'
+                    h3.image-frame__headline.heading.heading--level-7.util--text-italic.util--padding-txl
+                      | Kate Travers
+              .util--hide-large.util--hide-medium
+                .util--padding-txl
+                  .image-frame.image-frame--shape-shifter.image-frame--fixed-size-large
+                    = image_tag 'kt02.jpeg', class: 'image-frame__image image-frame__image--shape'
+                    = image_tag 'android-chrome-192x192.png', class: 'image-frame__image image-frame__image--shift'
+                h3.heading.heading--level-7.util--text-italic.util--padding-txl
+                  | The Bride
+                h3.image-frame__headline.heading.heading--level-7.util--padding-tm
+                  | Kate Travers
 
       .module__body.util--text-align-c
         // THE FRIENDS
         .row
           .table-grid
             .table-grid__cell
-              .heading.heading--level-7.util--text-italic
-                | Best Woman
-              .image-frame.image-frame--reveal.image-frame--fixed-size.util--padding-txl
-                = image_tag 'android-chrome-192x192.png', class: 'image-frame__image'
-              .image-frame__headline.heading.heading--level-7.util--text-italic.util--padding-txl
-                | Jacinda Shields
+              .util--show-medium-up
+                h3.heading.heading--level-7.util--text-italic
+                  | Best Woman
+                .util--padding-txl
+                  .image-frame.image-frame--shape-shifter.image-frame--fixed-size
+                    = image_tag 'android-chrome-192x192.png', class: 'image-frame__image image-frame__image--shape'
+                    = image_tag 'kt02.jpeg', class: 'image-frame__image image-frame__image--shift'
+                h3.image-frame__headline.heading.heading--level-7.util--text-italic.util--padding-txl
+                  | Jacinda Shields
+              .util--hide-large.util--hide-medium
+                .image-frame.image-frame--shape-shifter.image-frame--fixed-size-large
+                  = image_tag 'android-chrome-192x192.png', class: 'image-frame__image image-frame__image--shape'
+                  = image_tag 'kt02.jpeg', class: 'image-frame__image image-frame__image--shift'
+                h3.heading.heading--level-7.util--text-italic.util--padding-txl
+                  | Best Woman
+                h3.image-frame__headline.heading.heading--level-7.util--padding-tm
+                  | Jacinda Shields
             .table-grid__cell
-              .heading.heading--level-7.util--text-italic
-                | Best Man
-              .image-frame.image-frame--reveal.image-frame--fixed-size.util--padding-txl
-                = image_tag 'android-chrome-192x192.png', class: 'image-frame__image'
-              .image-frame__headline.heading.heading--level-7.util--text-italic.util--padding-txl
-                | Jan Hammerquist
+              .util--show-medium-up
+                h3.heading.heading--level-7.util--text-italic
+                  | Best Man
+                .util--padding-txl
+                  .image-frame.image-frame--shape-shifter.image-frame--fixed-size
+                    = image_tag 'android-chrome-192x192.png', class: 'image-frame__image image-frame__image--shape'
+                    = image_tag 'kt02.jpeg', class: 'image-frame__image image-frame__image--shift'
+                h3.image-frame__headline.heading.heading--level-7.util--text-italic.util--padding-txl
+                  | Jan Hammerquist
+              .util--hide-large.util--hide-medium
+                .util--padding-txl
+                  .image-frame.image-frame--shape-shifter.image-frame--fixed-size-large
+                    = image_tag 'android-chrome-192x192.png', class: 'image-frame__image image-frame__image--shape'
+                    = image_tag 'kt02.jpeg', class: 'image-frame__image image-frame__image--shift'
+                h3.heading.heading--level-7.util--text-italic.util--padding-txl
+                  | Best Man
+                h3.image-frame__headline.heading.heading--level-7.util--padding-tm
+                  | Jan Hammerquist
 
       .module__body.util--text-align-c
         // THE PARENTS
         .row
           .table-grid
             .table-grid__cell
-              .heading.heading--level-7.util--text-italic
-                | Groom's Best Mom
-              .image-frame.image-frame--reveal.image-frame--fixed-size-small.util--padding-txl
-                = image_tag 'android-chrome-192x192.png', class: 'image-frame__image'
-              .image-frame__headline.heading.heading--level-7.util--text-italic.util--padding-txl
-                | Mary Beth Boyle
+              .util--show-medium-up
+                h3.heading.heading--level-7.util--text-italic
+                  | Groom's Best Mom
+                .util--padding-txl
+                  .image-frame.image-frame--shape-shifter.image-frame--fixed-size-small
+                    = image_tag 'android-chrome-192x192.png', class: 'image-frame__image image-frame__image--shape'
+                    = image_tag 'kt02.jpeg', class: 'image-frame__image image-frame__image--shift'
+                h3.image-frame__headline.heading.heading--level-7.util--text-italic.util--padding-txl
+                  | Mary Beth Boyle
+              .util--hide-large.util--hide-medium
+                .image-frame.image-frame--shape-shifter.image-frame--fixed-size-large
+                  = image_tag 'android-chrome-192x192.png', class: 'image-frame__image image-frame__image--shape'
+                  = image_tag 'kt02.jpeg', class: 'image-frame__image image-frame__image--shift'
+                h3.heading.heading--level-7.util--text-italic.util--padding-txl
+                  | Groom's Best Mom
+                h3.image-frame__headline.heading.heading--level-7.util--padding-tm
+                  | Mary Beth Boyle
             .table-grid__cell
-              .heading.heading--level-7.util--text-italic
-                | Groom's Best Dad
-              .image-frame.image-frame--reveal.image-frame--fixed-size-small.util--padding-txl
-                = image_tag 'android-chrome-192x192.png', class: 'image-frame__image'
-              .image-frame__headline.heading.heading--level-7.util--text-italic.util--padding-txl
-                | Kevin Boyle
+              .util--show-medium-up
+                h3.heading.heading--level-7.util--text-italic
+                  | Groom's Best Dad
+                .util--padding-txl
+                  .image-frame.image-frame--shape-shifter.image-frame--fixed-size-small
+                    = image_tag 'android-chrome-192x192.png', class: 'image-frame__image image-frame__image--shape'
+                    = image_tag 'kt02.jpeg', class: 'image-frame__image image-frame__image--shift'
+                h3.image-frame__headline.heading.heading--level-7.util--text-italic.util--padding-txl
+                  | Kevin Boyle
+              .util--hide-large.util--hide-medium
+                .util--padding-txl
+                  .image-frame.image-frame--shape-shifter.image-frame--fixed-size-large
+                    = image_tag 'android-chrome-192x192.png', class: 'image-frame__image image-frame__image--shape'
+                    = image_tag 'kt02.jpeg', class: 'image-frame__image image-frame__image--shift'
+                h3.heading.heading--level-7.util--text-italic.util--padding-txl
+                  | Groom's Best Dad
+                h3.image-frame__headline.heading.heading--level-7.util--padding-tm
+                  | Kevin Boyle
             .table-grid__cell
-              .heading.heading--level-7.util--text-italic
-                | Bride's Best Mom
-              .image-frame.image-frame--reveal.image-frame--fixed-size-small.util--padding-txl
-                = image_tag 'android-chrome-192x192.png', class: 'image-frame__image'
-              .image-frame__headline.heading.heading--level-7.util--text-italic.util--padding-txl
-                | Ann Travers
+              .util--show-medium-up
+                h3.heading.heading--level-7.util--text-italic
+                  | Bride's Best Mom
+                .util--padding-txl
+                  .image-frame.image-frame--shape-shifter.image-frame--fixed-size-small
+                    = image_tag 'android-chrome-192x192.png', class: 'image-frame__image image-frame__image--shape'
+                    = image_tag 'kt02.jpeg', class: 'image-frame__image image-frame__image--shift'
+                h3.image-frame__headline.heading.heading--level-7.util--text-italic.util--padding-txl
+                  | Ann Travers
+              .util--hide-large.util--hide-medium
+                .util--padding-txl
+                  .image-frame.image-frame--shape-shifter.image-frame--fixed-size-large
+                    = image_tag 'android-chrome-192x192.png', class: 'image-frame__image image-frame__image--shape'
+                    = image_tag 'kt02.jpeg', class: 'image-frame__image image-frame__image--shift'
+                h3.heading.heading--level-7.util--text-italic.util--padding-txl
+                    | Bride's Best Mom
+                h3.image-frame__headline.heading.heading--level-7.util--padding-tm
+                  | Ann Travers
             .table-grid__cell
-              .heading.heading--level-7.util--text-italic
-                | Bride's Best Dad
-              .image-frame.image-frame--reveal.image-frame--fixed-size-small.util--padding-txl
-                = image_tag 'android-chrome-192x192.png', class: 'image-frame__image'
-              .image-frame__headline.heading.heading--level-7.util--text-italic.util--padding-txl
-                | R.M. Travers
+              .util--show-medium-up
+                h3.heading.heading--level-7.util--text-italic
+                  | Bride's Best Dad
+                .util--padding-txl
+                  .image-frame.image-frame--shape-shifter.image-frame--fixed-size-small
+                    = image_tag 'android-chrome-192x192.png', class: 'image-frame__image image-frame__image--shape'
+                    = image_tag 'kt02.jpeg', class: 'image-frame__image image-frame__image--shift'
+                h3.image-frame__headline.heading.heading--level-7.util--text-italic.util--padding-txl
+                  | R.M. Travers
+              .util--hide-large.util--hide-medium
+                .util--padding-txl
+                  .image-frame.image-frame--shape-shifter.image-frame--fixed-size-large
+                    = image_tag 'android-chrome-192x192.png', class: 'image-frame__image image-frame__image--shape'
+                    = image_tag 'kt02.jpeg', class: 'image-frame__image image-frame__image--shift'
+                h3.heading.heading--level-7.util--text-italic.util--padding-txl
+                    | Bride's Best Dad
+                h3.image-frame__headline.heading.heading--level-7.util--padding-tm
+                  | Mick Travers
 
       .module__body.util--text-align-c
         // THE BROTHERS
         .row
           .table-grid
             .table-grid__cell
-              .heading.heading--level-7.util--text-italic
-                | Groom's Best Older Brother
-              .image-frame.image-frame--reveal.image-frame--fixed-size.util--padding-txl
-                = image_tag 'android-chrome-192x192.png', class: 'image-frame__image'
-              .image-frame__headline.heading.heading--level-7.util--text-italic.util--padding-txl
-                | Ryan Boyle
+              .util--show-medium-up
+                h3.heading.heading--level-7.util--text-italic
+                  | Groom's Best Older Brother
+                .util--padding-txl
+                  .image-frame.image-frame--shape-shifter.image-frame--fixed-size
+                    = image_tag 'android-chrome-192x192.png', class: 'image-frame__image image-frame__image--shape'
+                    = image_tag 'kt02.jpeg', class: 'image-frame__image image-frame__image--shift'
+                h3.image-frame__headline.heading.heading--level-7.util--text-italic.util--padding-txl
+                  | Ryan Boyle
+              .util--hide-large.util--hide-medium
+                .util--padding-txl
+                  .image-frame.image-frame--shape-shifter.image-frame--fixed-size-large
+                    = image_tag 'android-chrome-192x192.png', class: 'image-frame__image image-frame__image--shape'
+                    = image_tag 'kt02.jpeg', class: 'image-frame__image image-frame__image--shift'
+                h3.heading.heading--level-7.util--text-italic.util--padding-txl
+                  | Groom's Best Older Brother
+                h3.image-frame__headline.heading.heading--level-7.util--padding-tm
+                  | Ryan Boyle
             .table-grid__cell
-              .heading.heading--level-7.util--text-italic
-                | Groom's Best Younger Brother
-              .image-frame.image-frame--reveal.image-frame--fixed-size.util--padding-txl
-                = image_tag 'android-chrome-192x192.png', class: 'image-frame__image'
-              .image-frame__headline.heading.heading--level-7.util--text-italic.util--padding-txl
-                | Matt Boyle
+              .util--show-medium-up
+                h3.heading.heading--level-7.util--text-italic
+                  | Groom's Best Younger Brother
+                .util--padding-txl
+                  .image-frame.image-frame--shape-shifter.image-frame--fixed-size
+                    = image_tag 'android-chrome-192x192.png', class: 'image-frame__image image-frame__image--shape'
+                    = image_tag 'kt02.jpeg', class: 'image-frame__image image-frame__image--shift'
+                h3.image-frame__headline.heading.heading--level-7.util--text-italic.util--padding-txl
+                  | Matt Boyle
+              .util--hide-large.util--hide-medium
+                .util--padding-txl
+                  .image-frame.image-frame--shape-shifter.image-frame--fixed-size-large
+                    = image_tag 'android-chrome-192x192.png', class: 'image-frame__image image-frame__image--shape'
+                    = image_tag 'kt02.jpeg', class: 'image-frame__image image-frame__image--shift'
+                h3.heading.heading--level-7.util--text-italic.util--padding-txl
+                  | Groom's Best Younger Brother
+                h3.image-frame__headline.heading.heading--level-7.util--padding-tm
+                  | Matt Boyle
             .table-grid__cell
-              .heading.heading--level-7.util--text-italic
-                | Bride's Best Younger Brother
-              .image-frame.image-frame--reveal.image-frame--fixed-size.util--padding-txl
-                = image_tag 'android-chrome-192x192.png', class: 'image-frame__image'
-              .image-frame__headline.heading.heading--level-7.util--text-italic.util--padding-txl
-                | Ben Travers
+              .util--show-medium-up
+                h3.heading.heading--level-7.util--text-italic
+                  | Bride's Best Younger Brother
+                .util--padding-txl
+                  .image-frame.image-frame--shape-shifter.image-frame--fixed-size
+                    = image_tag 'android-chrome-192x192.png', class: 'image-frame__image image-frame__image--shape'
+                    = image_tag 'kt02.jpeg', class: 'image-frame__image image-frame__image--shift'
+                h3.image-frame__headline.heading.heading--level-7.util--text-italic.util--padding-txl
+                  | Ben Travers
+              .util--hide-large.util--hide-medium
+                .util--padding-txl
+                  .image-frame.image-frame--shape-shifter.image-frame--fixed-size-large
+                    = image_tag 'android-chrome-192x192.png', class: 'image-frame__image image-frame__image--shape'
+                    = image_tag 'kt02.jpeg', class: 'image-frame__image image-frame__image--shift'
+                h3.heading.heading--level-7.util--text-italic.util--padding-txl
+                  | Bride's Best Younger Brother
+                h3.image-frame__headline.heading.heading--level-7.util--padding-tm
+                  | Ben Travers
 
       .module__body.util--text-align-c
         // THE CATS
         .row
           .table-grid
             .table-grid__cell
-              .heading.heading--level-7.util--text-italic
-                | Groom's Best Kitten
-              .image-frame.image-frame--reveal.image-frame--fixed-size-large.util--padding-txl
-                = image_tag 'android-chrome-192x192.png', class: 'image-frame__image'
-              .image-frame__headline.heading.heading--level-7.util--text-italic.util--padding-txl
-                | Ponyboy
+              .util--show-medium-up
+                h3.heading.heading--level-7.util--text-italic
+                  | Groom's Best Kitten
+                .util--padding-txl
+                  .image-frame.image-frame--shape-shifter.image-frame--fixed-size-large
+                    = image_tag 'android-chrome-192x192.png', class: 'image-frame__image image-frame__image--shape'
+                    = image_tag 'kt02.jpeg', class: 'image-frame__image image-frame__image--shift'
+                h3.image-frame__headline.heading.heading--level-7.util--text-italic.util--padding-txl
+                  | Ponyboy
+              .util--hide-large.util--hide-medium
+                .util--padding-txl
+                  .image-frame.image-frame--shape-shifter.image-frame--fixed-size-large
+                    = image_tag 'android-chrome-192x192.png', class: 'image-frame__image image-frame__image--shape'
+                    = image_tag 'kt02.jpeg', class: 'image-frame__image image-frame__image--shift'
+                h3.heading.heading--level-7.util--text-italic.util--padding-txl
+                  | Groom's Best Kitten
+                h3.image-frame__headline.heading.heading--level-7.util--padding-tm
+                  | Ponyboy
             .table-grid__cell
-              .heading.heading--level-7.util--text-italic
-                | Bride's Best Kitten
-              .image-frame.image-frame--reveal.image-frame--fixed-size-large.util--padding-txl
-                = image_tag 'android-chrome-192x192.png', class: 'image-frame__image'
-              .image-frame__headline.heading.heading--level-7.util--text-italic.util--padding-txl
-                | Odysseus
+              .util--show-medium-up
+                h3.heading.heading--level-7.util--text-italic
+                  | Bride's Best Kitten
+                .util--padding-txl
+                  .image-frame.image-frame--shape-shifter.image-frame--fixed-size-large
+                    = image_tag 'android-chrome-192x192.png', class: 'image-frame__image image-frame__image--shape'
+                    = image_tag 'kt02.jpeg', class: 'image-frame__image image-frame__image--shift'
+                h3.image-frame__headline.heading.heading--level-7.util--text-italic.util--padding-txl
+                  | Odysseus
+              .util--hide-large.util--hide-medium
+                .util--padding-txl
+                  .image-frame.image-frame--shape-shifter.image-frame--fixed-size-large
+                    = image_tag 'android-chrome-192x192.png', class: 'image-frame__image image-frame__image--shape'
+                    = image_tag 'kt02.jpeg', class: 'image-frame__image image-frame__image--shift'
+                h3.heading.heading--level-7.util--text-italic.util--padding-txl
+                  | Bride's Best Kitten
+                h3.image-frame__headline.heading.heading--level-7.util--padding-tm
+                  | Odysseus
 
       // BAND
       // CATERING

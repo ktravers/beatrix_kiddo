@@ -11,6 +11,7 @@
 .image-frame {
   display: inline-block;
   border-radius: 9999px;
+  border: ($content-spacing / 2) solid $white;
 }
 
 
@@ -22,7 +23,6 @@
   width: 100%;
   height: auto;
   display: block;
-  border: ($content-spacing / 2) solid $white;
   border-radius: inherit;
 }
 
@@ -32,23 +32,16 @@
  */
 
 
-.image-frame--reveal {
-  position: relative;
+.image-frame--shape-shifter {
+  .image-frame__image--shift { display: none; }
 }
 
-.image-frame__revealable {
-  display: none;
+.image-frame--shape-shifter:hover {
+  cursor: pointer;
+
+  .image-frame__image--shape { display: none; }
+  .image-frame__image--shift { display: block; }
 }
-
-.image-frame--reveal:hover {
-  // background-image
-
-  .image-frame__headline {
-    @extend .util--abs-center-both;
-    display: inline-block;
-  }
-}
-
 
 /*
  * Options
@@ -59,16 +52,16 @@
 // Available standardized image sizes
 
 .image-frame--fixed-size {
+  width: ($content-spacing * 14);
+  height: ($content-spacing * 14);
+}
+
+.image-frame--fixed-size-large {
   width: ($content-spacing * 18);
   height: ($content-spacing * 18);
 }
 
-.image-frame--fixed-size-large {
-  width: ($content-spacing * 20);
-  height: ($content-spacing * 20);
-}
-
 .image-frame--fixed-size-small {
-  width: ($content-spacing * 12);
-  height: ($content-spacing * 12);
+  width: ($content-spacing * 10);
+  height: ($content-spacing * 10);
 }
