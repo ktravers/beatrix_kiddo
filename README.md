@@ -14,23 +14,23 @@
 ## INFO PAGES
 
 - [ ] Registry
-- [ ] Accomodations
-    - [ ] Hotels
-    - [ ] Airbnbs
+- [x] Accomodations
+    - [x] Hotels
+    - [x] Airbnbs
 
-- [ ] Travel / Getting Around
-  - [ ] Airports
-  - [ ] Car Services
-  - [ ] Subway / LIRR info
-  - [ ] Map with venues identified
+- [x] Travel / Getting Around
+  - [x] Airports
+  - [x] Car Services
+  - [x] Subway / LIRR info
+  - [x] Map with venues identified
 
-- [ ] About
+- [x] About
 - [ ] Trivia
 
 ## ACCOUNT FUNCTIONALITY
 
 - [X] Login / Logout
-- [ ] Event View Permissions (login wall)
+- [x] Event View Permissions (login wall)
 
 ## RSVP FUNCTIONALITY
 
