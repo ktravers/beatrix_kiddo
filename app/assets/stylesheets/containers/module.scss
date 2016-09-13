@@ -59,7 +59,7 @@
   .module__body, .module__foot { padding-top: $content-spacing * 4; }
 
   @media (min-width: $breakpoint-small) {
-    .module__body, .module__foot { padding-top: $content-spacing * 5; }
+    .module__body, .module__foot { padding-top: $content-spacing * 8; }
   }
 }
 
