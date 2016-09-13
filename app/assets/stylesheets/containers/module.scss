@@ -39,15 +39,27 @@
  * Extensions
  */
 
-// Super Hero
+// Layer Cake
 // Handles large spacing between head, body, and foot
-.module--super-hero {
+.module--layer-cake {
   padding: ($content-spacing / 2);
 
   .module__body, .module__foot { padding-top: $content-spacing; }
 
   @media (min-width: $breakpoint-small) {
     .module__body, .module__foot { padding-top: $content-spacing * 1.5; }
+  }
+}
+
+// Double Stuff
+// Handles extra large spacing between head, body, and foot
+.module--double-stuff {
+  padding: ($content-spacing);
+
+  .module__body, .module__foot { padding-top: $content-spacing * 4; }
+
+  @media (min-width: $breakpoint-small) {
+    .module__body, .module__foot { padding-top: $content-spacing * 5; }
   }
 }
 
@@ -78,6 +90,4 @@
 // Flush
 // Removes margins
 
-.module--flush {
-  margin: 0;
-}
+.module--flush { margin: 0; }

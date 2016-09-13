@@ -27,7 +27,7 @@
  * Contextual Styles
  */
 
-@media (min-width: $breakpoint-small) {
+@media (min-width: $breakpoint-medium) {
   .table-grid {
     display: table;
     width: 100%;
@@ -51,5 +51,11 @@
     .table-grid__cell { text-align: center; }
     .table-grid__cell:first-child { text-align: left; }
     .table-grid__cell:last-child  { text-align: right; }
+  }
+
+  .table-grid--smoosh {
+    .table-grid__cell { text-align: center; }
+    .table-grid__cell:first-child { text-align: right; }
+    .table-grid__cell:last-child  { text-align: left; }
   }
 }

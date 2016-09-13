@@ -1,0 +1,67 @@
+/*
+ * Object: Image Frame
+ * Box which contains an image. Can apply various styles and modifications to that image.
+ */
+
+
+/*
+ * Overall Rules
+ */
+
+.image-frame {
+  display: inline-block;
+  border-radius: 9999px;
+  border: ($content-spacing / 2) solid $white;
+}
+
+
+/*
+ * Local Descendants
+ */
+
+.image-frame__image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: inherit;
+}
+
+
+/*
+ * Extensions
+ */
+
+
+.image-frame--shape-shifter {
+  .image-frame__image--shift { display: none; }
+}
+
+.image-frame--shape-shifter:hover {
+  cursor: pointer;
+
+  .image-frame__image--shape { display: none; }
+  .image-frame__image--shift { display: block; }
+}
+
+/*
+ * Options
+ */
+
+
+// Size
+// Available standardized image sizes
+
+.image-frame--fixed-size {
+  width: ($content-spacing * 14);
+  height: ($content-spacing * 14);
+}
+
+.image-frame--fixed-size-large {
+  width: ($content-spacing * 18);
+  height: ($content-spacing * 18);
+}
+
+.image-frame--fixed-size-small {
+  width: ($content-spacing * 10);
+  height: ($content-spacing * 10);
+}
