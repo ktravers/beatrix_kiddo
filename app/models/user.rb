@@ -6,11 +6,11 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email, scope: [:first_name, :last_name]
 
   def self.fuzzy_match(email)
-    find_by('levenshtein(lower(email), lower(?)) <= 3', email)
+    find_by('levenshtein(lower(email), lower(?)) <= 3', email.strip)
   end
 
   def full_name
-    "#{first_name} #{last_name}".strip
+    "#{first_name.strip} #{last_name.strip}"
   end
 
   def invited_to?(event_id)
