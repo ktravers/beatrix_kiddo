@@ -40,3 +40,6 @@ node_modules
 
 #ignore vim tags
 tags
+
+#ignore invites
+*.csv
