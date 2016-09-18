@@ -4,11 +4,11 @@ class UserMailer < ApplicationMailer
   def send_save_the_date(rsvp)
     user = rsvp.user
     event = rsvp.event
-    recipient = user.email
+    @user_email = user.email
     @user_first_name = user.first_name
     @subject = "KC and Kate Invite You to #{event.name.upcase} [Labor Day Weekend, #{event.timespan}, #{event.year}]"
 
-    send_email(recipient, @subject)
+    send_email(@user_email, @subject)
   end
 
   # generic event invite
