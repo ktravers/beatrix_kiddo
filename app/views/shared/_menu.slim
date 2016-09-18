@@ -20,8 +20,7 @@ section.site-menu
       li.list__category
         h2.heading.heading--level-6 Events
       - if current_user
-        - events = current_user.events
-        - events.each do |event|
+        - user_events.each do |event|
           li.list__category__item
             .heading.heading--level-6
               = link_to event.name, "/events/#{event.slug}"
