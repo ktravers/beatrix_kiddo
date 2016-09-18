@@ -1,0 +1,43 @@
+doctype transitional
+html xmlns='http://www.w3.org/1999/xhtml'
+  head
+    title= "#{@subject}" || 'Invitation from KC and Kate'
+    meta http-equiv='Content-Type' content='text/html; charset=utf-8'
+    meta name='viewport' content='width=device-width, initial-scale=1.0'
+
+    css:
+      body{
+        -ms-text-size-adjust:100%;
+        -webkit-text-size-adjust:none;
+        -webkit-text-resize:100%;
+        text-resize:100%;
+      }
+      a{
+        outline:none;
+        color:#18bde7;
+        text-decoration:none;
+      }
+      a:visited{color:#18bde7;}
+      a:hover{text-decoration:underline !important;}
+      table td {border-collapse: collapse !important;}
+      table td {
+        font:14px/18px Helvetica, Arial, sans-serif;
+        padding:0;
+      }
+      @media only screen and (max-width:500px) {
+        table[class='wrapper']{min-width:320px !important;}
+        table[class='flexible']{width:100% !important;}
+        th[class='hide'],
+        td[class='fix-gmail']{
+          display:none !important;
+          width:0 !important;
+          height:0 !important;
+          padding:0 !important;
+          font-size:0 !important;
+          line-height:0 !important;
+        }
+        td[class='holder']{padding:0 !important;}
+        td[class='main']{padding:16px 15px 30px !important;}
+      }
+
+  = yield(:mailer_body)

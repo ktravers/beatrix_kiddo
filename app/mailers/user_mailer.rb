@@ -1,15 +1,35 @@
 class UserMailer < ApplicationMailer
-  def deliver_reset_password(user, reset_password)
-    @reset_password = reset_password
-    @user_name = user.full_name
-    recipient = user.email
-    subject = 'Reset Password: kcandkate.us'
 
+  # special case invite
+  def send_save_the_date(rsvp)
+    user = rsvp.user
+    event = rsvp.event
+    recipient = user.email
+    @user_name = user.full_name
+    @subject = "KC and Kate Invite You to #{event.name.upcase} [#{event.timespan}]"
+
+    send_email(recipient, @subject)
+  end
+
+  # generic event invite
+  def send_invite(rsvp)
+    user = rsvp.user
+    event = rsvp.event
+    recipient = user.email
+    @user_name = user.full_name
+    @subject = "KC and Kate Invite You to #{event.name.upcase} [#{event.timespan}]"
+
+    send_email(recipient, @subject)
+  end
+
+  private
+
+  def send_email(recipient, subject)
     mail(
       to: recipient,
-      subject: subject,
       reply_to: 'kate@kcandkate.us, kc@kcandkate.us',
-      content_type: 'text/html',
+      subject: subject,
+      content_type: 'text/html'
     )
   end
 end
