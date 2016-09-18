@@ -6,7 +6,7 @@ class UserMailer < ApplicationMailer
     event = rsvp.event
     recipient = user.email
     @user_name = user.full_name
-    @subject = "KC and Kate Invite You to #{event.name.upcase} [#{event.timespan}]"
+    @subject = "KC and Kate Invite You to #{event.name.upcase} [Labor Day Weekend, #{event.timespan}, #{event.year}]"
 
     send_email(recipient, @subject)
   end
@@ -27,7 +27,6 @@ class UserMailer < ApplicationMailer
   def send_email(recipient, subject)
     mail(
       to: recipient,
-      reply_to: 'kate@kcandkate.us, kc@kcandkate.us',
       subject: subject,
       content_type: 'text/html'
     )
