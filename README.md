@@ -32,6 +32,7 @@
 - [x] Save the Date
 - [ ] Generic Event
 - [ ] rake task
+- [ ] set up sendgrid
 
 ## ACCOUNT FUNCTIONALITY
 
