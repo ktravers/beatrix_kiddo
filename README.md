@@ -27,6 +27,12 @@
 - [x] About
 - [ ] Trivia
 
+## MAILER
+
+- [x] Save the Date
+- [ ] Generic Event
+- [ ] rake task
+
 ## ACCOUNT FUNCTIONALITY
 
 - [X] Login / Logout
