@@ -11,19 +11,13 @@ namespace :invite do
     end
 
     rsvps = Rsvp.where(id: rsvp_ids)
-
-    rsvps.each do |rsvp|
-      send_email(rsvp)
-    end
+    rsvps.each { |rsvp| send_email(rsvp) }
   end
 
   desc 'send out all Save the Date invites'
   task :save_the_date => :environment do
     rsvps = Rsvp.where(event_id: 1)
-
-    rsvps.each do |rsvp|
-      send_email(rsvp)
-    end
+    rsvps.each { |rsvp| send_email(rsvp) }
   end
 
   def send_email(rsvp)

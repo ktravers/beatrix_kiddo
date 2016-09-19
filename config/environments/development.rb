@@ -37,6 +37,7 @@ Rails.application.configure do
   config.assets.raise_runtime_errors = true
 
   config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.smtp_settings = {
     address:              'smtp.gmail.com',
