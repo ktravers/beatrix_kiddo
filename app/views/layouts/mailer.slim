@@ -4,31 +4,48 @@ html xmlns='http://www.w3.org/1999/xhtml'
     title= "#{@subject}" || 'Invitation from KC and Kate'
     meta http-equiv='Content-Type' content='text/html; charset=utf-8'
     meta name='viewport' content='width=device-width, initial-scale=1.0'
-
+  body data-force-encoding='✓' style='margin:0;padding:0;color:#82919d;-ms-text-size-adjust:100%;-webkit-text-size-adjust:none; -webkit-text-resize:100%;text-resize:100%;' bgcolor='#C7C7C7' link='#ffffff'
     css:
-      body{
-        -ms-text-size-adjust:100%;
-        -webkit-text-size-adjust:none;
-        -webkit-text-resize:100%;
-        text-resize:100%;
-      }
       a{
         outline:none;
-        color:#18bde7;
-        text-decoration:none;
+        color:#ffffff;
       }
-      a:visited{color:#18bde7;}
-      a:hover{text-decoration:underline !important;}
+      a:hover{
+        color:#00a7c8;
+        text-decoration:underline !important;
+      }
+      a[class='button']{
+        text-decoration: none;
+        text-transform:uppercase;
+        background-color: rgba(256, 256, 256, 0.4);
+        border: 4px solid #ffffff;
+        padding:16px;
+        color: #ffffff;
+      }
+      a[class='button']:hover{
+        text-decoration: none !important;
+        background-color: rgba(256, 256, 256, 0.6);
+      }
       table td {border-collapse: collapse !important;}
       table td {
         font:14px/18px Helvetica, Arial, sans-serif;
         padding:0;
       }
+      table[class='site-mailer__main'] {
+        background-color: #6390e0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+        background-image: url('https://raw.githubusercontent.com/ktravers/beatrix-kiddo/7dbfd7e02feece85617909a7b636a1382b48885c/app/assets/images/save-the-date_60.jpg');
+        background-repeat: repeat-y no-repeat;
+        background-position: center;
+      }
       @media only screen and (max-width:500px) {
-        table[class='wrapper']{min-width:320px !important;}
-        table[class='flexible']{width:100% !important;}
-        th[class='hide'],
-        td[class='fix-gmail']{
+        table[class='site-mailer']{min-width:320px !important;}
+        table[class='site-mailer__main']{width:100% !important;}
+        td[class='site-mailer__main--fix-gmail']{
           display:none !important;
           width:0 !important;
           height:0 !important;
@@ -36,8 +53,8 @@ html xmlns='http://www.w3.org/1999/xhtml'
           font-size:0 !important;
           line-height:0 !important;
         }
-        td[class='holder']{padding:0 !important;}
-        td[class='main']{padding:16px 15px 30px !important;}
+        td[class='site-mailer__inner']{padding:0 !important;}
+        td[class='site-mailer__main__inner']{padding:16px 15px 30px !important;}
       }
 
-  = yield(:mailer_body)
+    = yield(:mailer_content)

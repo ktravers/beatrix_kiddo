@@ -1,29 +1,54 @@
-= content_for(:mailer_body) do
-  body data-force-encoding='✓' style='margin:0; padding:0; color:#82919d;' bgcolor='#C7C7C7' link='#18bde7'
-    table.wrapper width='100%' cellspacing='0' cellpadding='0' bgcolor='#C7C7C7'
-      tr
-        td.holder style='padding:40px 10px;'
-          table.flexible width='580' align='center' style='margin:0 auto;' cellpadding='0' cellspacing='0'
-            tr
-              td.fix-gmail
-                table width='580' cellpadding='0' cellspacing='0' style='width:580px !important;'
-                  tr
-                    td> style='min-width:580px; font-size:0; line-height:0;'
+= content_for(:mailer_content) do
+  table.site-mailer width='100%' cellspacing='0' cellpadding='0' bgcolor='#C7C7C7'
+    tr
+      td.site-mailer__inner style='padding:40px 10px;'
+        table.site-mailer__main width='580' align='center' style='margin:0 auto;' cellpadding='0' cellspacing='0'
+          tr
+            td.site-mailer__main--fix-gmail
+              table width='580' cellpadding='0' cellspacing='0' style='width:580px !important;'
+                tr
+                  td> style='min-width:580px; font-size:0; line-height:0;'
 
-            tr
-              td.main style='padding:56px 56px 60px;' bgcolor='#ffffff'
-                table width='100%' cellpadding='0' cellspacing='0'
-                  tr
-                    td style='font:28px/34px Helvetica, Arial, sans-serif; color:#41c667; padding:0 0 36px 16px;'
-                      | Hi #{@user_name},
-
-                  tr
-                    td style='font:16px/22px Helvetica, Arial, sans-serif; color:#82919d; padding:0 0 36px 16px;'
-
-                  tr
-                    td style='font:16px/22px Helvetica, Arial, sans-serif; color:#82919d; padding:0 0 16px 16px;'
-                      | xoxo,
-
-                  tr
-                    td style='font:16px/22px Helvetica, Arial, sans-serif; color:#82919d; padding:0 0 180px 16px;'
-                      | - KC and Kate
+          tr
+            td.site-mailer__main__inner style='padding:36px 36px 36px 36px;'
+              table width='100%' cellpadding='0' cellspacing='0'
+                tr
+                  td style='font:42px/52px Helvetica, Arial, sans-serif; color:#ffffff; padding:0 16px 4px 16px; text-align:center; text-transform:uppercase;text-shadow: 1px 1px 2px #3a3a3a;'
+                    | KC and Kate are getting married
+                tr
+                  td style='font:42px/52px Helvetica, Arial, sans-serif; color:#ffffff; padding:0 16px 4px 16px; text-align:center; text-transform:uppercase;text-shadow: 1px 1px 2px #3a3a3a;'
+                    | and
+                tr
+                  td style='font:42px/52px Helvetica, Arial, sans-serif; color:#ffffff; padding:0 16px 176px 16px; text-align:center; text-transform:uppercase; text-shadow: 1px 1px 2px #3a3a3a;'
+                    | you're invited
+                tr
+                  td style='font:28px/34px Helvetica, Arial, sans-serif; color:#ffffff; padding:0 16px 64px 16px; text-shadow: 1px 1px 2px #3a3a3a; text-decoration: none; text-align: center;'
+                    a.button href='http://www.kcandkate.us/events/save-the-date'
+                      | Save the Date
+                tr
+                  td style='font:16px/22px Helvetica, Arial, sans-serif; color:#ffffff; padding:0 16px 16px 16px;text-shadow: 1px 1px 2px #3a3a3a;text-align:center;'
+                    | Visit our
+                    a<> href='http://www.kcandkate.us' wedding website
+                    | for full details on the
+                    a< href='http://www.kcandkate.us/events/save-the-date' wedding weekend
+                    | , as well as
+                    a< href='http://www.kcandkate.us/info/where-to-stay' places to stay
+                    | , tips for
+                    a< href='http://www.kcandkate.us/info/travel' getting around New York
+                    | , and other
+                    a< href='http://www.kcandkate.us/about' fun stuff
+                    | .
+                tr
+                  td style='font:16px/22px Helvetica, Arial, sans-serif; color:#ffffff; padding:0 16px 16px 16px;text-shadow: 1px 1px 2px #3a3a3a;text-align:center;'
+                    | The first time you visit, you'll be prompted to sign in using the same email address this invite was sent to:
+                    span< style="text-decoration:underline;" #{@user_email}
+                    | .
+                tr
+                  td style='font:16px/22px Helvetica, Arial, sans-serif; color:#ffffff; padding:0 16px 48px 16px;text-shadow: 1px 1px 2px #3a3a3a;text-align:center;'
+                    | We'll be updating the website regularly with more info, so check back for more details as we get closer to the date.
+                tr
+                  td style='font:16px/22px Helvetica, Arial, sans-serif; color:#ffffff; padding:0 16px 16px 16px;text-shadow: 1px 1px 2px #3a3a3a;'
+                    | xoxo,
+                tr
+                  td style='font:16px/22px Helvetica, Arial, sans-serif; color:#ffffff; padding:0 0 36px 16px;text-shadow: 1px 1px 2px #3a3a3a;'
+                    | KC and Kate
