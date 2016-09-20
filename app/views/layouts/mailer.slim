@@ -4,7 +4,7 @@ html xmlns='http://www.w3.org/1999/xhtml'
     title= "#{@subject}" || 'Invitation from KC and Kate'
     meta http-equiv='Content-Type' content='text/html; charset=utf-8'
     meta name='viewport' content='width=device-width, initial-scale=1.0'
-  body data-force-encoding='✓' style='margin:0;padding:0;color:#82919d;-ms-text-size-adjust:100%;-webkit-text-size-adjust:none; -webkit-text-resize:100%;text-resize:100%;' bgcolor='#C7C7C7' link='#ffffff'
+
     css:
       a{
         outline:none;
@@ -57,4 +57,4 @@ html xmlns='http://www.w3.org/1999/xhtml'
         td[class='site-mailer__main__inner']{padding:16px 15px 30px !important;}
       }
 
-    = yield(:mailer_content)
+  = yield(:mailer_body)
