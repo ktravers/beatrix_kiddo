@@ -21,6 +21,7 @@ gem 'faraday_middleware', '0.9.1'
 
 # API Wrappers
 gem 'icalendar', '>= 2.3.0'
+gem 'sendgrid', '1.2.4'
 
 # Assets - Stylesheets
 gem 'sass-rails', '~> 5.0'

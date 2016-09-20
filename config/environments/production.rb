@@ -87,7 +87,7 @@ Rails.application.configure do
     domain: 'kcandkate.us',
     authentication: 'plain',
     enable_starttls_auto: true,
-    user_name: ENV['MAILER_EMAIL'],
-    password: ENV['MAILER_PASSWORD']
+    user_name: ENV['SENDGRID_USERNAME'],
+    password: ENV['SENDGRID_PASSWORD']
   }
 end

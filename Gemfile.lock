@@ -209,6 +209,8 @@ GEM
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
       websocket (~> 1.0)
+    sendgrid (1.2.4)
+      json
     shoulda-matchers (3.1.1)
       activesupport (>= 4.0.0)
     slim (3.0.7)
@@ -272,6 +274,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   selenium-webdriver (>= 2.52.0)
+  sendgrid (= 1.2.4)
   shoulda-matchers (~> 3.1)
   slim (>= 3.0.6)
   timecop (>= 0.7.1)

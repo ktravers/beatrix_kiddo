@@ -26,6 +26,8 @@ class UserMailer < ApplicationMailer
   private
 
   def send_email(recipient, subject)
+    sendgrid_category :use_subject_lines
+
     mail(
       to: recipient,
       subject: subject,
