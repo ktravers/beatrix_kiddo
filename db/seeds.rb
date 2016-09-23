@@ -41,7 +41,7 @@ end
 CSV.foreach('invites.csv', headers: true) do |row|
   # row => ['Beatrix', 'Kiddo', 'bride@thebride.com', 'yes', 'yes' etc...]
 
-  user = User.create(
+  user = User.find_or_create_by(
     first_name: row[0],
     last_name: row[1],
     email: row[2]
@@ -51,7 +51,7 @@ CSV.foreach('invites.csv', headers: true) do |row|
 
   row[3..-1].each.with_index(1) do |cell, index|
     if cell && affirmative_responses.include?(cell.downcase)
-      Rsvp.create(
+      Rsvp.find_or_create_by(
         user_id: user.id,
         event_id: index
       )
