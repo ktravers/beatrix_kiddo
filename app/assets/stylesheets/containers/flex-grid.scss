@@ -1,0 +1,22 @@
+/*
+ * Container: Flex Grid
+ * Parent container for flexible items that can grow or shrink based on the available space in a container. The flexbox container can alter the height and width of its items to efficiently fill the available space. See: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+ */
+
+
+/*
+ * Overall Rules
+ */
+
+.flex-grid {
+  display: flex;
+  flex-direction: row;
+}
+
+/*
+ * Local Descendants
+ */
+
+.flex-grid__cell {
+  display: flex;
+}
