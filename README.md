@@ -15,8 +15,8 @@
 
 - [ ] Registry
 - [x] Accomodations
-    - [x] Hotels
-    - [x] Airbnbs
+  - [x] Hotels
+  - [x] Airbnbs
 
 - [x] Travel / Getting Around
   - [x] Airports
@@ -31,12 +31,12 @@
 
 - [x] Save the Date
 - [ ] Generic Event
-- [ ] rake task
-- [ ] set up sendgrid
+- [x] rake task
+- [x] set up sendgrid
 
 ## ACCOUNT FUNCTIONALITY
 
-- [X] Login / Logout
+- [x] Login / Logout
 - [x] Event View Permissions (login wall)
 
 ## RSVP FUNCTIONALITY
