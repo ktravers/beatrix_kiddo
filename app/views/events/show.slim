@@ -17,8 +17,11 @@
               a href="#{@event_gcal_url}" target='_blank' title='Add to Google Calendar'
                 = svg_tag('svg__icon--gcal', height: '82', width: '82')
             span.heading.util--padding-lxl
-              a href="/events/#{@event_slug}.ics" target='_blank'  title='Add to iCal'
+              a href="/events/#{@event_slug}.ics" target='_blank' title='Add to iCal'
                 = svg_tag('svg__icon--ical', height: '82', width: '82')
+            span.heading.util--padding-lxl
+              a href="#rsvp" title='RSVP'
+                = svg_tag('svg__icon--rsvp', height: '52', width: '104', class: 'button')
 
         .util--hide-large.util--hide-medium
           span.heading.heading--level-3.util--padding-rl= @event_name
@@ -27,8 +30,11 @@
               a href="#{@event_gcal_url}" target='_blank' title='Add to Google Calendar'
                 = svg_tag('svg__icon--gcal', height: '52', width: '52')
             span.heading.util--padding-ll
-              a href="/events/#{@event_slug}.ics" target='_blank'   title='Add to iCal'
+              a href="/events/#{@event_slug}.ics" target='_blank' title='Add to iCal'
                 = svg_tag('svg__icon--ical', height: '52', width: '52')
+            span.heading.util--padding-ll
+              a href="#rsvp" title='RSVP'
+                = svg_tag('svg__icon--rsvp', height: '22', width: '48', class: 'button')
 
       .module__body
         .util--show-medium-up
