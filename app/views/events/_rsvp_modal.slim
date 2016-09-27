@@ -1,0 +1,22 @@
+#rsvp.site-modal__overlay
+  .site-modal__overlay__inner
+    .module.module--lilypad
+      .module__head
+         a.site-modal__overlay__dismiss href="/events/#{@event_slug}" &times;
+
+      .module__body
+        .util--show-medium-up
+        .util--hide-large.util--hide-medium
+
+      .module__foot
+        .util--show-medium-up
+        .util--hide-large.util--hide-medium
+
+        - flash.each do |type, message|
+          - if !message.empty?
+            .util--show-medium-up
+              .heading.heading--level-8.heading--color-red
+                = message
+            .util--hide-large.util--hide-medium
+              .heading.heading--level-10.heading--color-red
+                = message

@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   def login_required(redirect_path: redirect_path)
     unless logged_in?
       session[:redirect_path] = redirect_path
-      return redirect_to "#{login_path}#new"
+      return redirect_to "#{login_path}#login"
     end
   end
 end
