@@ -1,22 +1,43 @@
 #rsvp.site-modal__overlay
   .site-modal__overlay__inner
-    .module.module--lilypad
-      .module__head
-         a.site-modal__overlay__dismiss href="/events/#{@event_slug}" &times;
+    = form_tag api_rsvp_path(@rsvp), method: :patch do
+      .module.module--lilypad
+        .module__head
+           a.site-modal__overlay__dismiss href="/events/#{@event_slug}" &times;
 
-      .module__body
-        .util--show-medium-up
-        .util--hide-large.util--hide-medium
+        .module__body.util--text-align-c
+          // .util--show-medium-up
+          // .util--hide-large.util--hide-medium
 
-      .module__foot
-        .util--show-medium-up
-        .util--hide-large.util--hide-medium
+          .util--show-medium-up
+            h1.heading.heading--level-5
+              | RSVP ME
+          .util--hide-large.util--hide-medium
+            h1.heading.heading--level-7
+              | RSVP ME
 
-        - flash.each do |type, message|
-          - if !message.empty?
-            .util--show-medium-up
-              .heading.heading--level-8.heading--color-red
-                = message
-            .util--hide-large.util--hide-medium
-              .heading.heading--level-10.heading--color-red
-                = message
+
+          .radio-group
+            | YES NO
+
+        .module__foot.util--text-align-c
+          // .util--show-medium-up
+          // .util--hide-large.util--hide-medium
+
+          .util--show-medium-up
+            h1.heading.heading--level-5
+              | TO #{@event_name}
+          .util--hide-large.util--hide-medium
+            h1.heading.heading--level-7
+              | TO #{@event_name}
+
+          = button_tag 'Confirm', type: 'submit', class: 'button'
+
+          - flash.each do |type, message|
+            - if !message.empty?
+              .util--show-medium-up
+                .heading.heading--level-8.heading--color-red
+                  = message
+              .util--hide-large.util--hide-medium
+                .heading.heading--level-10.heading--color-red
+                  = message

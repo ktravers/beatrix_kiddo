@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     # Rsvps
-    resources :rsvps, only: [:edit, :update]
+    resources :rsvps, only: [:update]
   end
 
   if Rails.env.development?

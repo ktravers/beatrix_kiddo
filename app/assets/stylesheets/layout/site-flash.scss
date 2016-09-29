@@ -1,0 +1,23 @@
+/*
+ * Site Flash
+ */
+
+.site-flash {
+  padding: ($content-spacing * 2) ($content-spacing * 6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  color: $white;
+  @extend .border-box;
+  @extend .util--text-align-c;
+}
+
+
+/*
+ * Contextual Styles
+ */
+
+.site-flash[data-type='alert'] {
+  background-color: $red;
+}

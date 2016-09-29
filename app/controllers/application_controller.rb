@@ -2,7 +2,6 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  # before_action login_required
 
   def login(user)
     session[:user_id] = user.id
@@ -24,5 +23,10 @@ class ApplicationController < ActionController::Base
       session[:redirect_path] = redirect_path
       return redirect_to "#{login_path}#login"
     end
+  end
+
+  def graceful_redirect(message)
+    flash.alert = String(message)
+    return redirect_to root_path
   end
 end
