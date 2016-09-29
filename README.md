@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/github/ktravers/beatrix-kiddo/badges/gpa.svg)](https://codeclimate.com/github/ktravers/beatrix-kiddo)
+
 # TODOS
 
 ## EVENT PAGES
