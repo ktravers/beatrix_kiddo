@@ -10,13 +10,13 @@ namespace :invite do
       puts 'Please enter at least one rsvp id.'
     end
 
-    rsvps = Rsvp.where(id: rsvp_ids)
+    rsvps = Rsvp.unsent.where(event_id: rsvp_ids)
     send_rsvps(rsvps)
   end
 
   desc 'send out all Save the Date invites'
   task :save_the_date => :environment do
-    rsvps = Rsvp.where(event_id: 1)
+    rsvps = Rsvp.unsent.where(event_id: 1)
     send_rsvps(rsvps)
   end
 
@@ -29,6 +29,7 @@ namespace :invite do
         guest_email = rsvp.user.email
         puts "Sending email to #{guest_email}..."
         UserMailer.send_save_the_date(rsvp).deliver_now
+        rsvp.sent!
 
         mail_count += 1
       rescue
