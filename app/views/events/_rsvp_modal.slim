@@ -6,38 +6,43 @@
            a.site-modal__overlay__dismiss href="/events/#{@event_slug}" &times;
 
         .module__body.util--text-align-c
-          // .util--show-medium-up
-          // .util--hide-large.util--hide-medium
-
           .util--show-medium-up
             h1.heading.heading--level-5
-              | RSVP ME
+              | RSVP me
           .util--hide-large.util--hide-medium
             h1.heading.heading--level-7
-              | RSVP ME
+              | RSVP me
 
-
+          // TODO
           .radio-group
             | YES NO
 
         .module__foot.util--text-align-c
-          // .util--show-medium-up
-          // .util--hide-large.util--hide-medium
-
           .util--show-medium-up
-            h1.heading.heading--level-5
-              | TO #{@event_name}
+            .heading.heading--level-7
+              | #{@event_name}
+            .heading.heading--level-8
+              | #{@event_venue}
+            .heading.heading--level-8
+              | #{@event_timespan}
+
           .util--hide-large.util--hide-medium
-            h1.heading.heading--level-7
-              | TO #{@event_name}
+            .heading.heading--level-9
+              | #{@event_name}
+            .heading.heading--level-10
+              | #{@event_venue}
+            .heading.heading--level-10
+              | #{@event_timespan}
 
-          = button_tag 'Confirm', type: 'submit', class: 'button'
+        .module__foot.util--text-align-c
+          = button_tag 'Confirm', type: 'submit', class: 'button button--color-grey-dark'
 
-          - flash.each do |type, message|
-            - if !message.empty?
-              .util--show-medium-up
-                .heading.heading--level-8.heading--color-red
-                  = message
-              .util--hide-large.util--hide-medium
-                .heading.heading--level-10.heading--color-red
-                  = message
+          .util--padding-tl.util--padding-bxl
+            - flash.each do |type, message|
+              - if !message.empty?
+                .util--show-medium-up
+                  .heading.heading--level-8.heading--color-red
+                    = message
+                .util--hide-large.util--hide-medium
+                  .heading.heading--level-10.heading--color-red
+                    = message

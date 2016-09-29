@@ -5,13 +5,13 @@ class EventsController < ApplicationController
     event = Event.find_by(slug: params[:event_slug])
     graceful_redirect(no_event_message) and return unless event
 
-    @event_slug = event.slug
     @event_name = event.name
-    login_required(redirect_path: "/events/#{@event_slug}") and return unless current_user
+    login_required(redirect_path: "/events/#{params[:event_slug]}") and return unless current_user
 
     @rsvp = Rsvp.find_by(user: current_user, event: event)
     graceful_redirect(no_rsvp_message) and return unless @rsvp
 
+    @event_slug     = event.slug
     @event_venue    = event.venue_name
     @event_address  = event.venue_address
     @event_timespan = event.timespan

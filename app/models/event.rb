@@ -7,18 +7,33 @@ class Event < ActiveRecord::Base
   GOOGLE_MAP_BASE_URL='https://www.google.com/maps/place/'
 
   def timespan
-    return if start_time.nil? || end_time.nil?
+    return unless formatted_start_time && formatted_end_time
 
     if slug == 'save-the-date' # special case
-      formatted_start = start_time.strftime("%B %e").strip
-      formatted_end = end_time.strftime("%e").strip
-      "#{formatted_start}-#{formatted_end}"
+      "#{formatted_start_date}-#{formatted_end_date}"
     else
-      formatted_date  = start_time.strftime("%B %e").strip
-      formatted_start = start_time.strftime("%l:%M").strip
-      formatted_end   = end_time.strftime("%l:%M%P").strip
-      "#{formatted_date}, #{formatted_start}-#{formatted_end}"
+      "#{formatted_start_date}, #{formatted_start_time}-#{formatted_end_time}"
     end
+  end
+
+  def formatted_start_time
+    return if start_time.nil?
+    start_time.strftime("%l:%M").strip
+  end
+
+  def formatted_end_time
+    return if end_time.nil?
+    end_time.strftime("%l:%M%P").strip
+  end
+
+  def formatted_start_date
+    return if start_time.nil?
+    start_time.strftime("%B %e").strip
+  end
+
+  def formatted_end_date
+    return if end_time.nil?
+    end_time.strftime("%e").strip
   end
 
   def year
