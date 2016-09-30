@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   end
   helper_method :logged_in?
 
-  def login_required(redirect_path: redirect_path)
+  def login_required(redirect_path: root_path)
     unless logged_in?
       session[:redirect_path] = redirect_path
       return redirect_to "#{login_path}#login"

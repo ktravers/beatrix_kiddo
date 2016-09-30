@@ -44,7 +44,8 @@
 //   input.radio-group__input type='radio' name='group' id='input2'
 //   label.radio-group__label for='input2' No
 
-$radio-icon-width: ($content-spacing * 4);
+$radio-icon-width-large: ($content-spacing * 4);
+$radio-icon-width-small: ($content-spacing * 3);
 
 .radio-group {
   position: relative;
@@ -54,8 +55,8 @@ $radio-icon-width: ($content-spacing * 4);
   input[type='radio'].radio-group__input + .radio-group__label:before {
     position: absolute;
     left: 0;
-    width: $radio-icon-width;
-    height: $radio-icon-width;
+    width: $radio-icon-width-large;
+    height: $radio-icon-width-large;
     cursor: pointer;
   }
 
@@ -66,7 +67,7 @@ $radio-icon-width: ($content-spacing * 4);
 
   input[type='radio'].radio-group__input + .radio-group__label {
     padding-left: ($content-spacing * 5);
-    line-height: $radio-icon-width;
+    line-height: $radio-icon-width-large;
   }
 
   input[type='radio'].radio-group__input + .radio-group__label:before {
@@ -78,5 +79,22 @@ $radio-icon-width: ($content-spacing * 4);
 
   input[type='radio'].radio-group__input:checked + .radio-group__label:before {
     background: $blue url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 16.9' width='32' height='48'><path fill='" + $white + "' d='M8.5,16.9c-0.4,0-0.7-0.1-1-0.4L0.4,9.4c-0.5-0.5-0.5-1.4,0-2s1.4-0.5,2,0l6.1,6.1L21.6,0.4c0.5-0.5,1.4-0.5,2,0 c0.5,0.5,0.5,1.4,0,2L9.5,16.5C9.2,16.8,8.9,16.9,8.5,16.9C8.5,16.9,8.5,16.9,8.5,16.9z'/></svg>") center center no-repeat;
+  }
+
+  @media (max-width: $breakpoint-small) {
+    input[type='radio'].radio-group__input,
+    input[type='radio'].radio-group__input + .radio-group__label:before {
+      width: $radio-icon-width-small;
+      height: $radio-icon-width-small;
+    }
+
+    input[type='radio'].radio-group__input + .radio-group__label {
+      padding-left: ($content-spacing * 3.5);
+      line-height: $radio-icon-width-small;
+    }
+
+    input[type='radio'].radio-group__input:checked + .radio-group__label:before {
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 16.9' width='24' height='32'><path fill='" + $white + "' d='M8.5,16.9c-0.4,0-0.7-0.1-1-0.4L0.4,9.4c-0.5-0.5-0.5-1.4,0-2s1.4-0.5,2,0l6.1,6.1L21.6,0.4c0.5-0.5,1.4-0.5,2,0 c0.5,0.5,0.5,1.4,0,2L9.5,16.5C9.2,16.8,8.9,16.9,8.5,16.9C8.5,16.9,8.5,16.9,8.5,16.9z'/></svg>");
+    }
   }
 }
