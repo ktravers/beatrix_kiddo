@@ -1,5 +1,7 @@
 - flash.each do |type, message|
-  - if !message.empty?
+  - show_message = (!message.empty? && filter && filter != type)
+
+  - if show_message
     .site-flash data-type="#{type}"
       .util--show-medium-up
         .heading.heading--level-8

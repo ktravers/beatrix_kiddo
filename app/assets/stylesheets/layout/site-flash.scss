@@ -21,3 +21,7 @@
 .site-flash[data-type='alert'] {
   background-color: $red;
 }
+
+.site-flash[data-type='notice'] {
+  background-color: $blue;
+}

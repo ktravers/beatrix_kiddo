@@ -1,5 +1,8 @@
 = content_for(:title, "KC and Kate | #{@event_name}")
 
+= content_for(:flash)
+  = render partial: 'shared/flash', locals: { filter: 'alert' }
+
 = content_for(:modal)
   .level
     .level__inner
