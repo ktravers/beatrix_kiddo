@@ -33,118 +33,50 @@
  * Extensions
  */
 
-// Checkbox group
-// Checkbox + label unit
-//
-// Sample markup:
-// .checkbox-group
-//   input.checkbox-group__input type='checkbox'
-//   .checkbox-group__label I agree
-
-.checkbox-group { position: relative; height: ($content-spacing * 1.5); }
-
-.checkbox-group input[type="checkbox"].checkbox-group__input,
-.checkbox-group input[type="checkbox"].checkbox-group__input + .checkbox-group__label:before {
-  position: absolute;
-  left: 0;
-}
-
-.checkbox-group input[type="checkbox"].checkbox-group__input {
-  -webkit-appearance: checkbox;
-  opacity: 0;
-  z-index: 1;
-  width: ($content-spacing * 1.5);
-  height: ($content-spacing * 1.5);
-}
-
-.checkbox-group input[type="checkbox"].checkbox-group__input + .checkbox-group__label:before {
-  @extend .border-box;
-  content: '';
-  width: ($content-spacing * 1.5);
-  height: ($content-spacing * 1.5);
-  border: 3px solid $grey-faint;
-  border-radius: ($content-spacing / 4);
-}
-
-.checkbox-group input[type="checkbox"].checkbox-group__input + .checkbox-group__label {
-  position: absolute;
-  line-height: ($content-spacing * 1.5);
-  padding-left: ($content-spacing * 2);
-}
-
-.checkbox-group input[type="checkbox"].checkbox-group__input + .checkbox-group__label:before {
-  background: $white url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' height='16' width='16' viewBox='0 0 24 16.9'><path fill='"+ $grey-faintest +"' d='M8.5,16.9c-0.4,0-0.7-0.1-1-0.4L0.4,9.4c-0.5-0.5-0.5-1.4,0-2s1.4-0.5,2,0l6.1,6.1L21.6,0.4c0.5-0.5,1.4-0.5,2,0 c0.5,0.5,0.5,1.4,0,2L9.5,16.5C9.2,16.8,8.9,16.9,8.5,16.9C8.5,16.9,8.5,16.9,8.5,16.9z'/></svg>") center center no-repeat;
-}
-
-.checkbox-group input[type="checkbox"].checkbox-group__input:checked + .checkbox-group__label:before {
-  background-color: $blue;
-  border-color: $blue;
-}
-
 // Radio Group
 // Radio + label unit
 //
 // Sample markup:
 // .radio-group.radio-group--inline
-//   input.radio-group__input type='radio' name='group' id='js--input1'
-//   label.radio-group__label for='js--input1' Yes
+//   input.radio-group__input type='radio' name='group' id='input1'
+//   label.radio-group__label for='input1' Yes
 // .radio-group.radio-group--inline
-//   input.radio-group__input type='radio' name='group' id='js--input2'
-//   label.radio-group__label for='js--input2' No
+//   input.radio-group__input type='radio' name='group' id='input2'
+//   label.radio-group__label for='input2' No
 
-$radio-icon-width: ($content-spacing * 2);
+$radio-icon-width: ($content-spacing * 4);
 
-.radio-group { }
-.radio-group input[type='radio'].radio-group__input { opacity: 0; }
-.radio-group input[type='radio'].radio-group__input + .radio-group__label { cursor: pointer; }
-
-.radio-group input[type='radio'].radio-group__input + .radio-group__label:before {
-  @extend .border-box;
-  content: '';
-  width: $radio-icon-width;
-  height: $radio-icon-width;
-  border: 3px solid $grey-lighter;
-  border-radius: 99999px;
-}
-
-.radio-group input[type='radio'].radio-group__input:checked + .radio-group__label:before {
-  background: $green url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 16.9' width='12' height='16'><path fill='" + $white + "' d='M8.5,16.9c-0.4,0-0.7-0.1-1-0.4L0.4,9.4c-0.5-0.5-0.5-1.4,0-2s1.4-0.5,2,0l6.1,6.1L21.6,0.4c0.5-0.5,1.4-0.5,2,0 c0.5,0.5,0.5,1.4,0,2L9.5,16.5C9.2,16.8,8.9,16.9,8.5,16.9C8.5,16.9,8.5,16.9,8.5,16.9z'/></svg>") center center no-repeat;
-}
-
-/* Local option: Inline */
-
-.radio-group--inline {
+.radio-group {
   position: relative;
-
-  input[type='radio'].radio-group__input {
-    z-index: 1;
-    width: $radio-icon-width;
-    height: $radio-icon-width;
-    cursor: pointer;
-  }
+  display: inline-block;
 
   input[type='radio'].radio-group__input,
   input[type='radio'].radio-group__input + .radio-group__label:before {
     position: absolute;
     left: 0;
+    width: $radio-icon-width;
+    height: $radio-icon-width;
+    cursor: pointer;
+  }
+
+  input[type='radio'].radio-group__input {
+    opacity: 0;
+    z-index: 1;
   }
 
   input[type='radio'].radio-group__input + .radio-group__label {
-    padding-left: ($content-spacing * 3);
+    padding-left: ($content-spacing * 5);
     line-height: $radio-icon-width;
   }
-}
-
-/* Local option: Stacked */
-
-.radio-group--stacked {
-  text-align: center;
-
-  input[type='radio'].radio-group__input { display: none; }
-  input[type='radio'].radio-group__input + .radio-group__label { display: block; }
 
   input[type='radio'].radio-group__input + .radio-group__label:before {
-    display: block;
-    margin: 0 auto ($content-spacing / 2);
+    @extend .border-box;
+    content: '';
+    border: ($content-spacing / 4) solid $grey-dark;
+    border-radius: ($content-spacing / 4);
+  }
+
+  input[type='radio'].radio-group__input:checked + .radio-group__label:before {
+    background: $blue url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 16.9' width='32' height='48'><path fill='" + $white + "' d='M8.5,16.9c-0.4,0-0.7-0.1-1-0.4L0.4,9.4c-0.5-0.5-0.5-1.4,0-2s1.4-0.5,2,0l6.1,6.1L21.6,0.4c0.5-0.5,1.4-0.5,2,0 c0.5,0.5,0.5,1.4,0,2L9.5,16.5C9.2,16.8,8.9,16.9,8.5,16.9C8.5,16.9,8.5,16.9,8.5,16.9z'/></svg>") center center no-repeat;
   }
 }

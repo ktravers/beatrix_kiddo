@@ -83,6 +83,41 @@
 }
 
 
+// Clicker module
+// Module will full width button in foot
+
+.module--clicker {
+  @extend .heading--color-grey-dark;
+  background: $white;
+  border-radius: ($content-spacing / 4);
+  border: ($content-spacing / 4) solid $grey-dark;
+
+  .module__head, .module__body {
+    padding-top: ($content-spacing * 2.5);
+    padding-left: ($content-spacing * 1.5);
+    padding-right: ($content-spacing * 1.5);
+  }
+
+  .module__body {
+    padding-bottom: ($content-spacing * 2.5);
+  }
+
+  .module__foot {
+    border-top: ($content-spacing / 4) solid $grey-dark;
+  }
+
+  .module--clicker__clicker {
+    border: none;
+  }
+
+  @media (max-width: $breakpoint-medium) {
+    .module__head, .module__body {
+      padding: ($content-spacing * 1.5) ($content-spacing * 0.75);
+    }
+  }
+}
+
+
 /*
  * Options
  */

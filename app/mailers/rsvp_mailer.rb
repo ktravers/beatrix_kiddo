@@ -8,17 +8,11 @@ class RsvpMailer < ApplicationMailer
     @user_first_name = user.first_name
     @subject         = "#{event.name.upcase} for KC and Kate [Labor Day Weekend, #{event.timespan}, #{event.year}]"
 
-    send_email(recipient, @subject)
-  end
-
-  private
-
-  def send_email(recipient, subject)
     sendgrid_category :use_subject_lines
 
     mail(
       to: recipient,
-      subject: subject,
+      subject: @subject,
       content_type: 'text/html'
     )
   end

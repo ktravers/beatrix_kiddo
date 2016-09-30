@@ -1,48 +1,66 @@
 #rsvp.site-modal__overlay
   .site-modal__overlay__inner
     = form_tag api_rsvp_path(@rsvp), method: :patch do
-      .module.module--lilypad
-        .module__head
-           a.site-modal__overlay__dismiss href="/events/#{@event_slug}" &times;
+      .module.module--clicker
+        .module__head.util--text-align-c
+          a.site-modal__overlay__dismiss href="/events/#{@event_slug}" &times;
+
+          .util--show-medium-up
+            .util--padding-bm.util--padding-tm
+              h2.heading.heading--level-5
+                | I will be attending
+            h2.heading.heading--level-7
+              | #{@event_name}
+            h3.heading.heading--level-8
+              | #{@event_venue}
+            h3.heading.heading--level-8
+              | #{@event_timespan}
+
+          .util--hide-large.util--hide-medium
+            .util--padding-bm.util--padding-tm
+              h2.heading.heading--level-7
+                | I will be attending
+            h2.heading.heading--level-9
+              | #{@event_name}
+            h3.heading.heading--level-10
+              | #{@event_venue}
+            h3.heading.heading--level-10
+              | #{@event_timespan}
 
         .module__body.util--text-align-c
           .util--show-medium-up
-            h1.heading.heading--level-5
-              | RSVP me
-          .util--hide-large.util--hide-medium
-            h1.heading.heading--level-7
-              | RSVP me
-
-          // TODO
-          .radio-group
-            | YES NO
-
-        .module__foot.util--text-align-c
-          .util--show-medium-up
-            .heading.heading--level-7
-              | #{@event_name}
-            .heading.heading--level-8
-              | #{@event_venue}
-            .heading.heading--level-8
-              | #{@event_timespan}
+            .table-grid.border-box.util--padding-lxl.util--padding-rxl
+              .table-grid__cell.border-box.util--padding-lxl
+                .radio-group.radio-group--inline
+                  input.radio-group__input type='radio' name='rsvp' id='rsvp-yes'
+                  label.radio-group__label.heading.heading--level-7 for='rsvp-yes'
+                    | Yes
+              .table-grid__cell.border-box.util--padding-rxl
+                .radio-group.radio-group--inline
+                  input.radio-group__input type='radio' name='rsvp' id='rsvp-no'
+                  label.radio-group__label.heading.heading--level-7 for='rsvp-no'
+                    | No
 
           .util--hide-large.util--hide-medium
-            .heading.heading--level-9
-              | #{@event_name}
-            .heading.heading--level-10
-              | #{@event_venue}
-            .heading.heading--level-10
-              | #{@event_timespan}
+            .table-grid
+              .table-grid__cell
+                .radio-group.radio-group--inline
+                  input.radio-group__input type='radio' name='rsvp' id='rsvp-yes'
+                  label.radio-group__label.heading.heading--level-9 for='rsvp-yes' Yes
+              .table-grid__cell
+                .radio-group.radio-group--inline
+                  input.radio-group__input type='radio' name='rsvp' id='rsvp-no'
+                  label.radio-group__label.heading.heading--level-9 for='rsvp-no' No
 
-        .module__foot.util--text-align-c
-          = button_tag 'Confirm', type: 'submit', class: 'button button--color-grey-dark'
-
-          .util--padding-tl.util--padding-bxl
-            - flash.each do |type, message|
-              - if !message.empty?
+          - flash.each do |type, message|
+            - if !message.empty?
+              .util--padding-tl
                 .util--show-medium-up
-                  .heading.heading--level-8.heading--color-red
+                  h4.heading.heading--level-8.heading--color-red
                     = message
                 .util--hide-large.util--hide-medium
-                  .heading.heading--level-10.heading--color-red
+                  h4.heading.heading--level-10.heading--color-red
                     = message
+
+        .module__foot.util--text-align-c
+          = button_tag 'Rsvp', type: 'submit', class: 'module--clicker__clicker button button--color-grey-dark button--layout-block button--height-large button--corners-sharp'

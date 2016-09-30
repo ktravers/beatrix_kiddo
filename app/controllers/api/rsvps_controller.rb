@@ -2,6 +2,8 @@ class Api::RsvpsController < ApplicationController
   def update
     rsvp = Rsvp.find_by(id: rsvp_params[:id])
     # TODO
+
+    # send confirmation email
   end
 
   private
