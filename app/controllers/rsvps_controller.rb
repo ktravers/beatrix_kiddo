@@ -17,7 +17,7 @@ class RsvpsController < ApplicationController
         sent_at: rsvp.sent_at || Time.now
       })
     else
-      # no op
+      # NOOP
     end
 
     rsvp.update(attrs)
