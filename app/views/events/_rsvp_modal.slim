@@ -31,7 +31,8 @@
                     | No&#32;
 
             - flash.each do |type, message|
-              - if !message.empty?
+              - show_message = (!message.empty? && type != 'notice')
+              - if show_message
                 .util--padding-tl
                   .util--show-medium-up
                     h4.heading.heading--level-8.heading--color-red
@@ -69,7 +70,8 @@
                   | No&#32;
 
             - flash.each do |type, message|
-              - if !message.empty?
+              - show_message = (!message.empty? && type != 'notice')
+              - if show_message
                 .util--padding-tl
                   h4.heading.heading--level-10.heading--color-red
                     = message
