@@ -4,6 +4,8 @@ class Rsvp < ActiveRecord::Base
 
   validates_presence_of :user, :event
   validates_uniqueness_of :user_id, scope: [:event_id]
+  validates :accepted_at, absence: true, if: :declined_at
+  validates :declined_at, absence: true, if: :accepted_at
 
   scope :unsent,        -> { where(sent_at: nil) }
   scope :unconfirmed,   -> { where(accepted_at: nil, declined_at: nil) }
@@ -20,5 +22,15 @@ class Rsvp < ActiveRecord::Base
 
   def declined!
     update(declined_at: Time.now)
+  end
+
+  def status
+    if accepted_at
+      'attending'
+    elsif declined_at
+      'not attending'
+    else
+      'unconfirmed'
+    end
   end
 end
