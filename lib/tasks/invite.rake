@@ -16,16 +16,22 @@ namespace :invite do
 
   desc 'send out all invites for specific event'
   task :all_event_guests => :environment do
+    event_id = nil
     puts "\nInput event id:"
 
     loop do
-      event_id = STDIN.gets.chomp.split(',')
-      break if event_id.length >= 1
+      event_id = STDIN.gets.chomp
+      break if event_id.length == 1
       puts 'Please enter one rsvp id.'
     end
 
     rsvps = Rsvp.unsent.where(event_id: event_id)
-    send_rsvps(rsvps)
+
+    if rsvps.length > 0
+      send_rsvps(rsvps)
+    else
+      puts "All invites have already been sent for event ##{event_id}"
+    end
   end
 
   def send_rsvps(rsvps)

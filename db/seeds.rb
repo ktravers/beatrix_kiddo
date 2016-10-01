@@ -46,8 +46,8 @@ end
 CSV.foreach('invites.csv', headers: true) do |row|
   # row => ['Beatrix', 'Kiddo', 'bride@thebride.com', 'yes', 'yes' etc...]
 
-  first_name = row[0].strip.capitalize unless row[0].blank?
-  last_name  = row[1].strip.capitalize unless row[1].blank?
+  first_name = row[0].strip.titleize unless row[0].blank?
+  last_name  = row[1].strip.titleize unless row[1].blank?
   email      = row[2].strip.downcase unless row[2].blank?
   full_name  = "#{first_name} #{last_name}"
 
