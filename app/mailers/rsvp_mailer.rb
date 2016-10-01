@@ -12,7 +12,6 @@ class RsvpMailer < ApplicationMailer
     @event_name      = event.name
     @event_venue     = event.venue_name
     @event_address   = event.venue_address
-    @event_timespan  = "#{event.timespan}, #{event.year}"
     @event_date      = "#{event.formatted_start_date}, #{event.year}"
     @event_time      = "#{event.formatted_start_time}-#{event.formatted_end_time}"
 
@@ -22,7 +21,7 @@ class RsvpMailer < ApplicationMailer
 
     @user_email      = user.email
     @user_first_name = user.first_name
-    @subject         = "[RSVP: #{@rsvp_status}] #{@event_name} for KC and Kate: #{@event_time}"
+    @subject         = "[RSVP: #{@rsvp_status}] #{@event_name} for KC and Kate: #{@event_date}"
 
     sendgrid_category :use_subject_lines
 

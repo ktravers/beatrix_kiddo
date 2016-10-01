@@ -22,7 +22,6 @@ class UserMailer < ApplicationMailer
     @event_name      = event.name
     @event_venue     = event.venue_name
     @event_address   = event.venue_address
-    @event_timespan  = "#{event.timespan}, #{event.year}"
     @event_date      = "#{event.formatted_start_date}, #{event.year}"
     @event_time      = "#{event.formatted_start_time}-#{event.formatted_end_time}"
     @event_name_with_article = indefinite_article(event.name)
@@ -33,7 +32,7 @@ class UserMailer < ApplicationMailer
 
     @user_email      = user.email
     @user_first_name = user.first_name
-    @subject         = "#{@event_name.upcase} for KC and Kate [#{@event_time}]"
+    @subject         = "[Invitation] #{@event_name.upcase} for KC and Kate: #{@event_date}"
 
     send_email(recipient, @subject)
   end
