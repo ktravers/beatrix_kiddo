@@ -10,8 +10,8 @@ class SessionsController < ApplicationController
 
       redirect_to redirect_path
     else
-      flash[:notice] = 'Sorry, can\'t find an invite for that email address. Try again?'
-      redirect_to "#{login_path}#new"
+      flash.alert = 'Sorry, can\'t find an invite for that email address. Try again?'
+      redirect_to "#{login_path}#login"
     end
   end
 

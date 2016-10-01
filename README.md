@@ -29,12 +29,13 @@
 - [x] About
 - [ ] Trivia
 
-## MAILER
+## MAILERS
 
 - [x] Save the Date
+- [ ] Engagement Party
 - [ ] Generic Event
-- [x] rake task
-- [x] set up sendgrid
+- [x] Invite rake task
+- [x] Sendgrid config
 
 ## ACCOUNT FUNCTIONALITY
 
@@ -43,5 +44,6 @@
 
 ## RSVP FUNCTIONALITY
 
-- [ ] Update
+- [x] Update
 - [ ] Export to CSV
+- [ ] Email confirmation

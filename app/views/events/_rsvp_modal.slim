@@ -1,0 +1,79 @@
+#rsvp.site-modal__overlay
+  .site-modal__overlay__inner
+    .module.module--clicker
+
+      // SHOW MEDIUM AND UP
+      .util--show-medium-up
+        = form_tag rsvp_path(@rsvp), method: :patch do
+          .module__head.util--text-align-c
+            a.site-modal__overlay__dismiss href="/events/#{@event_slug}" &times;
+            .util--padding-bm.util--padding-tm
+              h2.heading.heading--level-5
+                | I will be attending
+            h2.heading.heading--level-7
+              | #{@event_name}
+            h3.heading.heading--level-8
+              | #{@event_venue}
+            h3.heading.heading--level-8
+              | #{@event_timespan}
+
+          .module__body.util--text-align-c
+            .table-grid.border-box.util--padding-lxl.util--padding-rxl
+              .table-grid__cell.border-box.util--padding-lxl
+                .radio-group.radio-group--inline
+                  = radio_button_tag 'rsvp[response]', 'accepted_at', !!@rsvp.accepted_at, class: 'radio-group__input', id: 'rsvp-yes'
+                  label.radio-group__label.heading.heading--level-7 for='rsvp-yes'
+                    | Yes
+              .table-grid__cell.border-box.util--padding-rxl
+                .radio-group.radio-group--inline
+                  = radio_button_tag 'rsvp[response]', 'declined_at', !!@rsvp.declined_at, class: 'radio-group__input', id: 'rsvp-no'
+                  label.radio-group__label.heading.heading--level-7 for='rsvp-no'
+                    | No&#32;
+
+            - flash.each do |type, message|
+              - if !message.empty?
+                .util--padding-tl
+                  .util--show-medium-up
+                    h4.heading.heading--level-8.heading--color-red
+                      = message
+
+          .module__foot.util--text-align-c
+            = hidden_field_tag 'rsvp[id]', "#{@rsvp.id}"
+            = button_tag 'Rsvp', type: 'submit', class: 'module--clicker__clicker button button--color-grey-dark button--layout-block button--height-large button--corners-sharp'
+
+      // SHOW SMALL AND BELOW
+      .util--hide-large.util--hide-medium
+        = form_tag rsvp_path(@rsvp), method: :patch do
+          .module__head.util--text-align-c
+            a.site-modal__overlay__dismiss href="/events/#{@event_slug}" &times;
+            .util--padding-bm.util--padding-tm
+              h2.heading.heading--level-7
+                | I will be attending
+            h2.heading.heading--level-9
+              | #{@event_name}
+            h3.heading.heading--level-10
+              | #{@event_venue}
+            h3.heading.heading--level-10
+              | #{@event_timespan}
+
+          .module__body.util--text-align-c
+            .util--display-inline-block.util--padding-rl
+              .radio-group.radio-group--inline
+                = radio_button_tag 'rsvp[response]', 'accepted_at', !!@rsvp.accepted_at, class: 'radio-group__input', id: 'rsvp-yes'
+                label.radio-group__label.heading.heading--level-9.heading--weight-heavier for='rsvp-yes'
+                  | Yes
+            .util--display-inline-block.util--padding-ll
+              .radio-group.radio-group--inline
+                = radio_button_tag 'rsvp[response]', 'declined_at', !!@rsvp.declined_at, class: 'radio-group__input', id: 'rsvp-no'
+                label.radio-group__label.heading.heading--level-9.heading--weight-heavier for='rsvp-no'
+                  | No&#32;
+
+            - flash.each do |type, message|
+              - if !message.empty?
+                .util--padding-tl
+                  h4.heading.heading--level-10.heading--color-red
+                    = message
+
+          .module__foot.util--text-align-c
+            = hidden_field_tag 'rsvp[id]', "#{@rsvp.id}"
+            = button_tag 'Rsvp', type: 'submit', class: 'module--clicker__clicker button button--color-grey-dark button--layout-block button--corners-sharp'

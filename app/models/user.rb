@@ -12,22 +12,4 @@ class User < ActiveRecord::Base
   def full_name
     "#{first_name.strip} #{last_name.strip}"
   end
-
-  def invited_to?(event_id)
-    !!self.rsvps.find_by(event_id: event_id)
-  end
-
-  def rsvped_to?(event_id)
-    rsvp = self.rsvps.find_by(event_id: event_id)
-    return false unless rsvp
-
-    !!(rsvp.accepted_at || rsvp.declined_at)
-  end
-
-  def attending?(event_id)
-    rsvp = self.rsvps.find_by(event_id: event_id)
-    return false unless rsvp
-
-    !!rsvp.accepted_at
-  end
 end

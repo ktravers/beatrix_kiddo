@@ -1,0 +1,11 @@
+- flash.each do |type, message|
+  - show_message = (!message.empty? && filter && filter != type)
+
+  - if show_message
+    .site-flash data-type="#{type}"
+      .util--show-medium-up
+        .heading.heading--level-8
+          = message.html_safe
+      .util--hide-large.util--hide-medium
+        .heading.heading--level-10
+          = message.html_safe

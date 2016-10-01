@@ -16,10 +16,8 @@ Rails.application.routes.draw do
   # Event Pages
   get '/events/:event_slug' => 'events#show'
 
-  namespace :api do
-    # Rsvps
-    resources :rsvps, only: [:edit, :update]
-  end
+  # Rsvps
+  resources :rsvps, only: [:update]
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: '/letter_opener'

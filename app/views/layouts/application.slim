@@ -16,6 +16,7 @@ html
     = render partial: 'shared/menu'
 
     section.site-main
+      = yield(:flash)
       = yield
 
     = render partial: 'shared/footer'
