@@ -50,7 +50,6 @@ namespace :invite do
           UserMailer.send_invite(rsvp).deliver_now
         end
 
-        rsvp.sent!
         mail_count += 1
       rescue
         fail_count += 1

@@ -10,6 +10,7 @@ class UserMailer < ApplicationMailer
     @subject         = "#{event.name.upcase} for KC and Kate [Labor Day Weekend, #{event.timespan}, #{event.year}]"
 
     send_email(recipient, @subject)
+    rsvp.sent!
   end
 
   # generic event invite
@@ -35,6 +36,7 @@ class UserMailer < ApplicationMailer
     @subject         = "[Invitation] #{@event_name.upcase} for KC and Kate: #{@event_date}"
 
     send_email(recipient, @subject)
+    rsvp.sent!
   end
 
   private
