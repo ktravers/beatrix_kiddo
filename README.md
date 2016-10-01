@@ -32,8 +32,7 @@
 ## MAILERS
 
 - [x] Save the Date
-- [ ] Engagement Party
-- [ ] Generic Event
+- [x] Generic Event
 - [x] Invite rake task
 - [x] Sendgrid config
 
@@ -45,5 +44,5 @@
 ## RSVP FUNCTIONALITY
 
 - [x] Update
+- [x] Email confirmation
 - [ ] Export to CSV
-- [ ] Email confirmation
