@@ -77,4 +77,5 @@ group :test do
   gem 'vcr', '>= 2.9.3'
   gem 'webmock', '>= 1.20.4'
   gem 'rspec_junit_formatter', '>= 0.2.2'
+  gem 'codeclimate-test-reporter', require: nil
 end
