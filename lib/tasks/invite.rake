@@ -1,6 +1,6 @@
 namespace :invite do
-  desc 'send invite for specific guest + event'
-  task :manual => :environment do
+  desc 'send invite(s) for specific guest(s) + event'
+  task :specific_event_guests => :environment do
     rsvp_ids = []
     puts "\nInput one or more rsvp ids, separated by commas: "
 
@@ -10,13 +10,21 @@ namespace :invite do
       puts 'Please enter at least one rsvp id.'
     end
 
-    rsvps = Rsvp.unsent.where(event_id: rsvp_ids)
+    rsvps = Rsvp.unsent.where(id: rsvp_ids)
     send_rsvps(rsvps)
   end
 
-  desc 'send out all Save the Date invites'
-  task :save_the_date => :environment do
-    rsvps = Rsvp.unsent.where(event_id: 1)
+  desc 'send out all invites for specific event'
+  task :all_event_guests => :environment do
+    puts "\nInput event id:"
+
+    loop do
+      event_id = STDIN.gets.chomp.split(',')
+      break if event_id.length >= 1
+      puts 'Please enter one rsvp id.'
+    end
+
+    rsvps = Rsvp.unsent.where(event_id: event_id)
     send_rsvps(rsvps)
   end
 
@@ -28,9 +36,15 @@ namespace :invite do
       begin
         guest_email = rsvp.user.email
         puts "Sending email to #{guest_email}..."
-        UserMailer.send_save_the_date(rsvp).deliver_now
-        rsvp.sent!
 
+        case rsvp.event_id
+        when 1
+          UserMailer.send_save_the_date(rsvp).deliver_now
+        else
+          UserMailer.send_invite(rsvp).deliver_now
+        end
+
+        rsvp.sent!
         mail_count += 1
       rescue
         fail_count += 1
