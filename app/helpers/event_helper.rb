@@ -8,4 +8,8 @@ module EventHelper
     @event_slug != 'after-party' &&
       @event_slug != 'save-the-date'
   end
+
+  def rsvp_unconfirmed
+    @rsvp.accepted_at.blank? && @rsvp.declined_at.blank?
+  end
 end

@@ -24,7 +24,7 @@ class RsvpsController < ApplicationController
 
     if rsvp.valid?
       RsvpMailer.send_confirmation(rsvp).deliver_now
-      flash[:notice] = "Thanks for rsvp'ing! Check your inbox for a confirmation email."
+      flash[:notice] = "Thanks for rsvping! Check your inbox for a confirmation email."
       redirect_path  = "/events/#{rsvp.event.slug}"
     else
       flash[:error] = "Aw snap! Something blipped on our end. Please refresh your browser and try again."
