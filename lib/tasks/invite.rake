@@ -34,6 +34,21 @@ namespace :invite do
     end
   end
 
+  desc 'send out reminders for specific event'
+  task :send_reminders => :environment do
+    event_id = nil
+    puts "\nInput event id:"
+
+    loop do
+      event_id = STDIN.gets.chomp
+      break if event_id.length == 1
+      puts 'Please enter one rsvp id.'
+    end
+
+    rsvps = Rsvp.attending.where(event_id: event_id)
+    # TODO: send reminders
+  end
+
   def send_rsvps(rsvps)
     mail_count = 0
     fail_count = 0
