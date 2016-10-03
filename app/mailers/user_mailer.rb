@@ -39,6 +39,12 @@ class UserMailer < ApplicationMailer
     rsvp.sent!
   end
 
+  def send_uninvite(email)
+    recipient = email
+    @subject = "[UPDATE] ENGAGEMENT PARTY for KC and Kate"
+    send_email(recipient, @subject)
+  end
+
   private
 
   def send_email(recipient, subject)
