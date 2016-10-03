@@ -4,29 +4,29 @@
 
 A Rails-based wedding website to help manage everyone on your list.
 
-## Setup
+## Installation
 
 requires [Ruby 2.3.1](https://www.ruby-lang.org/en/documentation/installation/) and [Rails 4.0.0+](http://guides.rubyonrails.org/getting_started.html)
 
 #### Setting up the app locally
 
 1. `git clone` repo to your local machine
-2. cd into `beatrix-kiddo` directory
+2. cd into project directory
 3. run `bundle install`
-4. add `.env` file at root level of project directory. use `example.env` for reference
+4. add `.env` file at root level of project directory (use `example.env` for reference)
 
 #### Setting up the local db
 
-1. add `config/database.yml`. use `example.database.yml` for reference
+1. add `config/database.yml` (use `example.database.yml` for reference)
 2. update `seeds.db` with desired event names
-3. add CSV file 'invites.csv' at root level of project directory
+3. add CSV file `invites.csv` at root level of project directory
 
   ```
   # CSV columns should be organized as follows with events in order left to right from first to last:
   #
-  # First name | Last name | Email              | Save The Date | Engagement Party | etc...
-  # ---------------------------------------------------------------------------------------
-  # Beatrix    | Kiddo     | bride@thebride.com | yes           | yes              | yes
+  # First name | Last name | Email             | Save The Date | Engagement Party | etc...
+  # --------------------------------------------------------------------------------------
+  # Beatrix    | Kiddo     | bride@thebride.io | yes           | yes              | yes
   ```
 4. run `rake db:create; rake db:migrate; rake db:seed`
 

@@ -20,17 +20,18 @@ npm-debug.log*
 /public/system/users
 /public/uploads
 
-# Ignore .env file
-.env
-
 # Ignore SASS cache
 .sass-cache
 
 # Ignore DS Store
 *.DS_Store
 
-# Ignore database.yml
+# Ignore .env file
+.env
+
+# Ignore private yml files
 *database.yml
+*secrets.yml
 
 # Ignore node modules
 node_modules

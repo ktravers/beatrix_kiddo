@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  pool: 5
+  timeout: 5000
+  encoding: unicode
+
+development:
+  <<: *default
+  database: example_development
+
+test:
+  <<: *default
+  database: example_test
+
+production:
+  <<: *default
+  database: example_production

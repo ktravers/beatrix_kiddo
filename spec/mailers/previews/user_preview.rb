@@ -6,8 +6,4 @@ class UserPreview < ActionMailer::Preview
   def send_invite
     UserMailer.send_invite(Rsvp.where(event_id: 2).last)
   end
-
-  def send_uninvite
-    UserMailer.send_uninvite("test@test.com")
-  end
 end
