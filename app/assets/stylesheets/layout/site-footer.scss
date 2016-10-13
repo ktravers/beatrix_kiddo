@@ -14,6 +14,13 @@ section.site-footer {
  * Contextual Styles
  */
 
+// Admin
+// Remove background
+
+body.body--admin { color: $grey-dark; }
+
+// Menu State
+
 body[data-menu-state='open'] {
   section.site-footer { width: 60%; }
 }

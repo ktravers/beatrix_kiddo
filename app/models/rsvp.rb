@@ -24,6 +24,18 @@ class Rsvp < ActiveRecord::Base
     update(declined_at: Time.now)
   end
 
+  def attending?
+    !!accepted_at
+  end
+
+  def not_attending?
+    !!declined_at
+  end
+
+  def unconfirmed?
+    accepted_at.nil? && declined_at.nil?
+  end
+
   def status
     if accepted_at
       'attending'

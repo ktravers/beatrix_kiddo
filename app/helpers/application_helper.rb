@@ -21,4 +21,9 @@ module ApplicationHelper
       fill: (fill if fill)
     )
   end
+
+  def formatted_date(date_string)
+    return unless date_string
+    date_string.strftime('%b %e, %Y')
+  end
 end

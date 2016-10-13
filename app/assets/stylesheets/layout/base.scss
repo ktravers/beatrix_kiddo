@@ -22,3 +22,16 @@ body {
   -webkit-background-size: contain;
   background-size: contain;
 }
+
+/*
+ * Contextual Styles
+ */
+
+// Admin
+// Remove background
+
+body.body--admin {
+  background: none;
+
+  .site-background:before { display: none; }
+}

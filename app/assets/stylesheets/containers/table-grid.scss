@@ -53,14 +53,18 @@
     .table-grid__cell:last-child  { text-align: right; }
   }
 
-  // Fixed
+  // Admin
   // Table and column widths are set by the width of the first row of cells.
   // Cells in subsequent rows do not affect column widths. Overflow content will be clipped.
-  // Cells aligned left.
+  // Cells aligned left with bottom border.
 
-  .table-grid--fixed-left {
+  .table-grid--admin {
     table-layout: fixed;
 
-    .table-grid__cell { text-align: left; }
+    .table-grid__cell {
+      text-align: left;
+      border-bottom: 1px solid $grey-light;
+      padding: ($content-spacing / 2) 0;
+    }
   }
 }

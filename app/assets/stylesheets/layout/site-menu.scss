@@ -33,6 +33,12 @@ section.site-menu {
  * Contextual Styles
  */
 
+body.body--admin {
+  section.site-menu {
+    background: $grey-light;
+  }
+}
+
 body[data-menu-state='open'] {
   section.site-menu { width: 40%; }
 }

@@ -1,5 +1,7 @@
 = content_for(:title, "#{@event.name} | Rsvps")
 
+= content_for(:body_class, 'body--admin')
+
 = content_for(:modal)
   = render partial: 'shared/login_modal'
 
@@ -16,39 +18,48 @@
           h5.heading.heading--level-5.heading--color-grey-dark Not Attending: #{@not_attending_count}
           h5.heading.heading--level-5.heading--color-grey-dark Unconfirmed: #{@unconfirmed_count}
 
-      .module.module--flush.module--layer-cake
-        .module__head
-          .table-grid.table-grid--fixed-left
-            .table-grid__cell
-              h5.heading.heading--level-7.heading--color-grey-dark Name
-            .table-grid__cell
-              h5.heading.heading--level-7.heading--color-grey-dark Invited
-            .table-grid__cell
-              h5.heading.heading--level-7.heading--color-grey-dark Attending
-            .table-grid__cell
-              h5.heading.heading--level-7.heading--color-grey-dark Not Attending
+          .util--padding-txl.util--padding-bxl
+            .table-grid.table-grid--admin
+              .table-grid__cell
+                h5.heading.heading--level-7.heading--color-grey-dark Name
+              .table-grid__cell
+                h5.heading.heading--level-7.heading--color-grey-dark Invited
+              .table-grid__cell
+                h5.heading.heading--level-7.heading--color-grey-dark Attending
+              .table-grid__cell
+                h5.heading.heading--level-7.heading--color-grey-dark Not Attending
 
-      .module.module--flush.module--layer-cake.util--margin-ls
-        .module__head
-          - @rsvps.each do |rsvp|
-            .table-grid.table-grid--fixed-left
-              .table-grid__cell
-                h6.heading.heading--level-8.heading--color-grey-dark= rsvp.user.full_name
-              .table-grid__cell
-                .media-block
-                  .media-block__media
-                    // checkmark
-                  .media-block__content
-                    h6.heading.heading--level-8.heading--color-grey-dark= rsvp.sent_at
-              .table-grid__cell
-                .media-block
-                  .media-block__media
-                    // checkmark
-                  .media-block__content
-                    h6.heading.heading--level-8.heading--color-grey-dark= rsvp.accepted_at
-              .table-grid__cell
-                .media-block
-                  .media-block__media
-                    // checkmark
-                  .media-block__content
-                    h6.heading.heading--level-8.heading--color-grey-dark= rsvp.declined_at
+            - @rsvps.each do |rsvp|
+              .table-grid.table-grid--admin
+                .table-grid__cell
+                  h6.heading.heading--level-8.heading--color-grey-dark= rsvp.user.full_name
+                .table-grid__cell
+                  h6.heading.heading--level-8.heading--color-grey-dark= formatted_date(rsvp.sent_at)
+                .table-grid__cell
+                  - if rsvp.attending?
+                    .media-block
+                      .media-block__media
+                        = svg_tag('svg__icon--confirmed', height: '24', width: '24', class: 'util--vertical-align-m')
+                      .media-block__content
+                        h6.heading.heading--level-8.heading--color-grey-dark= formatted_date(rsvp.accepted_at)
+                  - elsif rsvp.unconfirmed?
+                    .media-block
+                      .media-block__media
+                        = svg_tag('svg__icon--unconfirmed', height: '24', width: '24', class: 'util--vertical-align-m')
+                      .media-block__content
+                        h6.heading.heading--level-8.heading--color-grey-dark tbd
+
+                .table-grid__cell
+                  - if rsvp.not_attending?
+                    .media-block
+                      .media-block__media
+                        = svg_tag('svg__icon--declined', height: '24', width: '24', class: 'util--vertical-align-m')
+                      .media-block__content
+                        h6.heading.heading--level-8.heading--color-grey-dark= formatted_date(rsvp.declined_at)
+                  - elsif rsvp.unconfirmed?
+                    .media-block
+                      .media-block__media
+                        = svg_tag('svg__icon--unconfirmed', height: '24', width: '24', class: 'util--vertical-align-m')
+                      .media-block__content
+                        h6.heading.heading--level-8.heading--color-grey-dark tbd
+
