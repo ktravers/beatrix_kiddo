@@ -13,8 +13,9 @@ Rails.application.routes.draw do
   get 'logout' => 'sessions#destroy', as: :logout
   post 'sessions' => 'sessions#create'
 
-  # Event Pages
+  # Events
   get '/events/:event_slug' => 'events#show'
+  get '/events/:event_slug/admin' => 'events#dashboard'
 
   # Rsvps
   resources :rsvps, only: [:update]

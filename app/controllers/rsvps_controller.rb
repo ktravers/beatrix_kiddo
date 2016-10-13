@@ -1,4 +1,5 @@
 class RsvpsController < ApplicationController
+
   def update
     rsvp  = Rsvp.find_by(id: rsvp_params[:id])
     attrs = {}

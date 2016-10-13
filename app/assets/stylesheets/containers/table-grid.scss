@@ -53,9 +53,14 @@
     .table-grid__cell:last-child  { text-align: right; }
   }
 
-  .table-grid--smoosh {
-    .table-grid__cell { text-align: center; }
-    .table-grid__cell:first-child { text-align: right; }
-    .table-grid__cell:last-child  { text-align: left; }
+  // Fixed
+  // Table and column widths are set by the width of the first row of cells.
+  // Cells in subsequent rows do not affect column widths. Overflow content will be clipped.
+  // Cells aligned left.
+
+  .table-grid--fixed-left {
+    table-layout: fixed;
+
+    .table-grid__cell { text-align: left; }
   }
 }

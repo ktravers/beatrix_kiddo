@@ -1,23 +1,20 @@
 class EventsController < ApplicationController
   include EventHelper
 
+  before_action :authorize_event
+
   def show
-    event = Event.find_by(slug: params[:event_slug])
-    graceful_redirect(no_event_message) and return unless event
-
-    @event_name = event.name
-    login_required(redirect_path: "/events/#{params[:event_slug]}") and return unless current_user
-
-    @rsvp = Rsvp.find_by(user: current_user, event: event)
+    @rsvp = Rsvp.find_by(user: current_user, event: @event)
     graceful_redirect(no_rsvp_message) and return unless @rsvp
 
-    @event_slug     = event.slug
-    @event_venue    = event.venue_name
-    @event_address  = event.venue_address
-    @event_timespan = event.timespan
-    @event_year     = event.year
-    @event_map_url  = event.venue_map_url
-    @event_gcal_url = event.gcal_url
+    @event_name     = @event.name
+    @event_slug     = @event.slug
+    @event_venue    = @event.venue_name
+    @event_address  = @event.venue_address
+    @event_timespan = @event.timespan
+    @event_year     = @event.year
+    @event_map_url  = @event.venue_map_url
+    @event_gcal_url = @event.gcal_url
 
     # TODO
     # @event_background_image = "#{event.name.parameterize}.gif"
@@ -25,12 +22,31 @@ class EventsController < ApplicationController
     respond_to do |f|
       f.html
       f.ics do
-        send_data event.to_ical, filename: "kc-and-kate-#{event.slug}.ics"
+        send_data event.to_ical, filename: "kc-and-kate-#{@event_slug}.ics"
       end
     end
   end
 
+  def dashboard
+    rsvps  = Rsvp.where(event: @event)
+    @rsvps = rsvps.sort_by { |r| r.status }
+
+    @attending_count     = rsvps.attending.count
+    @not_attending_count = rsvps.not_attending.count
+    @unconfirmed_count   = rsvps.unconfirmed.count
+
+    # TODO
+    # download to csv
+  end
+
   private
+
+  def authorize_event
+    @event = Event.find_by(slug: event_params[:event_slug])
+    graceful_redirect(no_event_message) and return unless @event
+
+    login_required(redirect_path: "/events/#{event_params[:event_slug]}") and return unless current_user
+  end
 
   def event_params
     params.permit(:event_slug)
@@ -42,7 +58,7 @@ class EventsController < ApplicationController
   end
 
   def no_rsvp_message
-    "Couldn't find your invite for the #{@event_name.downcase}. Please email "\
+    "Couldn't find your invite for the #{@event.name.downcase}. Please email "\
     "<a href='mailto:rsvp@kcandkate.us'>rsvp@kcandkate.us</a> for tech support."
   end
 end

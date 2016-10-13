@@ -4,10 +4,8 @@
   = render partial: 'shared/flash', locals: { filter: 'alert' }
 
 = content_for(:modal)
-  .level
-    .level__inner
-      = render partial: 'shared/login_modal'
-      = render partial: 'events/rsvp_modal'
+  = render partial: 'shared/login_modal'
+  = render partial: 'events/rsvp_modal'
 
 .level
   .level__inner

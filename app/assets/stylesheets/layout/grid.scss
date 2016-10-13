@@ -3,12 +3,10 @@
  */
 
 .col {
-
   @extend .clearfix;
 
   // These column classes apply at all sizes.
   &[class*="col--size"] { float: left; }
-
 }
 
 .col--size-1of5 { width: 20%; }
@@ -39,10 +37,9 @@
 
 // Medium rules not yet needed – expose them if needed
 
-
  /*@media screen and (min-width: $breakpoint-medium) {*/
 
-   /*// These column classes apply at small sizes.*/
+   /*// These column classes apply at medium sizes.*/
    /*.col[class*="col--m-size"] { float: left; }*/
 
    /*.col--m-size-1of5 { width: 20%; }*/
