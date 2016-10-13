@@ -28,6 +28,8 @@ class EventsController < ApplicationController
   end
 
   def dashboard
+    graceful_redirect('Admins only.') and return unless current_user.admin?
+
     rsvps  = Rsvp.where(event: @event)
     @rsvps = rsvps.sort_by { |r| r.status }
 

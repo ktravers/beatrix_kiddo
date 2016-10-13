@@ -12,4 +12,8 @@ class User < ActiveRecord::Base
   def full_name
     "#{first_name.strip} #{last_name.strip}"
   end
+
+  def admin?
+    [1,2].include?(id)
+  end
 end
