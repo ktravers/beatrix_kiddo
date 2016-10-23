@@ -15,6 +15,7 @@ class EventsController < ApplicationController
     @event_year     = @event.year
     @event_map_url  = @event.venue_map_url
     @event_gcal_url = @event.gcal_url
+    @plus_one       = PlusOne.find_by(user_id: current_user.id, rsvp_id: @rsvp.id)
 
     # TODO
     # @event_background_image = "#{event.name.parameterize}.gif"

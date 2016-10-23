@@ -1,0 +1,68 @@
+#plus-one.site-modal__overlay
+  .site-modal__overlay__inner
+    .module.module--clicker
+
+      // SHOW MEDIUM AND UP
+      .util--show-medium-up
+        = form_tag users_path(@plus_one), method: :post do
+          .module__head.util--text-align-c
+            a.site-modal__overlay__dismiss href="/events/#{@event_slug}" &times;
+            .util--padding-bm.util--padding-tm
+              h2.heading.heading--level-5
+                | Bringing a plus one?
+            h2.heading.heading--level-8
+              | Please enter their name and email below.
+
+          .module__body
+            .table-grid
+              .table-grid__cell
+                label First Name
+                = text_field_tag 'user[first_name]', nil, placeholder: 'First name', class: 'input'
+              .table-grid__cell
+                .util--padding-ll
+              .table-grid__cell
+                label Last Name
+                = text_field_tag 'user[last_name]', nil, placeholder: 'Last name', class: 'input'
+
+            .util--padding-tl
+              label Email
+              = text_field_tag 'user[email]', nil, placeholder: 'Email', class: 'input'
+
+            - flash.each do |type, message|
+              - show_message = (!message.empty? && type != 'notice')
+              - if show_message
+                .util--padding-tl
+                  .util--show-medium-up
+                    h4.heading.heading--level-8.heading--color-red
+                      = message
+
+          .module__foot.util--text-align-c
+            = button_tag 'Confirm', type: 'submit', class: 'module--clicker__clicker button button--color-grey-dark button--layout-block button--height-large button--corners-sharp'
+
+      // SHOW SMALL AND BELOW
+      .util--hide-large.util--hide-medium
+        = form_tag users_path(@plus_one), method: :post do
+          .module__head.util--text-align-c
+            a.site-modal__overlay__dismiss href="/events/#{@event_slug}" &times;
+            .util--padding-bm.util--padding-tm
+              h2.heading.heading--level-5
+                | Bringing a plus one?
+            h2.heading.heading--level-9
+              | Please enter their name and email below.
+
+          .module__body.util--text-align-c
+            = text_field_tag 'user[first_name]', nil, placeholder: 'First name', class: 'input'
+            .util--padding-tm
+              = text_field_tag 'user[last_name]', nil, placeholder: 'Last name', class: 'input'
+            .util--padding-tm
+              = text_field_tag 'user[email]', nil, placeholder: 'Email', class: 'input'
+
+            - flash.each do |type, message|
+              - show_message = (!message.empty? && type != 'notice')
+              - if show_message
+                .util--padding-tl
+                  h4.heading.heading--level-10.heading--color-red
+                    = message
+
+          .module__foot.util--text-align-c
+            = button_tag 'Confirm', type: 'submit', class: 'module--clicker__clicker button button--color-grey-dark button--layout-block button--corners-sharp'

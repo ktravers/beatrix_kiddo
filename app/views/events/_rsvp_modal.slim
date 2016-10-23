@@ -41,23 +41,9 @@
             // if permission for plus one
             // TODO: after confirm yes, render plus one modal
 
-            .util--padding-txl
-              .heading.heading--level-8
-                | Bringing a plus one?
-              / .heading.heading--level-8
-              /   | Please enter their name and email below.
-
-            .util--padding-tl
-              .table-grid
-                .table-grid__cell
-                  = text_field_tag 'rsvp[plus_one][first_name]', nil, placeholder: 'First name', class: 'input'
-                .table-grid__cell
-                  .util--padding-lm
-                .table-grid__cell
-                  = text_field_tag 'rsvp[plus_one][last_name]', nil, placeholder: 'Last name', class: 'input'
-
-            .util--padding-tm
-              = text_field_tag 'rsvp[plus_one][email]', nil, placeholder: 'Email', class: 'input'
+            // if attending and permission for plus one and created plus one
+            - if @rsvp.attending? && @plus_one
+              = link_to 'Need to update your plus one?', "/events/#{@event_slug}#plus-one"
 
           .module__foot.util--text-align-c
             = hidden_field_tag 'rsvp[id]', "#{@rsvp.id}"
