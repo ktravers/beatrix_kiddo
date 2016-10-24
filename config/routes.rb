@@ -20,8 +20,8 @@ Rails.application.routes.draw do
   # Rsvps
   resources :rsvps, only: [:update]
 
-  # Users
-  resources :users, only: [:create]
+  # Plus Ones
+  resources :plus_ones, only: [:update]
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: '/letter_opener'

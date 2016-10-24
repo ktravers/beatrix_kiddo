@@ -1,7 +1,7 @@
 class RsvpsController < ApplicationController
 
   def update
-    rsvp  = Rsvp.find_by(id: rsvp_params[:id])
+    rsvp = Rsvp.find_by(id: rsvp_params[:id])
     attrs = {}
 
     case rsvp_params[:response]
@@ -25,8 +25,14 @@ class RsvpsController < ApplicationController
 
     if rsvp.valid?
       RsvpMailer.send_confirmation(rsvp).deliver_now
-      flash[:notice] = "Thanks for rsvping! Check your inbox for a confirmation email."
-      redirect_path  = "/events/#{rsvp.event.slug}"
+
+      if rsvp.plus_one
+        redirect_path = "/events/#{rsvp.event.slug}#plus-one"
+      else
+        flash[:notice] = "Thanks for rsvping! Check your inbox for a confirmation email."
+        redirect_path = "/events/#{rsvp.event.slug}"
+      end
+
     else
       flash[:error] = "Aw snap! Something blipped on our end. Please refresh your browser and try again."
       redirect_path = "/events/#{rsvp.event.slug}#rsvp"

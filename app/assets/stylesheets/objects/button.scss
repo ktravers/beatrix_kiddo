@@ -100,8 +100,8 @@ button.button--layout-block {
 
 .button--height-large,
 button.button--height-large {
-  padding-top: ($content-spacing * 1.25);
-  padding-bottom: ($content-spacing + 2);
+  padding-top: ($content-spacing);
+  padding-bottom: ($content-spacing - 2);
   @extend .heading--level-6;
   @extend .heading--weight-heavier;
 }

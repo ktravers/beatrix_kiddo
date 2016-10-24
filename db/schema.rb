@@ -29,9 +29,11 @@ ActiveRecord::Schema.define(version: 20161023022544) do
   end
 
   create_table "plus_ones", force: :cascade do |t|
-    t.integer  "user_id",    null: false
-    t.integer  "guest_id",   null: false
-    t.integer  "rsvp_id",    null: false
+    t.integer  "user_id",     null: false
+    t.integer  "guest_id"
+    t.integer  "rsvp_id",     null: false
+    t.datetime "accepted_at"
+    t.datetime "declined_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

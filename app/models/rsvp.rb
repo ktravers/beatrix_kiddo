@@ -1,6 +1,7 @@
 class Rsvp < ActiveRecord::Base
   belongs_to :user
   belongs_to :event
+  has_one :plus_one
 
   validates_presence_of :user, :event
   validates_uniqueness_of :user_id, scope: [:event_id]

@@ -38,11 +38,7 @@
                     h4.heading.heading--level-8.heading--color-red
                       = message
 
-            // if permission for plus one
-            // TODO: after confirm yes, render plus one modal
-
-            // if attending and permission for plus one and created plus one
-            - if @rsvp.attending? && @plus_one
+            - if can_update_plus_one
               = link_to 'Need to update your plus one?', "/events/#{@event_slug}#plus-one"
 
           .module__foot.util--text-align-c
