@@ -33,18 +33,22 @@ class Rsvp < ActiveRecord::Base
     !!declined_at
   end
 
+  def confirmed?
+    !!accepted_at || !!declined_at
+  end
+
   def unconfirmed?
-    accepted_at.nil? && declined_at.nil?
+    accepted_at.blank? && declined_at.blank?
   end
 
   def confirmed_plus_one?
     return false unless plus_one
-    plus_one.accepted_at || plus_one.declined_at
+    plus_one.confirmed?
   end
 
   def unconfirmed_plus_one?
     return false unless plus_one
-    plus_one.accepted_at.nil? && plus_one.declined_at.nil?
+    plus_one.unconfirmed?
   end
 
   def status

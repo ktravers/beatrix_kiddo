@@ -22,7 +22,6 @@ class RsvpsController < ApplicationController
     end
 
     rsvp.update(attrs)
-
     redirect_for_retry(rsvp) and return unless rsvp.valid?
 
     if rsvp.attending? && rsvp.unconfirmed_plus_one?

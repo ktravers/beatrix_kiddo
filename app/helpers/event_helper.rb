@@ -11,11 +11,19 @@ module EventHelper
   end
 
   def rsvp_unconfirmed
-    @rsvp.accepted_at.blank? && @rsvp.declined_at.blank?
+    @rsvp.unconfirmed?
+  end
+
+  def rsvp_confirmed
+    @rsvp.confirmed?
+  end
+
+  def can_confirm_rsvp_and_plus_one
+    @rsvp.unconfirmed? && @rsvp.unconfirmed_plus_one?
   end
 
   def can_confirm_plus_one
-    @rsvp.unconfirmed_plus_one?
+    @rsvp.attending? && @rsvp.unconfirmed_plus_one?
   end
 
   def can_update_plus_one

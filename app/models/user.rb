@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :rsvps
+  has_many :rsvps, dependent: :destroy
   has_many :events, through: :rsvps
 
   validates_presence_of :first_name, :last_name, :email

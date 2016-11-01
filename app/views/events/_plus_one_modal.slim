@@ -26,7 +26,10 @@
 
             .util--padding-txl.util--text-align-c
               h2.heading.heading--level-8
-                | Please enter their name and email below.
+                - if @plus_one.confirmed?
+                  | Need to update your plus one's info? Make your edits below.
+                - else
+                  | Please enter their name and email below.
 
               - flash.each do |type, message|
                 - show_message = (!message.empty? && type != 'notice')
@@ -75,7 +78,10 @@
 
             .util--padding-tl
               h2.heading.heading--level-10
-                | Please enter their name and email below.
+                - if @plus_one.confirmed?
+                  | Need to update your plus one's info? Make your edits below.
+                - else
+                  | Please enter their name and email below.
 
             - flash.each do |type, message|
               - show_message = (!message.empty? && type != 'notice')

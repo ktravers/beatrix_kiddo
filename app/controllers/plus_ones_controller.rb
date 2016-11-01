@@ -2,50 +2,29 @@ class PlusOnesController < ApplicationController
 
   def update
     plus_one = PlusOne.find_by(id: plus_one_params[:id])
-    attrs = {}
 
     unless plus_one
-      graceful_redirect('Sorry, couldn\'t find a plus one on your rsvp.')
+      graceful_redirect("Sorry, couldn't find a plus one on your rsvp.") and return
     end
 
-    case plus_one_params[:response]
-    when 'accepted_at'
-      binding.pry
-      guest = CreateUserService.new(user_params).execute
+    confirmation = plus_one_params[:response]
 
-      if guest.valid?
-        attrs.merge!({
-          guest_id: guest.id,
-          declined_at: nil,
-          accepted_at: Time.now
-        })
+    unless confirmation
+      redirect_for_retry(plus_one, 'Please check yes or no.') and return
+    end
 
-        flash[:notice] = "Thanks for confirming! We've added #{guest.full_name} to your rsvp."
-      else
-        set_error_redirect_vars
-      end
-    when 'declined_at'
-      binding.pry
-      attrs.merge!({
-        guest_id: nil,
-        accepted_at: nil,
-        declined_at: Time.now
-      })
+    response = PlusOneManager.new(
+      plus_one: plus_one,
+      user_params: user_params,
+      confirmation: confirmation
+    ).execute
 
-      flash[:notice] = "Thanks for confirming! We have you down as no plus one."
+    if response.success
+      flash[:notice] = response.message
+      redirect_to "/events/#{plus_one.event_slug}"
     else
-      # NOOP
+      redirect_for_retry(plus_one)
     end
-
-    plus_one.update(attrs)
-
-    if plus_one.valid?
-      redirect_path = "/events/#{rsvp.event.slug}"
-    else
-      set_error_redirect_vars
-    end
-
-    redirect_to redirect_path
   end
 
   private
@@ -58,8 +37,8 @@ class PlusOnesController < ApplicationController
     params.require(:plus_one).permit(:id, :response)
   end
 
-  def set_error_redirect_vars
-    flash[:error] = "Aw snap! Something blipped on our end. Please refresh your browser and try again."
-    redirect_path = "/events/#{rsvp.event.slug}#plus-one"
+  def redirect_for_retry(plus_one, message="Aw snap! Something blipped on our end. Please refresh your browser and try again.")
+    flash[:error] = message
+    return redirect_to "/events/#{plus_one.event_slug}#plus-one"
   end
 end
