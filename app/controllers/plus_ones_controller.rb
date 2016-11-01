@@ -37,8 +37,12 @@ class PlusOnesController < ApplicationController
     params.require(:plus_one).permit(:id, :response)
   end
 
-  def redirect_for_retry(plus_one, message="Aw snap! Something blipped on our end. Please refresh your browser and try again.")
-    flash[:error] = message
+  def redirect_for_retry(plus_one, message)
+    flash[:error] = message || default_error_message
     return redirect_to "/events/#{plus_one.event_slug}#plus-one"
+  end
+
+  def default_error_message
+    "Aw snap! Something blipped on our end. Please refresh your browser and try again."
   end
 end

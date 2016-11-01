@@ -18,7 +18,7 @@ class RsvpsController < ApplicationController
         sent_at: rsvp.sent_at || Time.now
       })
     else
-      # NOOP
+      redirect_for_retry(rsvp, 'Please check yes or no.') and return
     end
 
     rsvp.update(attrs)
@@ -41,8 +41,12 @@ class RsvpsController < ApplicationController
     params.require(:rsvp).permit(:id, :response)
   end
 
-  def redirect_for_retry(rsvp)
-    flash[:error] = "Aw snap! Something blipped on our end. Please refresh your browser and try again."
+  def redirect_for_retry(rsvp, message)
+    flash[:error] = message || default_error_message
     return redirect_to "/events/#{rsvp.event.slug}#rsvp"
+  end
+
+  def default_error_message
+    "Aw snap! Something blipped on our end. Please refresh your browser and try again."
   end
 end
