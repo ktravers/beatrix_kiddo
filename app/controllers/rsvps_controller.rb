@@ -23,21 +23,16 @@ class RsvpsController < ApplicationController
 
     rsvp.update(attrs)
 
-    if rsvp.valid?
-      RsvpMailer.send_confirmation(rsvp).deliver_now
+    redirect_for_retry(rsvp) and return unless rsvp.valid?
 
-      if rsvp.plus_one
-        redirect_path = "/events/#{rsvp.event.slug}#plus-one"
-      else
-        flash[:notice] = "Thanks for rsvping! Check your inbox for a confirmation email."
-        redirect_path = "/events/#{rsvp.event.slug}"
-      end
-
+    if rsvp.attending? && rsvp.unconfirmed_plus_one?
+      redirect_path = "/events/#{rsvp.event.slug}#plus-one"
     else
-      flash[:error] = "Aw snap! Something blipped on our end. Please refresh your browser and try again."
-      redirect_path = "/events/#{rsvp.event.slug}#rsvp"
+      flash[:notice] = "Thanks for rsvping! Check your inbox for a confirmation email."
+      redirect_path = "/events/#{rsvp.event.slug}"
     end
 
+    RsvpMailer.send_confirmation(rsvp).deliver_now
     redirect_to redirect_path
   end
 
@@ -45,5 +40,10 @@ class RsvpsController < ApplicationController
 
   def rsvp_params
     params.require(:rsvp).permit(:id, :response)
+  end
+
+  def redirect_for_retry(rsvp)
+    flash[:error] = "Aw snap! Something blipped on our end. Please refresh your browser and try again."
+    return redirect_to "/events/#{rsvp.event.slug}#rsvp"
   end
 end

@@ -37,6 +37,16 @@ class Rsvp < ActiveRecord::Base
     accepted_at.nil? && declined_at.nil?
   end
 
+  def confirmed_plus_one?
+    return false unless plus_one
+    plus_one.accepted_at || plus_one.declined_at
+  end
+
+  def unconfirmed_plus_one?
+    return false unless plus_one
+    plus_one.accepted_at.nil? && plus_one.declined_at.nil?
+  end
+
   def status
     if accepted_at
       'attending'
