@@ -65,6 +65,9 @@ class PlusOneManager
     User.find_or_create_by!(@user_params)
   end
 
+  # Make plus ones global? aka not rsvp specific?
+  # Set once, then set for all rsvps/events
+
   # def set_rsvps!
   #   event_ids = Rsvp.where(user_id: plus_one.user_id).pluck(:event_id)
 
