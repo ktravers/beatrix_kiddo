@@ -55,4 +55,45 @@ namespace :users do
     puts "Total events: #{Event.count}\n"
     puts "Total rsvps: #{Rsvp.count}\n"
   end
+
+  desc 'create plus one(s)'
+  task :create_plus_ones => :environment do
+    # user_ids = [4, 11, 29, 36, 37, 44, 65, 71, 73, 76, 78, 79, 84, 85, 90, 94, 102, 103, 104, 131, 105, 108, 110, 111, 112, 113, 114, 118, 119, 120]
+
+    user_ids = []
+    puts "\nInput one or more user ids, separated by commas: "
+
+    loop do
+      user_ids = STDIN.gets.chomp.split(',')
+      break if user_ids.length >= 1
+      puts 'Please enter at least one user id.'
+    end
+
+    success_count = 0
+    fail_count = 0
+
+    begin
+      user_ids.each do |user_id|
+        user = User.find(user_id)
+        puts "Starting process for user##{user_id}: #{user.full_name}..."
+
+        puts "Retrieving rsvps..."
+        engagement_party_rsvp_id = Rsvp.find_by(user_id: user_id, event_id: 2).try(:id)
+        reception_rsvp_id = Rsvp.find_by(user_id: user_id, event_id: 7).try(:id)
+
+        puts "Creating plus ones..."
+        PlusOne.find_or_create_by(user_id: user_id, rsvp_id: engagement_party_rsvp_id)
+        PlusOne.find_or_create_by(user_id: user_id, rsvp_id: reception_rsvp_id)
+
+        puts "Success! Two plus ones created for #{user.full_name}: rsvps##{engagement_party_rsvp_id} and #{reception_rsvp_id}\n\n"
+        success_count += 1
+      end
+    rescue
+      fail_count += 1
+      puts "Failed to create plus ones for user##{user_id}: #{user.full_name}\n\n"
+    end
+
+    puts "\nSuccessfully created plus ones for #{success_count} users."
+    puts "#{fail_count} failures."
+  end
 end
