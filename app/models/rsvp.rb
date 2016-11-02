@@ -9,7 +9,7 @@ class Rsvp < ActiveRecord::Base
   validates :declined_at, absence: true, if: :accepted_at
 
   scope :unsent,        -> { where(sent_at: nil) }
-  scope :unconfirmed,   -> { where(accepted_at: nil, declined_at: nil) }
+  scope :unconfirmed,   -> { where.not(sent_at: nil).where(accepted_at: nil, declined_at: nil) }
   scope :attending,     -> { where.not(accepted_at: nil) }
   scope :not_attending, -> { where.not(declined_at: nil) }
 
