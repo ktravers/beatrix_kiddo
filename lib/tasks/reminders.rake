@@ -10,7 +10,7 @@ namespace :reminders do
       puts 'Please enter one event id.'
     end
 
-    rsvps = Rsvp.unconfirmed.where(event_id: event_id)
+    rsvps = Rsvp.sent.unconfirmed.where(event_id: event_id)
     send_reminders(rsvps)
   end
 
