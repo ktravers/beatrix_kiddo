@@ -7,6 +7,9 @@
   = render partial: 'shared/login_modal'
   = render partial: 'events/rsvp_modal'
 
+  - if @plus_one
+    = render partial: 'events/plus_one_modal'
+
 .level
   .level__inner
     .module.module--flush.module--layer-cake

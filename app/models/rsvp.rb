@@ -1,6 +1,7 @@
 class Rsvp < ActiveRecord::Base
   belongs_to :user
   belongs_to :event
+  has_one :plus_one
 
   validates_presence_of :user, :event
   validates_uniqueness_of :user_id, scope: [:event_id]
@@ -11,6 +12,10 @@ class Rsvp < ActiveRecord::Base
   scope :unconfirmed,   -> { where(accepted_at: nil, declined_at: nil) }
   scope :attending,     -> { where.not(accepted_at: nil) }
   scope :not_attending, -> { where.not(declined_at: nil) }
+
+  delegate :full_name, to: :user, allow_nil: true
+
+  # TODO: DRY up code with shared concern (plus one + rsvp)
 
   def sent!
     update(sent_at: Time.now)
@@ -32,8 +37,22 @@ class Rsvp < ActiveRecord::Base
     !!declined_at
   end
 
+  def confirmed?
+    !!accepted_at || !!declined_at
+  end
+
   def unconfirmed?
-    accepted_at.nil? && declined_at.nil?
+    accepted_at.blank? && declined_at.blank?
+  end
+
+  def confirmed_plus_one?
+    return false unless plus_one
+    plus_one.confirmed?
+  end
+
+  def unconfirmed_plus_one?
+    return false unless plus_one
+    plus_one.unconfirmed?
   end
 
   def status

@@ -1,0 +1,104 @@
+#plus-one.site-modal__overlay
+  .site-modal__overlay__inner
+    .module.module--clicker
+
+      // SHOW MEDIUM AND UP
+      .util--show-medium-up
+        = form_tag plus_one_path(@plus_one), method: :patch do
+          .module__head.util--text-align-c
+            a.site-modal__overlay__dismiss href="/events/#{@event_slug}" &times;
+            .util--padding-tm
+              h2.heading.heading--level-5
+                | Bringing a plus one?
+
+          .module__body
+            .table-grid.border-box.util--padding-lxl.util--padding-rxl
+              .table-grid__cell.border-box.util--padding-lxl
+                .radio-group.radio-group--inline
+                  = radio_button_tag 'plus_one[response]', 'accepted_at', !!@plus_one.accepted_at, class: 'radio-group__input', id: 'plus-one-yes'
+                  label.radio-group__label.heading.heading--level-7 for='plus-one-yes'
+                    | Yes
+              .table-grid__cell.border-box.util--padding-rxl
+                .radio-group.radio-group--inline
+                  = radio_button_tag 'plus_one[response]', 'declined_at', !!@plus_one.declined_at, class: 'radio-group__input', id: 'plus-one-no'
+                  label.radio-group__label.heading.heading--level-7 for='plus-one-no'
+                    | No&#32;
+
+            .util--padding-txl.util--text-align-c
+              h2.heading.heading--level-8
+                - if @plus_one.attending?
+                  | Need to update your plus one's info? Make your edits below.
+                - else
+                  | If yes, please enter their name and email below.
+
+              - flash.each do |type, message|
+                - show_message = (!message.empty? && type != 'notice')
+                - if show_message
+                  .util--padding-tl
+                    .util--show-medium-up
+                      h4.heading.heading--level-8.heading--color-red
+                        = message
+
+            .util--padding-tl
+              .table-grid
+                .table-grid__cell
+                  = text_field_tag 'user[first_name]', @plus_one.first_name, placeholder: 'First name', class: 'input', required: true
+                .table-grid__cell
+                  .util--padding-ll
+                .table-grid__cell
+                  = text_field_tag 'user[last_name]', @plus_one.last_name, placeholder: 'Last name', class: 'input', required: true
+              .util--padding-tl
+                = email_field_tag 'user[email]', @plus_one.email, placeholder: 'Email', class: 'input', required: true, pattern: email_validation
+
+          .module__foot.util--text-align-c
+            = hidden_field_tag 'plus_one[id]', "#{@plus_one.id}"
+            = button_tag 'Confirm', type: 'submit', class: 'module--clicker__clicker button button--color-grey-dark button--layout-block button--height-large button--corners-sharp'
+
+      // SHOW SMALL AND BELOW
+      .util--hide-large.util--hide-medium
+        = form_tag plus_one_path(@plus_one), method: :patch do
+          .module__head.util--text-align-c
+            a.site-modal__overlay__dismiss href="/events/#{@event_slug}" &times;
+            .util--padding-tm
+              h2.heading.heading--level-7
+                | Bringing
+              h2.heading.heading--level-7
+                | a plus one?
+
+          .module__body.util--text-align-c
+            .util--display-inline-block.util--padding-rl
+              .radio-group.radio-group--inline
+                = radio_button_tag 'plus_one[response]', 'accepted_at', !!@plus_one.accepted_at, class: 'radio-group__input', id: 'plus_one-yes'
+                label.radio-group__label.heading.heading--level-9.heading--weight-heavier for='plus_one-yes'
+                  | Yes
+            .util--display-inline-block.util--padding-ll
+              .radio-group.radio-group--inline
+                = radio_button_tag 'plus_one[response]', 'declined_at', !!@plus_one.declined_at, class: 'radio-group__input', id: 'plus_one-no'
+                label.radio-group__label.heading.heading--level-9.heading--weight-heavier for='plus_one-no'
+                  | No&#32;
+
+            .util--padding-tl
+              h2.heading.heading--level-10
+                - if @plus_one.attending?
+                  | Need to update your plus one's info? Make your edits below.
+                - else
+                  | If yes, please enter their name and email below.
+
+            - flash.each do |type, message|
+              - show_message = (!message.empty? && type != 'notice')
+              - if show_message
+                .util--padding-tl
+                  .util--show-medium-up
+                    h4.heading.heading--level-8.heading--color-red
+                      = message
+
+            .util--padding-tl
+              = text_field_tag 'user[first_name]', @plus_one.first_name, placeholder: 'First name', class: 'input', required: true
+              .util--padding-tm
+                = text_field_tag 'user[last_name]', @plus_one.last_name, placeholder: 'Last name', class: 'input', required: true
+              .util--padding-tm
+                = email_field_tag 'user[email]', @plus_one.email, placeholder: 'Email', class: 'input', required: true, pattern: email_validation
+
+          .module__foot.util--text-align-c
+            = hidden_field_tag 'plus_one[id]', "#{@plus_one.id}"
+            = button_tag 'Confirm', type: 'submit', class: 'module--clicker__clicker button button--color-grey-dark button--layout-block button--corners-sharp'

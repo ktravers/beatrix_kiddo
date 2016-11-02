@@ -1,7 +1,7 @@
 class RsvpsController < ApplicationController
 
   def update
-    rsvp  = Rsvp.find_by(id: rsvp_params[:id])
+    rsvp = Rsvp.find_by(id: rsvp_params[:id])
     attrs = {}
 
     case rsvp_params[:response]
@@ -18,19 +18,21 @@ class RsvpsController < ApplicationController
         sent_at: rsvp.sent_at || Time.now
       })
     else
-      # NOOP
+      redirect_for_retry(rsvp, 'Please check yes or no.') and return
     end
 
     rsvp.update(attrs)
+    redirect_for_retry(rsvp) and return unless rsvp.valid?
 
-    if rsvp.valid?
-      RsvpMailer.send_confirmation(rsvp).deliver_now
-      flash[:notice] = "Thanks for rsvping! Check your inbox for a confirmation email."
-      redirect_path  = "/events/#{rsvp.event.slug}"
+    if rsvp.attending? && rsvp.unconfirmed_plus_one?
+      redirect_path = "/events/#{rsvp.event.slug}#plus-one"
     else
-      flash[:error] = "Aw snap! Something blipped on our end. Please refresh your browser and try again."
-      redirect_path = "/events/#{rsvp.event.slug}#rsvp"
+      flash[:notice] = "Thanks for rsvping! Check your inbox for a confirmation email."
+      redirect_path = "/events/#{rsvp.event.slug}"
     end
+
+    sync_plus_one!(rsvp)
+    RsvpMailer.send_confirmation(rsvp).deliver_now
 
     redirect_to redirect_path
   end
@@ -39,5 +41,24 @@ class RsvpsController < ApplicationController
 
   def rsvp_params
     params.require(:rsvp).permit(:id, :response)
+  end
+
+  def redirect_for_retry(rsvp, message=nil)
+    flash[:error] = message || default_error_message
+    return redirect_to "/events/#{rsvp.event.slug}#rsvp"
+  end
+
+  def default_error_message
+    "Aw snap! Something blipped on our end. Please refresh your browser and try again."
+  end
+
+  def sync_plus_one!(rsvp)
+    plus_one = PlusOne.find_by(rsvp_id: rsvp, user_id: rsvp.user_id)
+    return unless plus_one && rsvp.not_attending?
+
+    PlusOneManager.new(
+      plus_one_id: plus_one.id,
+      confirmation: 'declined_at'
+    ).execute
   end
 end

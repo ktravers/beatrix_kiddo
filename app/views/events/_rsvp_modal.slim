@@ -38,6 +38,17 @@
                     h4.heading.heading--level-8.heading--color-red
                       = message
 
+            - if can_confirm_rsvp_and_plus_one
+              .util--padding-txl
+                .heading.heading--level-8
+                  | * Bringing a plus one? You can add that info after you confirm your RSVP.
+            - elsif can_confirm_plus_one
+              .util--padding-txl
+                = link_to 'Need to add your plus one?', "/events/#{@event_slug}#plus-one", class: 'heading heading--level-8'
+            - elsif can_update_plus_one
+              .util--padding-txl
+                = link_to 'Need to update your plus one?', "/events/#{@event_slug}#plus-one", class: 'heading heading--level-8'
+
           .module__foot.util--text-align-c
             = hidden_field_tag 'rsvp[id]', "#{@rsvp.id}"
             = button_tag 'Rsvp', type: 'submit', class: 'module--clicker__clicker button button--color-grey-dark button--layout-block button--height-large button--corners-sharp'
@@ -75,6 +86,17 @@
                 .util--padding-tl
                   h4.heading.heading--level-10.heading--color-red
                     = message
+
+            - if can_confirm_rsvp_and_plus_one
+              .util--padding-txl
+                .heading.heading--level-10
+                  | * Bringing a plus one? You can add that info after you confirm your RSVP.
+            - elsif can_confirm_plus_one
+              .util--padding-txl
+                = link_to 'Need to add your plus one?', "/events/#{@event_slug}#plus-one", class: 'heading heading--level-10'
+            - elsif can_update_plus_one
+              .util--padding-txl
+                = link_to 'Need to update your plus one?', "/events/#{@event_slug}#plus-one", class: 'heading heading--level-10'
 
           .module__foot.util--text-align-c
             = hidden_field_tag 'rsvp[id]', "#{@rsvp.id}"

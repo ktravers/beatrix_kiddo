@@ -93,13 +93,13 @@
   border: ($content-spacing / 4) solid $grey-dark;
 
   .module__head, .module__body {
-    padding-top: ($content-spacing * 2.5);
+    padding-top: ($content-spacing * 2);
     padding-left: ($content-spacing * 1.5);
     padding-right: ($content-spacing * 1.5);
   }
 
   .module__body {
-    padding-bottom: ($content-spacing * 2.5);
+    padding-bottom: ($content-spacing * 2);
   }
 
   .module__foot {
@@ -112,7 +112,9 @@
 
   @media (max-width: $breakpoint-medium) {
     .module__head, .module__body {
-      padding: ($content-spacing * 1.5) ($content-spacing * 0.75);
+      padding-top: ($content-spacing * 1.5);
+      padding-left: ($content-spacing * 0.75);
+      padding-right: ($content-spacing * 0.75);
     }
   }
 }
