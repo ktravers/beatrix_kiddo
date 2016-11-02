@@ -3,10 +3,12 @@ class RsvpMailer < ApplicationMailer
   def send_confirmation(rsvp)
     user             = rsvp.user
     event            = rsvp.event
+    plus_one         = rsvp.plus_one
     recipient        = %("#{user.full_name}" <#{user.email}>)
 
     @rsvp_status     = rsvp.status
     @attending       = rsvp.accepted_at
+    @has_plus_one    = @attending && plus_one
 
     @event_slug      = event.slug
     @event_name      = event.name
@@ -16,6 +18,7 @@ class RsvpMailer < ApplicationMailer
     @event_time      = "#{event.formatted_start_time}-#{event.formatted_end_time}"
 
     @rsvp_url        = "http://www.kcandkate.us/events/#{@event_slug}#rsvp"
+    @plus_one_url    = "http://www.kcandkate.us/events/#{@event_slug}#plus-one"
     @gcal_url        = event.gcal_url
     @venue_map_url   = event.venue_map_url
 

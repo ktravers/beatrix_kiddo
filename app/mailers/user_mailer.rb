@@ -17,8 +17,10 @@ class UserMailer < ApplicationMailer
   def send_invite(rsvp)
     user             = rsvp.user
     event            = rsvp.event
+    plus_one         = rsvp.plus_one
     recipient        = %("#{user.full_name}" <#{user.email}>)
 
+    @has_plus_one    = plus_one
     @event_slug      = event.slug
     @event_name      = event.name
     @event_venue     = event.venue_name
