@@ -26,10 +26,10 @@
 
             .util--padding-txl.util--text-align-c
               h2.heading.heading--level-8
-                - if @plus_one.confirmed?
+                - if @plus_one.attending?
                   | Need to update your plus one's info? Make your edits below.
                 - else
-                  | Please enter their name and email below.
+                  | If yes, please enter their name and email below.
 
               - flash.each do |type, message|
                 - show_message = (!message.empty? && type != 'notice')
@@ -42,15 +42,16 @@
             .util--padding-tl
               .table-grid
                 .table-grid__cell
-                  = text_field_tag 'user[first_name]', @plus_one.first_name, placeholder: 'First name', class: 'input'
+                  = text_field_tag 'user[first_name]', @plus_one.first_name, placeholder: 'First name', class: 'input', required: true
                 .table-grid__cell
                   .util--padding-ll
                 .table-grid__cell
-                  = text_field_tag 'user[last_name]', @plus_one.last_name, placeholder: 'Last name', class: 'input'
+                  = text_field_tag 'user[last_name]', @plus_one.last_name, placeholder: 'Last name', class: 'input', required: true
               .util--padding-tl
-                = email_field_tag 'user[email]', @plus_one.email, placeholder: 'Email', class: 'input'
+                = email_field_tag 'user[email]', @plus_one.email, placeholder: 'Email', class: 'input', required: true, pattern: email_validation
 
           .module__foot.util--text-align-c
+            = hidden_field_tag 'plus_one[id]', "#{@plus_one.id}"
             = button_tag 'Confirm', type: 'submit', class: 'module--clicker__clicker button button--color-grey-dark button--layout-block button--height-large button--corners-sharp'
 
       // SHOW SMALL AND BELOW
@@ -67,21 +68,21 @@
           .module__body.util--text-align-c
             .util--display-inline-block.util--padding-rl
               .radio-group.radio-group--inline
-                = radio_button_tag 'rsvp[response]', 'accepted_at', !!@rsvp.accepted_at, class: 'radio-group__input', id: 'rsvp-yes'
-                label.radio-group__label.heading.heading--level-9.heading--weight-heavier for='rsvp-yes'
+                = radio_button_tag 'plus_one[response]', 'accepted_at', !!@plus_one.accepted_at, class: 'radio-group__input', id: 'plus_one-yes'
+                label.radio-group__label.heading.heading--level-9.heading--weight-heavier for='plus_one-yes'
                   | Yes
             .util--display-inline-block.util--padding-ll
               .radio-group.radio-group--inline
-                = radio_button_tag 'rsvp[response]', 'declined_at', !!@rsvp.declined_at, class: 'radio-group__input', id: 'rsvp-no'
-                label.radio-group__label.heading.heading--level-9.heading--weight-heavier for='rsvp-no'
+                = radio_button_tag 'plus_one[response]', 'declined_at', !!@plus_one.declined_at, class: 'radio-group__input', id: 'plus_one-no'
+                label.radio-group__label.heading.heading--level-9.heading--weight-heavier for='plus_one-no'
                   | No&#32;
 
             .util--padding-tl
               h2.heading.heading--level-10
-                - if @plus_one.confirmed?
+                - if @plus_one.attending?
                   | Need to update your plus one's info? Make your edits below.
                 - else
-                  | Please enter their name and email below.
+                  | If yes, please enter their name and email below.
 
             - flash.each do |type, message|
               - show_message = (!message.empty? && type != 'notice')
@@ -99,4 +100,5 @@
                 = email_field_tag 'user[email]', @plus_one.email, placeholder: 'Email', class: 'input', required: true, pattern: email_validation
 
           .module__foot.util--text-align-c
+            = hidden_field_tag 'plus_one[id]', "#{@plus_one.id}"
             = button_tag 'Confirm', type: 'submit', class: 'module--clicker__clicker button button--color-grey-dark button--layout-block button--corners-sharp'

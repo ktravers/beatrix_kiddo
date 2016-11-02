@@ -13,6 +13,10 @@ class Rsvp < ActiveRecord::Base
   scope :attending,     -> { where.not(accepted_at: nil) }
   scope :not_attending, -> { where.not(declined_at: nil) }
 
+  delegate :full_name, to: :user, allow_nil: true
+
+  # TODO: DRY up code with shared concern (plus one + rsvp)
+
   def sent!
     update(sent_at: Time.now)
   end

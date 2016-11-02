@@ -14,7 +14,7 @@ class PlusOnesController < ApplicationController
     end
 
     response = PlusOneManager.new(
-      plus_one: plus_one,
+      plus_one_id: plus_one.id,
       user_params: user_params,
       confirmation: confirmation
     ).execute
@@ -37,7 +37,7 @@ class PlusOnesController < ApplicationController
     params.require(:plus_one).permit(:id, :response)
   end
 
-  def redirect_for_retry(plus_one, message)
+  def redirect_for_retry(plus_one, message=nil)
     flash[:error] = message || default_error_message
     return redirect_to "/events/#{plus_one.event_slug}#plus-one"
   end

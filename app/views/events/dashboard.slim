@@ -32,7 +32,7 @@
             - @rsvps.each do |rsvp|
               .table-grid.table-grid--admin
                 .table-grid__cell
-                  h6.heading.heading--level-8.heading--color-grey-dark= rsvp.user.full_name
+                  h6.heading.heading--level-8.heading--color-grey-dark= rsvp.full_name
                 .table-grid__cell
                   h6.heading.heading--level-8.heading--color-grey-dark= formatted_date(rsvp.sent_at)
                 .table-grid__cell

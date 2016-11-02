@@ -2,12 +2,35 @@ class PlusOneManager
   attr_reader :plus_one, :guest, :success, :message
 
   def initialize(payload)
-    @plus_one = payload[:plus_one]
+    @plus_one = PlusOne.find_by(id: payload[:plus_one_id])
+    @user_params = payload[:user_params]
     @confirmation = payload[:confirmation]
+  end
 
-    first_name = payload[:user_params][:first_name].try(:strip).try(:titleize)
-    last_name  = payload[:user_params][:last_name].try(:strip).try(:titleize)
-    email      = payload[:user_params][:email].try(:strip).try(:downcase)
+  def execute
+    begin
+      if @user_params
+        sanitize_user_params!
+        set_guest!
+      end
+
+      update_plus_one!
+      set_message!
+      success!
+
+      self
+    rescue => e
+      failure!(e.message)
+      self
+    end
+  end
+
+  private
+
+  def sanitize_user_params!
+    first_name = @user_params[:first_name].try(:strip).try(:titleize)
+    last_name  = @user_params[:last_name].try(:strip).try(:titleize)
+    email      = @user_params[:email].try(:strip).try(:downcase)
 
     @user_params = {
       first_name: first_name,
@@ -15,42 +38,6 @@ class PlusOneManager
       email: email
     }
   end
-
-  def execute
-    begin
-      set_guest!
-      attrs = {}
-
-      case @confirmation
-      when 'accepted_at'
-        # set_rsvps!
-        message = "Thanks for confirming! We've added #{guest.full_name} to your rsvp."
-
-        attrs.merge!({
-          guest_id: guest.id,
-          declined_at: nil,
-          accepted_at: Time.now
-        })
-      when 'declined_at'
-        # unset_rsvps!
-        message = 'Thanks for confirming! We have you down as no plus one.'
-
-        attrs.merge!({
-          guest_id: nil,
-          accepted_at: nil,
-          declined_at: Time.now
-        })
-      end
-
-      plus_one.update!(attrs)
-
-      success!(message)
-    rescue => e
-      failure!(e.message)
-    end
-  end
-
-  private
 
   def set_guest!
     @guest = plus_one.guest_id ? update_guest! : set_new_guest!
@@ -65,44 +52,38 @@ class PlusOneManager
     User.find_or_create_by!(@user_params)
   end
 
-  # Make plus ones global? aka not rsvp specific?
-  # Set once, then set for all rsvps/events
+  def update_plus_one!
+    case @confirmation
+    when 'accepted_at'
+      raise 'Must provide user params' unless guest
 
-  # def set_rsvps!
-  #   event_ids = Rsvp.where(user_id: plus_one.user_id).pluck(:event_id)
+      attrs = {
+        guest_id: guest.id,
+        declined_at: nil,
+        accepted_at: Time.now
+      }
+    when 'declined_at'
+      attrs = {
+        guest_id: nil,
+        accepted_at: nil,
+        declined_at: Time.now
+      }
+    end
 
-  #   event_ids.each do |event_id|
-  #     Rsvp.find_or_create_by!(
-  #       user_id: guest.id,
-  #       event_id: event_id,
-  #       sent_at: Time.now,
-  #       accepted_at: Time.now
-  #     )
-  #   end
-  # end
+    plus_one.update!(attrs)
+  end
 
-  # def unset_rsvps!
-  #   Rsvp.where(user_id: guest.id).each do |rsvp|
-  #     File.new('/log/rsvp_log.txt', 'a') do |f|
-  #       f.write(
-  #         <<~STR
-  #           Rsvp destroyed:
-  #             UserId: #{rsvp.user_id}
-  #             EventId: #{rsvp.event_id}
-  #             AcceptedAt: #{rsvp.accepted_at}
-  #             DeclinedAt: #{rsvp.declined_at}
-  #             DestroyedAt: #{Time.now}
+  def set_message!
+    @message = case @confirmation
+    when 'accepted_at'
+      "Thanks for confirming! #{guest.full_name} is your plus one."
+    when 'declined_at'
+      "Thanks for confirming! We have you down as no plus one."
+    end
+  end
 
-  #         STR
-  #       )
-  #     end
-
-  #     rsvp.destroy!
-  #   end
-  # end
-
-  def success!(msg)
-    @message, @success = msg, true
+  def success!
+    @success = true
   end
 
   def failure!(msg)
