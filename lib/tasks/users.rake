@@ -58,7 +58,7 @@ namespace :users do
 
   desc 'create plus one(s)'
   task :create_plus_ones => :environment do
-    # user_ids = [4, 11, 29, 36, 37, 44, 65, 71, 73, 76, 78, 79, 84, 85, 90, 94, 102, 103, 104, 131, 105, 108, 110, 111, 112, 113, 114, 118, 119, 120]
+    # user_ids = [4,11,29,36,37,44,65,71,73,76,78,79,84,85,90,94,102,103,104,131,105,108,110,111,112,113,114,118,119,120]
 
     user_ids = []
     puts "\nInput one or more user ids, separated by commas: "
