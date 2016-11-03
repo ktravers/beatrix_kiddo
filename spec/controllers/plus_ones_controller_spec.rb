@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-describe UsersController do
+describe PlusOnesController do
   # TODO
 end

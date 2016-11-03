@@ -1,6 +1,7 @@
 class Event < ActiveRecord::Base
   has_many :rsvps
   has_many :users, through: :rsvps
+  has_many :plus_ones, through: :rsvps
 
   validates :name, uniqueness: true, case_sensitive: false
 
