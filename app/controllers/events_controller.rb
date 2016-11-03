@@ -31,8 +31,8 @@ class EventsController < ApplicationController
   def dashboard
     graceful_redirect('Admins only.') and return unless current_user.admin?
 
-    rsvps     = Rsvp.where(event: @event)
-    plus_ones = PlusOne.where(rsvp: rsvps)
+    rsvps     = @event.rsvps
+    plus_ones = @event.plus_ones
     @rsvps    = (rsvps + plus_ones).sort_by { |r| r.status }
 
     @attending_count     = (rsvps.attending + plus_ones.attending).count

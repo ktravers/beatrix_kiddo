@@ -3,10 +3,8 @@ require 'rails_helper'
 describe Event do
   describe 'validations' do
     subject { FactoryGirl.build(:event) }
-
     it { is_expected.to have_many(:rsvps) }
     it { is_expected.to have_many(:users).through(:rsvps) }
-
     it { is_expected.to validate_uniqueness_of(:name) }
   end
 
