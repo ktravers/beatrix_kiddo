@@ -5,6 +5,6 @@ class RsvpPreview < ActionMailer::Preview
   end
 
   def send_reminder
-    RsvpMailer.send_reminder(Rsvp.unconfirmed.last)
+    RsvpMailer.send_reminder(Rsvp.attending.last)
   end
 end

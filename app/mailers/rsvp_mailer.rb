@@ -61,7 +61,8 @@ class RsvpMailer < ApplicationMailer
     @venue_map_url   = event.venue_map_url
 
     # copy
-    @headline        = @attending ? "ONLY #{(event.start_time.to_datetime - DateTime.now).to_i} DAYS UNTIL" : 'REMINDER: RSVP'
+    @days_away       = "#{(event.start_time.to_datetime - DateTime.now).to_i}"
+    @headline        = @attending ? "ONLY #{@days_away} DAYS UNTIL" : 'REMINDER: RSVP'
     @subject         = "[REMINDER] #{@event_name} for KC and Kate: #{@event_date}"
 
     send_email(recipient, @subject)
