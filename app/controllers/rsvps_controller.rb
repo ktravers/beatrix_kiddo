@@ -53,7 +53,7 @@ class RsvpsController < ApplicationController
   end
 
   def sync_plus_one!(rsvp)
-    plus_one = PlusOne.find_by(rsvp_id: rsvp, user_id: rsvp.user_id)
+    plus_one = PlusOne.find_by(rsvp_id: rsvp.id, user_id: rsvp.user_id)
     return unless plus_one && rsvp.not_attending?
 
     PlusOneManager.new(
