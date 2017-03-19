@@ -41,6 +41,17 @@ class UserMailer < ApplicationMailer
     rsvp.sent!
   end
 
+  # non-event specific announcement
+  def send_announcement(email)
+    user = User.find_by_email(email)
+
+    @user_email      = user.email
+    @user_first_name = user.first_name
+    @subject         = "[Announcement] Updates for KC and Kate's Wedding"
+
+    send_email(recipient, @subject)
+  end
+
   private
 
   def send_email(recipient, subject)
