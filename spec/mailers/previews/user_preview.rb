@@ -6,4 +6,8 @@ class UserPreview < ActionMailer::Preview
   def send_invite
     UserMailer.send_invite(Rsvp.where(event_id: 2).last)
   end
+
+  def send_announcement
+    UserMailer.send_announcement(User.last.email)
+  end
 end
