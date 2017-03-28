@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",function(){var t=document.getElementById("js--site-menu-trigger"),e=document.getElementById("js--body");t.addEventListener("click",function(){var n="open"==t.getAttribute("data-menu-state")?"closed":"open";t.setAttribute("data-menu-state",n),e.setAttribute("data-menu-state",n)})});
