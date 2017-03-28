@@ -47,7 +47,7 @@ class UserMailer < ApplicationMailer
 
     @user_email      = user.email
     @user_first_name = user.first_name
-    @subject         = "[Announcement] Updates for KC and Kate's Wedding"
+    @subject         = "Updates for KC and Kate's Wedding"
 
     send_email(recipient, @subject)
   end

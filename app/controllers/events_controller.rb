@@ -23,7 +23,7 @@ class EventsController < ApplicationController
     respond_to do |f|
       f.html
       f.ics do
-        send_data event.to_ical, filename: "kc-and-kate-#{@event_slug}.ics"
+        send_data @event.to_ical, filename: "kc-and-kate-#{@event_slug}.ics"
       end
     end
   end
