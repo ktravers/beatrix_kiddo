@@ -1,5 +1,5 @@
 namespace :announcements do
-  desc 'send out announcements to all invitees'
+  desc 'send out announcements to invitees'
   task :send_by_email => :environment do
     emails = []
     puts "\nInput comma separated list of emails:"
