@@ -4,7 +4,7 @@ class UserMailer < ApplicationMailer
   def send_save_the_date(rsvp)
     user             = rsvp.user
     event            = rsvp.event
-    recipient        = %("#{user.full_name}" <#{user.email}>)
+    recipient        = formatted_recipient(user)
     @user_email      = user.email
     @user_first_name = user.first_name
     @subject         = "#{event.name.upcase} for KC and Kate [Labor Day Weekend, #{event.timespan}, #{event.year}]"
@@ -18,7 +18,7 @@ class UserMailer < ApplicationMailer
     user             = rsvp.user
     event            = rsvp.event
     plus_one         = rsvp.plus_one
-    recipient        = %("#{user.full_name}" <#{user.email}>)
+    recipient        = formatted_recipient(user)
 
     @has_plus_one    = plus_one
     @event_slug      = event.slug
@@ -44,15 +44,20 @@ class UserMailer < ApplicationMailer
   # non-event specific announcement
   def send_announcement(email)
     user = User.find_by_email(email)
+    recipient        = formatted_recipient(user)
 
     @user_email      = user.email
     @user_first_name = user.first_name
-    @subject         = "Updates for KC and Kate's Wedding"
+    @subject         = "[Reminder] Travel Plans for KC and Kate's Wedding"
 
     send_email(recipient, @subject)
   end
 
   private
+
+  def formatted_recipient(user)
+    %("#{user.full_name}" <#{user.email}>)
+  end
 
   def send_email(recipient, subject)
     sendgrid_category :use_subject_lines

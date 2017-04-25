@@ -13,60 +13,46 @@
               td.site-mailer__main__header align="center" style="padding:24px 0px 24px 0px; margin:0 auto;background-color:#3a3a3a;" cellpadding='0' cellspacing='0' bgcolor="#3a3a3a"
                 table width='100%' cellpadding='0' cellspacing='0'
                   tr
-                    td.heading.heading--level-1 style='font:38px/48px Helvetica, Arial, sans-serif; color:#ffffff; padding:0px 16px 0px 16px; text-align:center; text-transform:uppercase;text-shadow: 1px 1px 2px #3a3a3a;'
-                      | RSVP: #{@rsvp_status}
+                    td style='font:20px/24px Helvetica, Arial, sans-serif; color:#ffffff; padding:12px 16px 0px 16px; text-align:center; text-transform:uppercase; text-shadow: 1px 1px 2px #3a3a3a;'
+                      | TRAVELING FOR
                   tr
                     td style='font:20px/24px Helvetica, Arial, sans-serif; color:#ffffff; padding:12px 16px 0px 16px; text-align:center; text-transform:uppercase; text-shadow: 1px 1px 2px #3a3a3a;'
-                      | KC and Kate's #{@event_name}
-                  tr
-                    td style='font:20px/24px Helvetica, Arial, sans-serif; color:#ffffff; padding:8px 16px 0px 16px; text-align:center; text-transform:uppercase; text-shadow: 1px 1px 2px #3a3a3a;'
-                      | #{@event_venue}
-                  tr
-                    td style='font:20px/24px Helvetica, Arial, sans-serif; color:#ffffff; padding:8px 16px 0px 16px; text-align:center; text-transform:uppercase; text-shadow: 1px 1px 2px #3a3a3a;'
-                      | #{@event_date}
-                  tr
-                    td style='font:20px/24px Helvetica, Arial, sans-serif; color:#ffffff; padding:8px 16px 0px 16px; text-align:center; text-transform:uppercase; text-shadow: 1px 1px 2px #3a3a3a;'
-                      | #{@event_time}
+                      | ✈️ KC and KATE'S WEDDING? ✈️
             tr
               td.site-mailer__main__body style='padding:36px 36px 36px 36px;' bgcolor='#ffffff'
                 table width='100%' cellpadding='0' cellspacing='0'
                   tr
                     td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:0px 16px 16px 16px;'
                       | Hi #{@user_first_name},
-
-                  - if @attending
-                    tr
-                      td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:4px 16px 0px 16px;'
-                        | Thanks for rsvping to our #{@event_name.downcase}. We're so happy you can make it, and we can't wait to see you there.
-                    tr
-                      td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:24px 16px 0px 16px; text-align:center;'
-                        a href="#{@venue_map_url}" style='color:#3a3a3a; text-decoration:underline;' link='#3a3a3a'
-                          | #{@event_venue}
-                    tr
-                      td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:4px 16px 0px 16px; text-align:center;'
-                        | #{@event_address}
-                    tr
-                      td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:4px 16px 0px 16px; text-align:center;'
-                        | #{@event_date}
-                    tr
-                      td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:4px 16px 24px 16px; text-align:center;'
-                        | #{@event_time}
-                  - else
-                    tr
-                      td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:0px 16px 16px 16px;'
-                        | Thanks for rsvping to our #{@event_name.downcase}. We're sorry you can't make it, but hopefully we'll get a chance to catch up soon.
                   tr
-                    td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:0px 16px 16px 16px;'
-                      | If your plans change, don't worry - you can
-                      a<> href="#{@rsvp_url}" style='color:#3a3a3a; text-decoration:underline;' link='#3a3a3a' update your RSVP
-                      | any time on our website.
-
-                      - if @has_plus_one
-                        | &#32;And if you're bringing a plus one, be sure to
-                        a< href="#{@plus_one_url}" style='color:#3a3a3a; text-decoration:underline;' link='#3a3a3a' add them to the guest list
-                        | .
+                    td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:4px 16px 0px 16px;'
+                      | We're in full wedding-planning mode, and we wanted to make sure your plans are covered, too!
                   tr
-                    td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:0px 16px 16px 16px;'
+                    td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:24px 16px 0px 16px;'
+                      | Now's a great time to book your travel for September if you haven't already.
+                  tr
+                    td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:24px 16px 0px 16px;'
+                      | The main event is booked for
+                      strong< Sunday, September 3
+                      | . Check out
+                      a<> href='http://www.kcandkate.us/events/save-the-date' style='color:#3a3a3a; text-decoration:underline;' link='#3a3a3a' www.kcandkate.us
+                      | for full details. And while you're there...
+                  tr
+                    td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:24px 16px 0px 48px;'
+                      | ✈️ Book your
+                      a< href="#{}" style='color:#3a3a3a; text-decoration:underline;' link='#3a3a3a' hotel / Airbnb
+                  tr
+                    td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:16px 16px 0px 48px;'
+                      | ✈️ Take our
+                      a< href="http://www.kcandkate.us/trivia" style='color:#3a3a3a; text-decoration:underline;' link='#3a3a3a'
+                        | Trivia Challenge
+                  tr
+                    td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:16px 16px 0px 48px;'
+                      | ✈️ Mark your
+                      a< href="https://www.google.com/calendar/render?action=TEMPLATE&text=KC%20and%20Kate%27s%20Wedding:%20Save%20The%20Date&dates=20170902T200000Z/20170903T200000Z&details=KC%20and%20Kate%27s%20Wedding:%20Save%20The%20Date%0ALabor%20Day%20Weekend%0ADUMBO,%20Brooklyn,%20New%20York&sf=true&output=xml" style='color:#3a3a3a; text-decoration:underline;' link='#3a3a3a'
+                        | calendar
+                  tr
+                    td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:24px 16px 16px 16px;'
                       | Any questions, requests, or feedback? Email us at
                       a< href='mailto:rsvp@kcandkate.us' style='color:#3a3a3a; text-decoration:underline;' link='#3a3a3a' rsvp@kcandkate.us
                       | .
