@@ -1,14 +1,40 @@
 = content_for(:title, 'KC and Kate | Registry')
 
-.level.level--cover
+.level
   .level__inner
-    .module.module--flush
+    .module.module--flush.module--layer-cake
       .module__head
-        h2.heading.heading--level-3
-          | Registry info coming soon...
+        .util--show-medium-up
+          h6.heading.heading--level-8.util--text-italic KC and Kate thank you for contributing to our
+        .util--hide-large.util--hide-medium
+          h6.heading.heading--level-8.util--text-italic KC and Kate thank you for
+          h6.heading.heading--level-8.util--text-italic contributing to our
       .module__body
+        .util--show-medium-up
+          .heading.heading--level-1.util--padding-rxl
+            | Honeymoon Fund
+        .util--hide-large.util--hide-medium
+          .heading.heading--level-3.util--padding-rl
+            | Honey Moon Fund
+
+      .module__body
+        h3.heading.heading--level-6
+          | We're headed to 🇳🇿 New Zealand 🇳🇿 and we need your help to get there!
+      .module__body
+        = link_to 'Contribute', 'https://www.paypal.me/KateAndKC', class: 'button'
+      .module__body
+        h3.heading.heading--level-6
+          | Instead of a traditional registry, we're accepting gifts in the form of contributions to our Honeymoon Fund.
+        h3.heading.heading--level-6
+          | Thank you for your support!
+
+
+
+
+
+      .module__foot
         h3.heading.heading--level-8
-          | In the meantime, please consider supporting these important charities:
+          | Feeling especially generous? Please consider supporting these important charities:
         .list
           .list__category
             h3.heading.heading--level-7
