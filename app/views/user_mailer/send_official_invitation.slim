@@ -1,48 +1,137 @@
 = content_for(:mailer_body)
   tr
-    td.site-mailer__main__header align="center" style="padding:48px 0px 48px 0px; margin:0 auto; -ms-background-size: cover; -o-background-size: cover; -moz-background-size: cover; -webkit-background-size: cover; background-size: cover; background-image: url('https://s3-us-west-2.amazonaws.com/beatrix-kiddo/save-the-date_60_small.jpeg'); background-repeat: repeat-y no-repeat; background-position: center; background:url('https://s3-us-west-2.amazonaws.com/beatrix-kiddo/save-the-date_60_small.jpeg') / cover;" cellpadding='0' cellspacing='0' background='https://s3-us-west-2.amazonaws.com/beatrix-kiddo/save-the-date_60_small.jpeg'
+    td.site-mailer__main__header align="center" style="padding:48px 0px 48px 0px; margin:0 auto; -ms-background-size: cover; -o-background-size: cover; -moz-background-size: cover; -webkit-background-size: cover; background-size: cover; background-image: url('https://s3-us-west-2.amazonaws.com/beatrix-kiddo/invitation.jpg'); background-repeat: repeat-y no-repeat; background-position: center; background:url('https://s3-us-west-2.amazonaws.com/beatrix-kiddo/invitation.jpg') / cover;" cellpadding='0' cellspacing='0' background='https://s3-us-west-2.amazonaws.com/beatrix-kiddo/invitation.jpg'
       table width='100%' cellpadding='0' cellspacing='0'
         tr
-          td.heading.heading--level-1 style='font:38px/48px Helvetica, Arial, sans-serif; color:#ffffff; padding:0px 16px 4px 16px; text-align:center; text-transform:uppercase;text-shadow: 1px 1px 2px #3a3a3a;'
+          td style='font:38px/48px Helvetica, Arial, sans-serif; color:#ffffff; padding:0px 16px 4px 16px; text-align:center; text-transform:uppercase;text-shadow: 1px 1px 2px #3a3a3a;'
             | KC and Kate&#32;
         tr
-          td.heading.heading--level-1 style='font:38px/48px Helvetica, Arial, sans-serif; color:#ffffff; padding:0px 16px 192px 16px; text-align:center; text-transform:uppercase;text-shadow: 1px 1px 2px #3a3a3a;'
+          td style='font:38px/48px Helvetica, Arial, sans-serif; color:#ffffff; padding:0px 16px 4px 16px; text-align:center; text-transform:uppercase;text-shadow: 1px 1px 2px #3a3a3a;'
             | are getting married&#32;
         tr
+          td style='font:20px/24px Helvetica, Arial, sans-serif; color:#ffffff; padding: 0px 16px 256px 16px; text-align:center; text-transform:uppercase; text-shadow: 1px 1px 2px #3a3a3a;'
+            | September 3, 2017, NYC&#32;
+        tr
           td style='font:28px/34px Helvetica, Arial, sans-serif; color:#ffffff; padding:32px 16px 32px 16px; text-shadow: 1px 1px 2px #3a3a3a; text-decoration: none; text-align: center;'
-            a.button href='http://www.kcandkate.us/events/save-the-date' style='text-decoration: none; text-transform:uppercase; border: 4px solid #ffffff; padding:16px; color: #ffffff;'
-              | Save the Date
+            a.button href="#{@rsvp_url}" style='text-decoration: none; text-transform:uppercase; border: 4px solid #ffffff; padding: 8px 32px; color: #ffffff;'
+              | RSVP
         tr
-          td.heading.heading--level-1 style='font:38px/48px Helvetica, Arial, sans-serif; color:#ffffff; padding:16px 16px 0px 16px; text-align:center; text-transform:uppercase; text-shadow: 1px 1px 2px #3a3a3a;'
-            | and you're invited&#32;
-        tr
-          td style='font:20px/24px Helvetica, Arial, sans-serif; color:#ffffff; padding:16px 16px 0px 16px; text-align:center; text-transform:uppercase; text-shadow: 1px 1px 2px #3a3a3a;'
-            | Labor Day Weekend, September 2-3 2017&#32;
+          td style='font:20px/24px Helvetica, Arial, sans-serif; color:#ffffff; padding: 0px 16px 0px 16px; text-align:center; text-transform:uppercase; text-shadow: 1px 1px 2px #3a3a3a;'
+            | And you are cordially invited&#32;
   tr
     td.site-mailer__main__body style='padding:36px 36px 36px 36px;' bgcolor='#ffffff'
       table width='100%' cellpadding='0' cellspacing='0'
         tr
-          td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:0px 16px 16px 16px; text-align:center;'
-            | Visit our
-            a<> href='http://www.kcandkate.us' style='color:#3a3a3a; text-decoration:underline;' link='#3a3a3a' wedding website
-            | for full details on the wedding weekend, as well as
-            a< href='http://www.kcandkate.us/info/where-to-stay' style='color:#3a3a3a; text-decoration:underline;' link='#3a3a3a' places to stay
-            | , tips for
-            a< href='http://www.kcandkate.us/info/travel' style='color:#3a3a3a; text-decoration:underline;' link='#3a3a3a' getting around New York
-            | , and other
-            a< href='http://www.kcandkate.us/about' style='color:#3a3a3a; text-decoration:underline;' link='#3a3a3a' fun stuff
-            | .&#32;
-        tr
-          td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:8px 16px 16px 16px; text-align:center;'
-            | The first time you visit, you'll be prompted to sign in using the same email address this invite was sent to:
-            span< style='color:#3a3a3a; text-decoration:underline;' link='#3a3a3a' #{@user_email}
-            | .&#32;
-        tr
-          td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:8px 16px 36px 16px; text-align:center;'
-            | We'll be updating the website regularly, so check back for more details as we get closer to the date.&#32;
+          td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:0px 16px 16px 16px;'
+            | Dear #{@user_first_name},
         tr
           td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:8px 16px 16px 16px;'
-            | xoxo,&#32;
+            | We're so happy to invite you to our wedding on
+            strong<> Sunday, September 3, 2017
+            | in New York City.
         tr
-          td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:0px 0px 0px 16px;'
+          td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:8px 16px 16px 16px;'
+            | Please
+            a<> href="#{@rsvp_url}" style='color:#3a3a3a; text-decoration:underline;' link='#3a3a3a'
+              |  RSVP
+            | on our wedding website at your earliest convenience.
+        tr
+          td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:0px 16px 16px 16px;'
+            | If your plans change, don't worry - you can
+            a<> href="#{@rsvp_url}" style='color:#3a3a3a; text-decoration:underline;' link='#3a3a3a' update your RSVP
+            | any time. The first time you visit, you'll be prompted to sign in using the same email address this invite was sent to:
+            span< style='color:#3a3a3a; text-decoration:underline;' link='#3a3a3a' #{@user_email}
+            | .&#32;
+
+        - if @has_plus_one
+          tr
+            td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:0px 16px 16px 16px;'
+              | And if you're bringing a plus one, be sure to
+              a< href="#{@plus_one_url}" style='color:#3a3a3a; text-decoration:underline;' link='#3a3a3a' add them to the guest list
+              | .
+        tr
+          td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding: 8px 16px 0px 16px;'
+            | We've included a brief
+            a<> href='#event-details' style='color:#3a3a3a; text-decoration:underline;' link='#3a3a3a'
+              | schedule of events
+            | at the bottom of this email. Visit our wedding website
+            a<> href='http://www.kcandkate.us/events' style='color:#3a3a3a; text-decoration:underline;' link='#3a3a3a'
+              | www.kcandkate.us
+            | for full details. And while you're there...
+        tr
+          td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:16px 16px 0px 48px;'
+            | 📅 Mark your
+            a< href="#{@gcal_url}" style='color:#3a3a3a; text-decoration:underline;' link='#3a3a3a'
+              | calendar
+        tr
+          td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:16px 16px 0px 48px;'
+            | 💯 Take our
+            a< href="http://www.kcandkate.us/trivia" style='color:#3a3a3a; text-decoration:underline;' link='#3a3a3a'
+              | Trivia Challenge
+        tr
+          td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:16px 16px 0px 48px;'
+            | 🇳🇿 Contribute to our
+            a< href="http://www.kcandkate.us/info/registry" style='color:#3a3a3a; text-decoration:underline;' link='#3a3a3a'
+              | Honeymoon Fund
+        tr
+          td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:16px 16px 0px 48px;'
+            | ✈️  Finalize your
+            a< href="http://www.kcandkate.us/info/where-to-stay" style='color:#3a3a3a; text-decoration:underline;' link='#3a3a3a'
+              | travel plans
+        tr
+          td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:16px 16px 0px 48px;'
+            | 👪 Meet the
+            a< href="http://www.kcandkate.us/about" style='color:#3a3a3a; text-decoration:underline;' link='#3a3a3a'
+              | Wedding Party
+        tr
+          td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:24px 16px 16px 16px;'
+            | Any questions, requests, or feedback? Email us at
+            a< href='mailto:rsvp@kcandkate.us' style='color:#3a3a3a; text-decoration:underline;' link='#3a3a3a'
+              | rsvp@kcandkate.us
+            | .
+        tr
+          td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:8px 16px 16px 16px;'
+            | Can't wait to celebrate with you,&#32;
+        tr
+          td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:0px 0px 16px 16px;'
             | KC and Kate
+        tr
+          td style='padding:16px;'
+            div style='border-bottom: 1px solid #C7C7C7;'
+        tr
+          td id="event-details" style='font:16px/20px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:16px;'
+            strong Event Details:
+        tr
+          td style='font:16px/20px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:8px 16px 16px 16px;'
+            | 💒
+            a<> href='http://www.kcandkate.us/events/ceremony' style='color:#3a3a3a; text-decoration:underline; font-weight:bold;' link='#3a3a3a'
+              | The ceremony
+            | will be on the steps at New York City Hall.
+            strong<> Seating is limited.
+            | Please check full details
+            a<> href='http://www.kcandkate.us/events/ceremony' style='color:#3a3a3a; text-decoration:underline;' link='#3a3a3a'
+              | here
+            | and
+            a<> href='mailto:rsvp@kcandkate.us' style='color:#3a3a3a; text-decoration:underline;' link='#3a3a3a'
+              | contact us
+            | with any concerns.
+        tr
+          td style='font:16px/20px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:8px 16px 16px 16px;'
+            | 🎉 After the ceremony, we'll New Orleans-style
+            strong<> parade over the Brooklyn Bridge
+            | to the reception venue (approx 2 miles / 40 minutes total). Here's a
+            a<> href='https://www.google.com/maps/dir/city+hall+new+york/26+Bridge+Street,+Brooklyn,+NY/@40.7067435,-74.0060504,15z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x89c258fda88cefb3:0x7f1e88758d210007!2m2!1d-74.006059!2d40.7127744!1m5!1m1!1s0x89c25a32e4bc73a7:0xc9dc9bc26ed594d6!2m2!1d-73.9850008!2d40.7039628!3e2' style='color:#3a3a3a; text-decoration:underline;' link='#3a3a3a'
+              | map
+            | of the route. Alternative transport is available via subway, bus or taxi.
+        tr
+          td style='font:16px/20px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:8px 16px 16px 16px;'
+            | 🏭
+            a<> href='http://www.kcandkate.us/events/reception' style='color:#3a3a3a; text-decoration:underline; font-weight: bold;' link='#3a3a3a'
+              | The reception
+            | is at 26 Bridge Street, Brooklyn. We'll have a live band, dinner and drinks.
+        tr
+          td style='font:16px/20px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:8px 16px 16px 16px;'
+            | 🎶
+            a<> href='http://www.kcandkate.us/events/after-party' style='color:#3a3a3a; text-decoration:underline; font-weight: bold;' link='#3a3a3a'
+              | The after-party
+            | is at Sunny's Bar in Red Hook.

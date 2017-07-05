@@ -5,9 +5,8 @@ module EventHelper
   end
 
   def rsvp_required
-    # special cases
-    @event_slug != 'after-party' &&
-      @event_slug != 'save-the-date'
+    # special case
+    @event_slug != 'save-the-date'
   end
 
   def rsvp_unconfirmed
