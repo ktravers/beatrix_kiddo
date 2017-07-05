@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   post 'sessions' => 'sessions#create'
 
   # Events
+  get '/events' => 'events#index'
   get '/events/:event_slug' => 'events#show'
   get '/events/:event_slug/admin' => 'events#dashboard'
 

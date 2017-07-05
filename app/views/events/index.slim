@@ -1,0 +1,35 @@
+= content_for(:title, "KC and Kate | Events")
+
+= content_for(:flash)
+  = render partial: 'shared/flash', locals: { filter: 'alert' }
+
+= content_for(:modal)
+  = render partial: 'shared/login_modal'
+
+.level
+  .level__inner
+    .module.module--flush.module--layer-cake
+      .module__head
+        h6.heading.heading--level-8.util--text-italic
+          | KC and Kate invite you to
+      .module__body
+        ul.list
+          // EVENTS
+          li.list__category
+            .util--show-medium-up
+              h2.heading.heading--level-3 Upcoming Events
+            .util--hide-large.util--hide-medium
+              h2.heading.heading--level-5 Upcoming Events
+          - @upcoming_events.each do |event|
+            li.list__category__item
+              .heading.heading--level-6
+                = link_to event.name, "/events/#{event.slug}"
+          li.list__category
+            .util--show-medium-up
+              h2.heading.heading--level-3 Past Events
+            .util--hide-large.util--hide-medium
+              h2.heading.heading--level-5 Past Events
+          - @past_events.each do |event|
+            li.list__category__item
+              .heading.heading--level-6
+                = link_to event.name, "/events/#{event.slug}"
