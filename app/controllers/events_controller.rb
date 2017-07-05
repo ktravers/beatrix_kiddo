@@ -1,7 +1,14 @@
 class EventsController < ApplicationController
   include EventHelper
 
-  before_action :authorize_event
+  before_action :authorize_event, only: [:show, :dashboard]
+
+  def index
+    login_required(redirect_path: '/events') and return unless current_user
+
+    @past_events = current_user.events.where('start_time <= ?', Date.today).order(id: :asc)
+    @upcoming_events = current_user.events.where('start_time >= ?', Date.today).order(id: :asc)
+  end
 
   def show
     @rsvp = Rsvp.find_by(user: current_user, event: @event)
