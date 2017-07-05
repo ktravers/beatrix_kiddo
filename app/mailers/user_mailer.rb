@@ -15,17 +15,15 @@ class UserMailer < ApplicationMailer
 
   # official wedding invite
   def send_official_invitation(rsvp)
-    user = rsvp.user
+    user      = rsvp.user
+    event     = rsvp.event
     recipient = formatted_recipient(user)
-
-    # ceremony: Event.find 6
-    # reception: Event.find 7
-    # after party: Event.find 8
 
     @user_email      = user.email
     @user_first_name = user.first_name
     @has_plus_one    = rsvp.plus_one
-    @rsvp_url        = "http://www.kcandkate.us/events/#{@event_slug}#rsvp"
+    @gcal_url        = event.gcal_url
+    @rsvp_url        = "http://www.kcandkate.us/events/#{event.slug}#rsvp"
     @subject         = "KC and Kate's Wedding: You're Invited [September 3, 2017, NYC]"
 
     send_email(recipient, @subject)
