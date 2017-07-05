@@ -50,4 +50,15 @@ html xmlns='http://www.w3.org/1999/xhtml'
         td[class='site-mailer__main__body']{padding:16px 15px 30px !important;}
       }
 
-  = yield(:mailer_body)
+  body data-force-encoding='✓' style="margin:0;padding:0;color:#82919d;-ms-text-size-adjust:100%;-webkit-text-size-adjust:none; -webkit-text-resize:100%;text-resize:100%;" bgcolor='#C7C7C7' link='#ffffff'
+    table.site-mailer width='100%' cellspacing='0' cellpadding='0' bgcolor='#C7C7C7'
+      tr
+        td.site-mailer__inner style='padding:1px;'
+          table.site-mailer__main width='580' align='center' style="margin:0 auto;" cellpadding='0' cellspacing='0'
+            tr
+              td.site-mailer__main--fix-gmail
+                table width='580' cellpadding='0' cellspacing='0' style='width:580px !important;'
+                  tr
+                    td> style='min-width:580px; font-size:0; line-height:0;'
+
+            = yield(:mailer_body)
