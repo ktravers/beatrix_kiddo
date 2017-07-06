@@ -24,6 +24,8 @@ class EventsController < ApplicationController
     @event_gcal_url = @event.gcal_url
     @plus_one       = @rsvp.plus_one
 
+    @ceremony_notes = true if @event_slug == 'ceremony'
+
     # TODO
     # @event_background_image = "#{event.name.parameterize}.gif"
 
