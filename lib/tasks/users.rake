@@ -58,7 +58,7 @@ namespace :users do
 
   desc 'create plus one(s)'
   task :create_plus_ones => :environment do
-    # user_ids = [4,11,29,36,37,44,65,71,73,76,78,79,84,85,90,94,102,103,104,131,105,108,110,111,112,113,114,118,119,120]
+    # user_ids = [4,11,21,29,36,37,43,44,60,63,64,65,71,73,76,78,79,84,85,88,90,94,95,101,102,103,104,105,106,107,108,109,110,111,112,113,114,117,118,119,120,123,125,126,128,130,131,134,137,139,145]
 
     user_ids = []
     puts "\nInput one or more user ids, separated by commas: "
@@ -81,13 +81,16 @@ namespace :users do
         engagement_party_rsvp_id = Rsvp.find_by(user_id: user_id, event_id: 2).try(:id)
         ceremony_rsvp_id = Rsvp.find_by(user_id: user_id, event_id: 6).try(:id)
         reception_rsvp_id = Rsvp.find_by(user_id: user_id, event_id: 7).try(:id)
+        after_party_rsvp_id = Rsvp.find_by(user_id: user_id, event_id: 8).try(:id)
 
         puts "Creating plus ones..."
         PlusOne.find_or_create_by(user_id: user_id, rsvp_id: engagement_party_rsvp_id)
         PlusOne.find_or_create_by(user_id: user_id, rsvp_id: ceremony_rsvp_id)
         PlusOne.find_or_create_by(user_id: user_id, rsvp_id: reception_rsvp_id)
+        PlusOne.find_or_create_by(user_id: user_id, rsvp_id: after_party_rsvp_id)
 
-        puts "Success! Three plus ones created for #{user.full_name}: rsvps##{engagement_party_rsvp_id}, #{ceremony_rsvp_id}, and #{reception_rsvp_id}\n\n"
+        plus_ones = PlusOne.where(user_id: user_id)
+        puts "Success! #{plus_ones.count} plus ones total for #{user.full_name}: rsvps##{plus_ones.pluck(:rsvp_id).join(', ')}\n\n"
         success_count += 1
       end
     rescue
