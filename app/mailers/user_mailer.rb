@@ -24,6 +24,7 @@ class UserMailer < ApplicationMailer
     @has_plus_one    = rsvp.plus_one
     @gcal_url        = event.gcal_url
     @rsvp_url        = "http://www.kcandkate.us/events/#{event.slug}#rsvp"
+    @plus_one_url    = "http://www.kcandkate.us/events/#{event.slug}#plus-one"
     @subject         = "KC and Kate's Wedding: You're Invited [September 3, 2017, NYC]"
 
     send_email(recipient, @subject)
@@ -46,6 +47,7 @@ class UserMailer < ApplicationMailer
     @event_name_with_article = indefinite_article(event.name)
 
     @rsvp_url      = "http://www.kcandkate.us/events/#{@event_slug}#rsvp"
+    @plus_one_url  = "http://www.kcandkate.us/events/#{@event_slug}#plus-one"
     @gcal_url      = event.gcal_url
     @venue_map_url = event.venue_map_url
 
