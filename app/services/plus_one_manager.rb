@@ -1,8 +1,6 @@
 class PlusOneManager
   attr_reader :plus_one, :guest, :success, :message
 
-  BIG_DAY_EVENT_IDS = [6,7,8]
-
   def initialize(payload)
     @plus_one = PlusOne.find_by(id: payload[:plus_one_id])
     @user_params = payload[:user_params]
@@ -17,7 +15,7 @@ class PlusOneManager
       end
 
       update_plus_one!
-      unify_big_day_events!
+      sync_big_day_events!
       set_message!
       success!
 
@@ -76,12 +74,11 @@ class PlusOneManager
     plus_one.update!(attrs)
   end
 
-  def unify_big_day_events!
-    return unless BIG_DAY_EVENT_IDS.include?(plus_one.id)
+  def sync_big_day_events!
+    return unless Event::BIG_DAY_EVENT_IDS.include?(plus_one.rsvp.event_id)
 
-    PlusOne.where(id: BIG_DAY_EVENT_IDS).map do |po|
-      po.update(guest: @guest)
-    end
+    plus_ones = PlusOne.joins(:rsvp).where(rsvps: {user_id: plus_one.user_id, event_id: Event::BIG_DAY_EVENT_IDS})
+    plus_ones.map { |po| po.update(guest: guest) }
   end
 
   def set_message!

@@ -6,6 +6,7 @@ class Event < ActiveRecord::Base
   validates :name, uniqueness: true, case_sensitive: false
 
   GOOGLE_MAP_BASE_URL='https://www.google.com/maps/place/'
+  BIG_DAY_EVENT_IDS = [6,7,8]
 
   def timespan
     return unless formatted_start_time && formatted_end_time
