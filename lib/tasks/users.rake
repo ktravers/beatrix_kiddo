@@ -79,13 +79,15 @@ namespace :users do
 
         puts "Retrieving rsvps..."
         engagement_party_rsvp_id = Rsvp.find_by(user_id: user_id, event_id: 2).try(:id)
+        ceremony_rsvp_id = Rsvp.find_by(user_id: user_id, event_id: 6).try(:id)
         reception_rsvp_id = Rsvp.find_by(user_id: user_id, event_id: 7).try(:id)
 
         puts "Creating plus ones..."
         PlusOne.find_or_create_by(user_id: user_id, rsvp_id: engagement_party_rsvp_id)
+        PlusOne.find_or_create_by(user_id: user_id, rsvp_id: ceremony_rsvp_id)
         PlusOne.find_or_create_by(user_id: user_id, rsvp_id: reception_rsvp_id)
 
-        puts "Success! Two plus ones created for #{user.full_name}: rsvps##{engagement_party_rsvp_id} and #{reception_rsvp_id}\n\n"
+        puts "Success! Three plus ones created for #{user.full_name}: rsvps##{engagement_party_rsvp_id}, #{ceremony_rsvp_id}, and #{reception_rsvp_id}\n\n"
         success_count += 1
       end
     rescue

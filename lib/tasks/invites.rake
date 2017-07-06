@@ -46,6 +46,8 @@ namespace :invites do
         case rsvp.event_id
         when 1
           UserMailer.send_save_the_date(rsvp).deliver_now
+        when 6
+          UserMailer.send_official_invitation(rsvp).deliver_now
         else
           UserMailer.send_invite(rsvp).deliver_now
         end
