@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   end
 
   def admin?
-    [1,2].include?(id)
+    # Kate, KC, Ann Travers
+    [1,2,5].include?(id)
   end
 end
