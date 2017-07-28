@@ -73,20 +73,6 @@ class UserMailer < ApplicationMailer
 
   private
 
-  def formatted_recipient(user)
-    %("#{user.full_name}" <#{user.email}>)
-  end
-
-  def send_email(recipient, subject)
-    sendgrid_category :use_subject_lines
-
-    mail(
-      to: recipient,
-      subject: subject,
-      content_type: 'text/html'
-    )
-  end
-
   # http://stackoverflow.com/a/5381922/3880374
   def indefinite_article(word)
     %w(a e i o u).include?(word[0].downcase) ? "an #{word}" : "a #{word}"
