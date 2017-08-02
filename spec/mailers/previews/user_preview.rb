@@ -11,7 +11,7 @@ class UserPreview < ActionMailer::Preview
     UserMailer.send_event_invite(Rsvp.where(event_id: 2).last)
   end
 
-  def send_announcement
-    UserMailer.send_announcement(User.last.email)
+  def send_travel_reminder
+    UserMailer.send_travel_reminder(User.last.email)
   end
 end

@@ -60,7 +60,7 @@ class UserMailer < ApplicationMailer
   end
 
   # non-event specific announcement
-  def send_announcement(email)
+  def send_travel_reminder(email)
     user = User.find_by_email(email)
     recipient = formatted_recipient(user)
 
