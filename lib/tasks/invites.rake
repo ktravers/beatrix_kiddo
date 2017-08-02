@@ -22,7 +22,7 @@ namespace :invites do
     loop do
       event_id = STDIN.gets.chomp
       break if event_id.length == 1
-      puts 'Please enter one rsvp id.'
+      puts 'Please enter one event id.'
     end
 
     rsvps = Rsvp.unsent.where(event_id: event_id)
@@ -49,13 +49,13 @@ namespace :invites do
         when 6
           UserMailer.send_official_invitation(rsvp).deliver_now
         else
-          UserMailer.send_invite(rsvp).deliver_now
+          UserMailer.send_event_invite(rsvp).deliver_now
         end
 
         mail_count += 1
       rescue
         fail_count += 1
-        puts "Failed to send email to ##{guest_email}\n"
+        puts "Failed to send email to #{guest_email}\n"
       end
     end
 
