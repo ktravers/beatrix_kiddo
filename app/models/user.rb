@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   validates_presence_of :first_name, :last_name, :email
   validates_uniqueness_of :email, scope: [:first_name, :last_name]
 
+  scope :primary, -> { joins(:rsvps) }
+
   def self.fuzzy_match(email)
     find_by('levenshtein(lower(email), lower(?)) <= 3', email.strip)
   end

@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
   def create
-    user = User.fuzzy_match(user_params[:email])
+    user = User.primary.fuzzy_match(user_params[:email])
 
     if user
       login(user)
