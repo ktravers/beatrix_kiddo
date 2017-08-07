@@ -23,22 +23,15 @@
         tr
           td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:0px 16px 16px 16px;'
             | Hi #{@user_first_name},
+        tr
+          td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:4px 16px 0px 16px;'
+            | We're excited - the #{@event_name.downcase} is only #{@days_away} days away!
 
         - if @attending
-          tr
-            td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:4px 16px 0px 16px;'
-              | Get excited - the #{@event_name.downcase} is only #{@days_away} days away!
+          = render partial: 'confirmed'
 
         - elsif @unconfirmed
-          tr
-            td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:0px 16px 16px 16px;'
-              | The #{@event_name.downcase} is coming up fast, and we're hustling to confirm a final headcount. Can you do us a favor and take a second to
-              a< href="#{@rsvp_url}" style='color:#3a3a3a; text-decoration:underline;' link='#3a3a3a' RSVP online
-              | ?
-
-          tr
-            td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:0px 16px 0px 16px;'
-              | Thanks in advance for your help, and hope we'll see you there!
+          = render partial: 'unconfirmed'
 
         tr
           td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:24px 16px 0px 16px; text-align:center;'
