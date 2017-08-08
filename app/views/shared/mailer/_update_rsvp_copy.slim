@@ -1,0 +1,10 @@
+tr
+  td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:0px 16px 16px 16px;'
+    | If your plans change, don't worry - you can
+    a<> href="#{@rsvp_url}" style='color:#3a3a3a; text-decoration:underline;' link='#3a3a3a' update your RSVP
+    | any time.
+
+    - if @has_plus_one
+      | &#32;And if you're bringing a plus one, be sure to
+      a< href="#{@plus_one_url}" style='color:#3a3a3a; text-decoration:underline;' link='#3a3a3a' add them to the guest list
+      | .

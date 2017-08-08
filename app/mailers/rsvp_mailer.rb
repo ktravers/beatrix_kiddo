@@ -65,6 +65,13 @@ class RsvpMailer < ApplicationMailer
     @headline  = @attending ? "ONLY #{@days_away} DAYS UNTIL" : 'REMINDER: RSVP'
     @subject   = "[REMINDER] #{@event_name} for KC and Kate: #{@event_date}"
 
+    # wedding day overrides
+    if [6,7].include?(event.id)
+      @big_day    = true
+      @event_name = 'Wedding'
+      @subject    = "[REMINDER] RSVP for KC and Kate's Wedding: #{@event_date}"
+    end
+
     send_email(recipient, @subject)
   end
 
