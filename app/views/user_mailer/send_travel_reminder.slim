@@ -38,15 +38,12 @@
             a< href="http://www.kcandkate.us/trivia" style='color:#3a3a3a; text-decoration:underline;' link='#3a3a3a'
               | Trivia Challenge
         tr
-          td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:16px 16px 0px 48px;'
+          td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:16px 16px 24px 48px;'
             | ✈️ Mark your
             a< href="https://www.google.com/calendar/render?action=TEMPLATE&text=KC%20and%20Kate%27s%20Wedding:%20Save%20The%20Date&dates=20170902T200000Z/20170903T200000Z&details=KC%20and%20Kate%27s%20Wedding:%20Save%20The%20Date%0ALabor%20Day%20Weekend%0ADUMBO,%20Brooklyn,%20New%20York&sf=true&output=xml" style='color:#3a3a3a; text-decoration:underline;' link='#3a3a3a'
               | calendar
-        tr
-          td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:24px 16px 16px 16px;'
-            | Any questions, requests, or feedback? Email us at
-            a< href='mailto:rsvp@kcandkate.us' style='color:#3a3a3a; text-decoration:underline;' link='#3a3a3a' rsvp@kcandkate.us
-            | .
+
+        = render partial: 'shared/mailer/any_questions_copy'
 
         tr
           td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:8px 16px 16px 16px;'

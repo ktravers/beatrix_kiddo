@@ -28,38 +28,16 @@
           tr
             td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:4px 16px 0px 16px;'
               | Thanks for rsvping to our #{@event_name.downcase}. We're so happy you can make it, and we can't wait to see you there.
-          tr
-            td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:24px 16px 0px 16px; text-align:center;'
-              a href="#{@venue_map_url}" style='color:#3a3a3a; text-decoration:underline;' link='#3a3a3a'
-                | #{@event_venue}
-          tr
-            td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:4px 16px 0px 16px; text-align:center;'
-              | #{@event_address}
-          tr
-            td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:4px 16px 0px 16px; text-align:center;'
-              | #{@event_date}
-          tr
-            td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:4px 16px 24px 16px; text-align:center;'
-              | #{@event_time}
+
+          = render partial: 'shared/mailer/event_details'
+
         - else
           tr
             td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:0px 16px 16px 16px;'
               | Thanks for rsvping to our #{@event_name.downcase}. We're sorry you can't make it, but hopefully we'll get a chance to catch up soon.
-        tr
-          td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:0px 16px 16px 16px;'
-            | If your plans change, don't worry - you can
-            a<> href="#{@rsvp_url}" style='color:#3a3a3a; text-decoration:underline;' link='#3a3a3a' update your RSVP
-            | any time on our website.
 
-            - if @has_plus_one
-              | &#32;And if you're bringing a plus one, be sure to
-              a< href="#{@plus_one_url}" style='color:#3a3a3a; text-decoration:underline;' link='#3a3a3a' add them to the guest list
-              | .
-        tr
-          td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:0px 16px 16px 16px;'
-            | Any questions, requests, or feedback? Email us at
-            a< href='mailto:rsvp@kcandkate.us' style='color:#3a3a3a; text-decoration:underline;' link='#3a3a3a' rsvp@kcandkate.us
-            | .
+        = render partial: 'shared/mailer/update_rsvp_copy'
+        = render partial: 'shared/mailer/any_questions_copy'
 
         tr
           td style='font:20px/24px Helvetica, Arial, sans-serif; color:#3a3a3a; padding:8px 16px 16px 16px;'
