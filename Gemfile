@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 gem 'dotenv-rails', '>= 2.1.0'
 
 # Frameworks
-gem 'rails', '4.2.5'
+gem 'rails', '4.2.11'
 
 # Database
 gem 'pg', '0.18.1'
